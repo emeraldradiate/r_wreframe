@@ -1,0 +1,145 @@
+{
+  "version": 1,
+  "savedAt": "2026-05-19T12:50:05.747Z",
+  "appTitle": "Executive Summary",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "powerbi",
+      "position": {
+        "x": 40,
+        "y": 40
+      },
+      "data": {
+        "label": "YTD Net Sales",
+        "componentType": "card",
+        "value": "$5.42M",
+        "wowPct": "0.16",
+        "ytdPriorYear": "5.08M",
+        "variancePct": "6.7",
+        "cardTheme": "gray"
+      },
+      "style": {
+        "width": 280,
+        "height": 220
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 280,
+      "height": 220,
+      "positionAbsolute": {
+        "x": 40,
+        "y": 40
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "2",
+      "type": "powerbi",
+      "position": {
+        "x": 320,
+        "y": 40
+      },
+      "data": {
+        "label": "YTD Gross Margin",
+        "componentType": "card",
+        "value": "$2.14M",
+        "wowPct": "0.11",
+        "ytdPriorYear": "1.97M",
+        "variancePct": "8.6",
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 280,
+        "height": 220
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 280,
+      "height": 220,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 320,
+        "y": 40
+      },
+      "dragging": false
+    },
+    {
+      "id": "3",
+      "type": "powerbi",
+      "position": {
+        "x": 600,
+        "y": 40
+      },
+      "data": {
+        "label": "YTD Contribution Margin",
+        "componentType": "card",
+        "value": "$1.26M",
+        "wowPct": "-0.08",
+        "ytdPriorYear": "1.14M",
+        "variancePct": "10.5",
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 280,
+        "height": 220
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 280,
+      "height": 220,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 600,
+        "y": 40
+      },
+      "dragging": false
+    },
+    {
+      "id": "15",
+      "type": "powerbi",
+      "position": {
+        "x": 40,
+        "y": 280
+      },
+      "data": {
+        "label": "YTD Bookings vs. Budget",
+        "componentType": "expectedReality",
+        "axisLabels": {
+          "x": "Month",
+          "y": "Sales ($k)"
+        },
+        "xAxisLabels": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug"
+        ]
+      },
+      "style": {
+        "width": 840,
+        "height": 300
+      },
+      "resizing": false,
+      "width": 840,
+      "height": 300,
+      "selected": false,
+      "dragging": false,
+      "draggable": true,
+      "selectable": true,
+      "positionAbsolute": {
+        "x": 40,
+        "y": 280
+      }
+    }
+  ],
+  "edges": []
+}

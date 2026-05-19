@@ -1,0 +1,432 @@
+{
+  "version": 1,
+  "savedAt": "2026-05-19T12:49:51.408Z",
+  "appTitle": "Executive Summary",
+  "nodes": [
+    {
+      "id": "9",
+      "type": "powerbi",
+      "position": {
+        "x": 900,
+        "y": 40
+      },
+      "data": {
+        "label": "Booked Sales by Channel",
+        "componentType": "stackedArea",
+        "seriesLabels": [
+          "recteq.com",
+          "Call Center",
+          "Company Stores",
+          "Amazon.com",
+          "BBQGuys.com",
+          "Domestic Retail",
+          "International Retail"
+        ],
+        "seriesColors": [
+          "#EA0029",
+          "#F97316",
+          "#F59E0B",
+          "#10B981",
+          "#06B6D4",
+          "#3B82F6",
+          "#8B5CF6"
+        ],
+        "seriesData": [
+          [
+            138,
+            142,
+            145,
+            151,
+            158
+          ],
+          [
+            95,
+            97,
+            101,
+            104,
+            109
+          ],
+          [
+            79,
+            82,
+            84,
+            86,
+            90
+          ],
+          [
+            34,
+            35,
+            37,
+            40,
+            42
+          ],
+          [
+            28,
+            29,
+            30,
+            33,
+            35
+          ],
+          [
+            74,
+            76,
+            79,
+            82,
+            85
+          ],
+          [
+            53,
+            54,
+            56,
+            60,
+            63
+          ]
+        ],
+        "axisLabels": {
+          "x": "Week",
+          "y": "Booked Sales ($k)"
+        },
+        "xAxisLabels": [
+          "Wk 15",
+          "Wk 16",
+          "Wk 17",
+          "Wk 18",
+          "Wk 19"
+        ]
+      },
+      "style": {
+        "width": 720,
+        "height": 420
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 720,
+      "height": 420,
+      "positionAbsolute": {
+        "x": 900,
+        "y": 40
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "10",
+      "type": "powerbi",
+      "position": {
+        "x": 900,
+        "y": 480
+      },
+      "data": {
+        "label": "Channel Bookings Matrix",
+        "componentType": "matrix",
+        "columnLabels": [
+          "Channel",
+          "Wk 19",
+          "Wk 18",
+          "Wk 17",
+          "Wk 16",
+          "Wk 15"
+        ],
+        "matrixData": [
+          [
+            "recteq.com",
+            "158k",
+            "151k",
+            "145k",
+            "142k",
+            "138k"
+          ],
+          [
+            "Call Center",
+            "109k",
+            "104k",
+            "101k",
+            "97k",
+            "95k"
+          ],
+          [
+            "Company Stores",
+            "90k",
+            "86k",
+            "84k",
+            "82k",
+            "79k"
+          ],
+          [
+            "Amazon.com",
+            "42k",
+            "40k",
+            "37k",
+            "35k",
+            "34k"
+          ],
+          [
+            "BBQGuys.com",
+            "35k",
+            "33k",
+            "30k",
+            "29k",
+            "28k"
+          ],
+          [
+            "Domestic Retail",
+            "85k",
+            "82k",
+            "79k",
+            "76k",
+            "74k"
+          ],
+          [
+            "International Retail",
+            "63k",
+            "60k",
+            "56k",
+            "54k",
+            "53k"
+          ]
+        ],
+        "matrixFirstColumnWidth": 122
+      },
+      "style": {
+        "width": 460,
+        "height": 320
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 460,
+      "height": 320,
+      "positionAbsolute": {
+        "x": 900,
+        "y": 480
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "14",
+      "type": "powerbi",
+      "position": {
+        "x": 1380,
+        "y": 480
+      },
+      "data": {
+        "label": "Gross Contribution",
+        "componentType": "pie",
+        "chartData": [
+          158,
+          109,
+          90,
+          42,
+          35,
+          85,
+          63
+        ],
+        "pieLabels": [
+          "recteq.com",
+          "Call Center",
+          "Company Stores",
+          "Amazon.com",
+          "BBQGuys.com",
+          "Domestic Retail",
+          "International Retail"
+        ]
+      },
+      "style": {
+        "width": 240,
+        "height": 320
+      },
+      "resizing": false,
+      "width": 240,
+      "height": 320,
+      "selected": false,
+      "dragging": false,
+      "draggable": true,
+      "selectable": true,
+      "positionAbsolute": {
+        "x": 1380,
+        "y": 480
+      }
+    },
+    {
+      "id": "16",
+      "type": "powerbi",
+      "position": {
+        "x": 380,
+        "y": 20
+      },
+      "data": {
+        "label": "Enterprise-Level Bookings",
+        "componentType": "matrix",
+        "columnLabels": [
+          "Category",
+          "Wk 19",
+          "Wk 18",
+          "Wk 17",
+          "Wk 16",
+          "Wk 15"
+        ],
+        "matrixData": [
+          [
+            "Grills",
+            "572k",
+            "555k",
+            "546k",
+            "532k",
+            "518k"
+          ],
+          [
+            "Accessories",
+            "253k",
+            "246k",
+            "242k",
+            "236k",
+            "230k"
+          ],
+          [
+            "Pellets",
+            "229k",
+            "222k",
+            "219k",
+            "213k",
+            "208k"
+          ],
+          [
+            "Rubs & Sauces",
+            "127k",
+            "124k",
+            "122k",
+            "119k",
+            "116k"
+          ],
+          [
+            "Other",
+            "92k",
+            "89k",
+            "87k",
+            "85k",
+            "83k"
+          ]
+        ],
+        "matrixFirstColumnWidth": 120
+      },
+      "style": {
+        "width": 500,
+        "height": 320
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 500,
+      "height": 320,
+      "positionAbsolute": {
+        "x": 380,
+        "y": 20
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "18",
+      "type": "powerbi",
+      "position": {
+        "x": 900,
+        "y": 860
+      },
+      "data": {
+        "label": "Enterprise Bookings by Category (Wk 19)",
+        "componentType": "pie",
+        "chartData": [
+          572,
+          253,
+          229,
+          127,
+          92
+        ],
+        "pieLabels": [
+          "Grills",
+          "Accessories",
+          "Pellets",
+          "Rubs & Sauces",
+          "Other"
+        ]
+      },
+      "style": {
+        "width": 280,
+        "height": 320
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 280,
+      "height": 320,
+      "positionAbsolute": {
+        "x": 900,
+        "y": 860
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "19",
+      "type": "powerbi",
+      "position": {
+        "x": 380,
+        "y": 820
+      },
+      "data": {
+        "label": "Enterprise Bookings by Category",
+        "componentType": "stackedArea",
+        "seriesLabels": [
+          "Grills",
+          "Accessories",
+          "Pellets",
+          "Rubs & Sauces",
+          "Other"
+        ],
+        "seriesColors": [
+          "#EA0029",
+          "#F97316",
+          "#F59E0B",
+          "#10B981",
+          "#06B6D4"
+        ],
+        "seriesData": [
+          [518, 532, 546, 555, 572],
+          [230, 236, 242, 246, 253],
+          [208, 213, 219, 222, 229],
+          [116, 119, 122, 124, 127],
+          [83, 85, 87, 89, 92]
+        ],
+        "axisLabels": {
+          "x": "Week",
+          "y": "Booked Sales ($k)"
+        },
+        "xAxisLabels": [
+          "Wk 15",
+          "Wk 16",
+          "Wk 17",
+          "Wk 18",
+          "Wk 19"
+        ]
+      },
+      "style": {
+        "width": 600,
+        "height": 400
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 600,
+      "height": 400,
+      "positionAbsolute": {
+        "x": 380,
+        "y": 820
+      },
+      "selected": false,
+      "dragging": false
+    }
+  ],
+  "edges": []
+}

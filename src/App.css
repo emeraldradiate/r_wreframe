@@ -1,0 +1,22 @@
+/* Import ReactFlow styles */
+@import 'reactflow/dist/style.css';
+
+.react-flow__node {
+  cursor: move;
+}
+
+.react-flow__node.selected {
+  box-shadow: none;
+}
+
+.powerbi-visual {
+  border-radius: 0;
+}
+
+.react-flow__handle {
+  width: 8px;
+  height: 8px;
+  background: #EA0029;
+  border: 2px solid white;
+}
+

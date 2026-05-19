@@ -1,0 +1,576 @@
+{
+  "version": 1,
+  "savedAt": "2026-05-18T13:31:39.402Z",
+  "appTitle": "Executive Summary",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "powerbi",
+      "position": {
+        "x": 40,
+        "y": 40
+      },
+      "data": {
+        "label": "YTD Net Sales",
+        "componentType": "card",
+        "value": "5.42M",
+        "wowPct": "0.16",
+        "ytdPriorYear": "5.08M",
+        "variancePct": "6.7",
+        "cardTheme": "red"
+      },
+      "style": {
+        "width": 280,
+        "height": 220
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 280,
+      "height": 220,
+      "positionAbsolute": {
+        "x": 40,
+        "y": 40
+      }
+    },
+    {
+      "id": "2",
+      "type": "powerbi",
+      "position": {
+        "x": 320,
+        "y": 40
+      },
+      "data": {
+        "label": "YTD Gross Margin",
+        "componentType": "card",
+        "value": "2.14M",
+        "wowPct": "0.11",
+        "ytdPriorYear": "1.97M",
+        "variancePct": "8.6",
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 280,
+        "height": 220
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 280,
+      "height": 220,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 320,
+        "y": 40
+      },
+      "dragging": false
+    },
+    {
+      "id": "3",
+      "type": "powerbi",
+      "position": {
+        "x": 600,
+        "y": 40
+      },
+      "data": {
+        "label": "YTD Contribution Margin",
+        "componentType": "card",
+        "value": "1.26M",
+        "wowPct": "-0.08",
+        "ytdPriorYear": "1.14M",
+        "variancePct": "10.5",
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 280,
+        "height": 220
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 280,
+      "height": 220,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 600,
+        "y": 40
+      },
+      "dragging": false
+    },
+    {
+      "id": "4",
+      "type": "powerbi",
+      "position": {
+        "x": 40,
+        "y": 260
+      },
+      "data": {
+        "label": "Net Sales 5-Week Trend",
+        "componentType": "line",
+        "chartData": [
+          4.86,
+          4.97,
+          5.08,
+          5.24,
+          5.42
+        ],
+        "axisLabels": {
+          "x": "",
+          "y": ""
+        },
+        "xAxisLabels": [
+          "Wk 15",
+          "Wk 16",
+          "Wk 17",
+          "Wk 18",
+          "Wk 19"
+        ],
+        "hideHeader": true,
+        "lineCleanView": true
+      },
+      "style": {
+        "width": 280,
+        "height": 200
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 280,
+      "height": 200,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 40,
+        "y": 260
+      },
+      "dragging": false
+    },
+    {
+      "id": "5",
+      "type": "powerbi",
+      "position": {
+        "x": 320,
+        "y": 260
+      },
+      "data": {
+        "label": "Gross Margin 5-Week Trend",
+        "componentType": "line",
+        "chartData": [
+          1.88,
+          1.94,
+          1.98,
+          2.05,
+          2.14
+        ],
+        "axisLabels": {
+          "x": "",
+          "y": ""
+        },
+        "xAxisLabels": [
+          "Wk 15",
+          "Wk 16",
+          "Wk 17",
+          "Wk 18",
+          "Wk 19"
+        ],
+        "hideHeader": true,
+        "lineCleanView": true
+      },
+      "style": {
+        "width": 280,
+        "height": 200
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 280,
+      "height": 200,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 320,
+        "y": 260
+      },
+      "dragging": false
+    },
+    {
+      "id": "6",
+      "type": "powerbi",
+      "position": {
+        "x": 600,
+        "y": 260
+      },
+      "data": {
+        "label": "Contribution Margin 5-Week Trend",
+        "componentType": "line",
+        "chartData": [
+          1.07,
+          1.11,
+          1.15,
+          1.21,
+          1.26
+        ],
+        "axisLabels": {
+          "x": "",
+          "y": ""
+        },
+        "xAxisLabels": [
+          "Wk 15",
+          "Wk 16",
+          "Wk 17",
+          "Wk 18",
+          "Wk 19"
+        ],
+        "hideHeader": true,
+        "lineCleanView": true
+      },
+      "style": {
+        "width": 280,
+        "height": 200
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 280,
+      "height": 200,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 600,
+        "y": 260
+      },
+      "dragging": false
+    },
+    {
+      "id": "7",
+      "type": "powerbi",
+      "position": {
+        "x": 40,
+        "y": 480
+      },
+      "data": {
+        "label": "YTD Booked Sales vs Budget",
+        "componentType": "bar",
+        "chartData": [
+          612,
+          645,
+          671,
+          702,
+          760
+        ],
+        "thirdAxisEnabled": true,
+        "thirdAxisData": [
+          620,
+          638,
+          660,
+          690,
+          745
+        ],
+        "axisLabels": {
+          "x": "Week #",
+          "y": "Booked Sales ($k)",
+          "third": "Budgeted Sales ($k)"
+        },
+        "xAxisLabels": [
+          "Wk 15",
+          "Wk 16",
+          "Wk 17",
+          "Wk 18",
+          "Wk 19"
+        ]
+      },
+      "style": {
+        "width": 360,
+        "height": 320
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 360,
+      "height": 320,
+      "positionAbsolute": {
+        "x": 40,
+        "y": 480
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "8",
+      "type": "powerbi",
+      "position": {
+        "x": 420,
+        "y": 480
+      },
+      "data": {
+        "label": "Enterprise-level Bookings",
+        "componentType": "matrix",
+        "columnLabels": [
+          "Region",
+          "Wk 19",
+          "Wk 18",
+          "Wk 17",
+          "Wk 16",
+          "Wk 15"
+        ],
+        "matrixData": [
+          [
+            "Enterprise East",
+            "392k",
+            "381k",
+            "377k",
+            "368k",
+            "360k"
+          ],
+          [
+            "Enterprise Central",
+            "284k",
+            "276k",
+            "271k",
+            "265k",
+            "258k"
+          ],
+          [
+            "Enterprise West",
+            "238k",
+            "231k",
+            "227k",
+            "221k",
+            "214k"
+          ],
+          [
+            "Strategic Accounts",
+            "205k",
+            "198k",
+            "194k",
+            "189k",
+            "183k"
+          ],
+          [
+            "Public Sector",
+            "154k",
+            "149k",
+            "146k",
+            "142k",
+            "138k"
+          ]
+        ],
+        "matrixFirstColumnWidth": 120
+      },
+      "style": {
+        "width": 460,
+        "height": 320
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 460,
+      "height": 320,
+      "positionAbsolute": {
+        "x": 420,
+        "y": 480
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "9",
+      "type": "powerbi",
+      "position": {
+        "x": 900,
+        "y": 360
+      },
+      "data": {
+        "label": "Booked Sales by Channel",
+        "componentType": "stackedArea",
+        "seriesLabels": [
+          "Website",
+          "Call Center",
+          "Company Stores",
+          "Amazon",
+          "Guys.com",
+          "Domestic Retail",
+          "International Retail"
+        ],
+        "seriesColors": [
+          "#EA0029",
+          "#F97316",
+          "#F59E0B",
+          "#10B981",
+          "#06B6D4",
+          "#3B82F6",
+          "#8B5CF6"
+        ],
+        "seriesData": [
+          [
+            138,
+            142,
+            145,
+            151,
+            158
+          ],
+          [
+            95,
+            97,
+            101,
+            104,
+            109
+          ],
+          [
+            79,
+            82,
+            84,
+            86,
+            90
+          ],
+          [
+            34,
+            35,
+            37,
+            40,
+            42
+          ],
+          [
+            28,
+            29,
+            30,
+            33,
+            35
+          ],
+          [
+            74,
+            76,
+            79,
+            82,
+            85
+          ],
+          [
+            53,
+            54,
+            56,
+            60,
+            63
+          ]
+        ],
+        "axisLabels": {
+          "x": "Week",
+          "y": "Booked Sales ($k)"
+        },
+        "xAxisLabels": [
+          "Wk 15",
+          "Wk 16",
+          "Wk 17",
+          "Wk 18",
+          "Wk 19"
+        ]
+      },
+      "style": {
+        "width": 620,
+        "height": 440
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 620,
+      "height": 440,
+      "positionAbsolute": {
+        "x": 900,
+        "y": 360
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "10",
+      "type": "powerbi",
+      "position": {
+        "x": 900,
+        "y": 40
+      },
+      "data": {
+        "label": "Channel Bookings Matrix",
+        "componentType": "matrix",
+        "columnLabels": [
+          "Channel",
+          "Wk 19",
+          "Wk 18",
+          "Wk 17",
+          "Wk 16",
+          "Wk 15"
+        ],
+        "matrixData": [
+          [
+            "recteq.com",
+            "158k",
+            "151k",
+            "145k",
+            "142k",
+            "138k"
+          ],
+          [
+            "Call Center",
+            "109k",
+            "104k",
+            "101k",
+            "97k",
+            "95k"
+          ],
+          [
+            "Company Stores",
+            "90k",
+            "86k",
+            "84k",
+            "82k",
+            "79k"
+          ],
+          [
+            "Amazon.com",
+            "42k",
+            "40k",
+            "37k",
+            "35k",
+            "34k"
+          ],
+          [
+            "BBQGuys.com",
+            "35k",
+            "33k",
+            "30k",
+            "29k",
+            "28k"
+          ],
+          [
+            "Domestic Retail",
+            "85k",
+            "82k",
+            "79k",
+            "76k",
+            "74k"
+          ],
+          [
+            "International Retail",
+            "63k",
+            "60k",
+            "56k",
+            "54k",
+            "53k"
+          ]
+        ],
+        "matrixFirstColumnWidth": 122
+      },
+      "style": {
+        "width": 620,
+        "height": 300
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 620,
+      "height": 300,
+      "positionAbsolute": {
+        "x": 900,
+        "y": 40
+      },
+      "selected": false,
+      "dragging": false
+    }
+  ],
+  "edges": []
+}
