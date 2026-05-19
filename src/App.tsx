@@ -6,10 +6,10 @@ import ReportingPeriodFilter, { getDefaultReportingPeriod, ReportingPeriodValue 
 import executiveSummaryDashboard from './data/executiveSummaryDashboard.json';
 import executiveSummaryDashboardPage2 from './data/executiveSummaryDashboardPage2.json';
 import financialSummaryDashboard from './data/financialSummaryDashboard.json';
+import projectLogo from './assets/project-logo.png';
 import './App.css';
 
 const DEFAULT_APP_TITLE = 'Executive Summary';
-const logoSrc = `${import.meta.env.BASE_URL}logo.png`;
 
 function App() {
   const [gridVisible, setGridVisible] = useState(true);
@@ -56,10 +56,10 @@ function App() {
           >
             <div className="h-full flex flex-col overflow-hidden">
               <header className="bg-black text-light px-6 py-4 shadow-lg relative min-h-[92px] md:min-h-[96px] flex items-start">
-                {/* Use a base-aware logo path so GitHub Pages resolves project assets correctly. */}
+                {/* Use bundled asset URL to avoid cross-site cache collisions on Pages. */}
                 <div className="relative z-10 flex-shrink-0 mr-4 mt-1" style={{ width: 150, height: 50, background: 'none', border: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <img
-                    src={logoSrc}
+                    src={projectLogo}
                     alt="Logo"
                     className="object-contain"
                     style={{ width: '100%', height: '100%', maxWidth: 150, maxHeight: 50, minWidth: 40, minHeight: 40, background: 'none', border: 'none' }}
@@ -118,7 +118,7 @@ function App() {
 
       <div className="pointer-events-none fixed right-4 z-[70] opacity-25" style={{ bottom: '-2.5rem', position: 'fixed' }}>
         <img
-          src={logoSrc}
+          src={projectLogo}
           alt=""
           aria-hidden="true"
           className="h-48 w-48 object-contain"
