@@ -81,8 +81,30 @@ r_wreframing/
 
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
+- `npm run deploy` - Build and publish to the `gh-pages` branch (for GitHub Pages)
 - `npm run preview` - Preview production build
 - `npm run lint` - Run ESLint
+
+## Deploy To GitHub Pages
+
+This repository is configured for GitHub Pages at:
+
+- `https://emeraldradiate.github.io/r_wreframe/`
+
+Steps:
+
+1. Install dependencies:
+```bash
+npm install
+```
+2. Deploy:
+```bash
+npm run deploy
+```
+3. In GitHub, open **Settings > Pages** and set:
+  - **Source**: `Deploy from a branch`
+  - **Branch**: `gh-pages`
+  - **Folder**: `/ (root)`
 
 ### Customization
 
