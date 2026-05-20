@@ -18,6 +18,7 @@ const ExpectedVsRealityChartVisual = ({
     fallback: { width: 280, height: 190 },
     margin,
   });
+  const dataLabelFontSize = 9;
   const axisLabelFontSize = 10;
   const axisTitleFontSize = 12;
 
@@ -149,6 +150,24 @@ const ExpectedVsRealityChartVisual = ({
           />
 
           {/* Budget (expected) line is intentionally not rendered (completely clear) */}
+
+          {realityPoints.map((point, index) => {
+            const diff = realityValues[index] - flatExpectedValue;
+            const label = diff < 0 ? `(${Math.abs(diff)})` : `${diff}`;
+            const isBelow = diff < 0;
+            return (
+              <text
+                key={`data-label-${index}`}
+                x={point.x}
+                y={Math.max(point.y - 6, margin.top + 8)}
+                textAnchor="middle"
+                className={`font-body ${isBelow ? 'fill-red-500' : 'fill-emerald-600'}`}
+                style={{ fontSize: `${dataLabelFontSize}px` }}
+              >
+                {label}
+              </text>
+            );
+          })}
 
           {labels.map((label, index) => (
             <text

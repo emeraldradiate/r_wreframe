@@ -1,4 +1,4 @@
-import { useElementSize, resolveChartBounds, normalizeSeriesLength, getDefaultXAxisLabels } from '../nodeUtils';
+import { useElementSize, resolveChartBounds, normalizeSeriesLength, getDefaultXAxisLabels, CHART_COLOR_PALETTE } from '../nodeUtils';
 
 interface StackedAreaChartVisualProps {
   seriesData?: number[][];
@@ -17,7 +17,7 @@ const defaultStackedSeriesData = [
 ];
 
 const defaultStackedSeriesLabels = ['Website', 'Call Center', 'Stores', 'Amazon', 'Direct'];
-const defaultStackedSeriesColors = ['#EA0029', '#F97316', '#F59E0B', '#10B981', '#06B6D4'];
+const defaultStackedSeriesColors = CHART_COLOR_PALETTE.slice(0, 5);
 
 const StackedAreaChartVisual = ({
   seriesData = defaultStackedSeriesData,
@@ -26,11 +26,11 @@ const StackedAreaChartVisual = ({
   axisLabels,
   xLabels,
 }: StackedAreaChartVisualProps) => {
-  const margin = { top: 12, right: 30, bottom: 42, left: 30 };
+  const margin = { top: 12, right: 30, bottom: 12, left: 30 };
   const fallback = { width: 260, height: 190 };
   const { elementRef, size } = useElementSize<HTMLDivElement>();
   const { width, height, plotWidth, plotHeight } = resolveChartBounds({ size, fallback, margin });
-  const legendFontSize = 10, axisTitleFontSize = 12;
+  const axisTitleFontSize = 12;
   const chartBottom = height - margin.bottom;
 
   const safeSeriesData = (seriesData.length ? seriesData : defaultStackedSeriesData)
@@ -59,24 +59,45 @@ const StackedAreaChartVisual = ({
     cumulativeData.push(column);
   }
   const maxValue = Math.max(...cumulativeData.flat(), 1), yScale = plotHeight / maxValue;
+  const dataLabelFontSize = 9;
   const layers = plottedSeries.map((series, seriesIndex) => {
-    const points: string[] = [];
-    for (let i = 0; i < numPoints; i++) points.push((i === 0 ? 'M' : 'L') + `${margin.left + i * xStep},${chartBottom - cumulativeData[i][seriesIndex + 1] * yScale}`);
-    for (let i = numPoints - 1; i >= 0; i--) points.push(`L${margin.left + i * xStep},${chartBottom - cumulativeData[i][seriesIndex] * yScale}`);
-    points.push('Z');
-    return { color: series.color, label: series.label, path: points.join(' ') };
+    const pathPoints: string[] = [];
+    for (let i = 0; i < numPoints; i++) pathPoints.push((i === 0 ? 'M' : 'L') + `${margin.left + i * xStep},${chartBottom - cumulativeData[i][seriesIndex + 1] * yScale}`);
+    for (let i = numPoints - 1; i >= 0; i--) pathPoints.push(`L${margin.left + i * xStep},${chartBottom - cumulativeData[i][seriesIndex] * yScale}`);
+    pathPoints.push('Z');
+    const dotPoints = Array.from({ length: numPoints }, (_, i) => ({
+      x: margin.left + i * xStep,
+      y: chartBottom - cumulativeData[i][seriesIndex + 1] * yScale,
+      value: series.values[i],
+    }));
+    return { color: series.color, label: series.label, path: pathPoints.join(' '), dotPoints };
   });
+
+  // Compute label y positions with minimum vertical spacing per x column
+  const minLabelSpacing = dataLabelFontSize + 3;
+  const adjustedLabelY: number[][] = layers.map((layer) =>
+    layer.dotPoints.map((pt) => Math.min(pt.y + dataLabelFontSize + 3, chartBottom - 2))
+  );
+  for (let i = 0; i < numPoints; i++) {
+    // Collect [seriesIndex, rawY] sorted top-to-bottom
+    const entries = layers.map((_, si) => ({ si, y: adjustedLabelY[si][i] }))
+      .sort((a, b) => a.y - b.y);
+    // Push labels down if too close to the one above
+    for (let k = 1; k < entries.length; k++) {
+      const gap = entries[k].y - entries[k - 1].y;
+      if (gap < minLabelSpacing) entries[k].y = entries[k - 1].y + minLabelSpacing;
+    }
+    // Push labels up from bottom if they spilled past chartBottom
+    for (let k = entries.length - 1; k >= 0; k--) {
+      if (entries[k].y > chartBottom - 2) entries[k].y = chartBottom - 2;
+      if (k > 0 && entries[k].y - entries[k - 1].y < minLabelSpacing)
+        entries[k - 1].y = entries[k].y - minLabelSpacing;
+    }
+    for (const { si, y } of entries) adjustedLabelY[si][i] = y;
+  }
 
   return (
     <div ref={elementRef} className="flex flex-col h-full w-full px-1 py-1 overflow-hidden">
-      <div className="mb-1 flex flex-wrap items-center justify-center gap-x-3 gap-y-0.5 font-body text-gray-700">
-        {plottedSeries.map((series, index) => (
-          <div key={index} className="flex items-center gap-1">
-            <span className="inline-block h-2.5 w-2.5 rounded-sm" style={{ backgroundColor: series.color }} />
-            <span style={{ fontSize: `${legendFontSize}px` }}>{series.label}</span>
-          </div>
-        ))}
-      </div>
       <div className="flex-1 flex items-center justify-center overflow-hidden">
         <svg width={width} height={height} className="w-full h-full overflow-visible">
           <line x1={margin.left} y1={margin.top} x2={margin.left} y2={chartBottom} stroke="#C7C7C7" strokeWidth="1" />
@@ -84,6 +105,20 @@ const StackedAreaChartVisual = ({
           {layers.map((layer, index) => (
             <path key={index} d={layer.path} fill={layer.color} fillOpacity="0.85" />
           ))}
+          {layers.map((layer, seriesIndex) =>
+            layer.dotPoints.map((pt, i) => (
+              <text
+                key={`label-${seriesIndex}-${i}`}
+                x={pt.x}
+                y={adjustedLabelY[seriesIndex][i]}
+                textAnchor="middle"
+                className="fill-dark font-body"
+                style={{ fontSize: `${dataLabelFontSize}px` }}
+              >
+                {pt.value}
+              </text>
+            ))
+          )}
           {categoryLabels.map((label, index) => (
             <text
               key={`stacked-x-label-${index}`}
@@ -96,15 +131,6 @@ const StackedAreaChartVisual = ({
               {label}
             </text>
           ))}
-          <text
-            x={width / 2}
-            y={height - 2}
-            textAnchor="middle"
-            className="fill-medium-gray font-semibold font-body"
-            style={{ fontSize: `${axisTitleFontSize}px` }}
-          >
-            {axisLabels?.x || 'Time Period'}
-          </text>
           <text
             x={12}
             y={height / 2}

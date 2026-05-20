@@ -74,6 +74,7 @@ function PowerBINode({ data, selected }: PowerBINodeProps) {
   const [matrixFirstColumnWidthInput, setMatrixFirstColumnWidthInput] = useState<string>(
     String(data.matrixFirstColumnWidth || DEFAULT_MATRIX_FIRST_COLUMN_WIDTH),
   );
+  const [matrixShowColorBlocks, setMatrixShowColorBlocks] = useState<boolean>(Boolean(data.matrixShowColorBlocks));
   const [gaugeValue, setGaugeValue] = useState<number>(Number(data.value) || 0);
   const [cardValueText, setCardValueText] = useState<string>(String(data.value ?? '42,500'));
   const [cardWowPct, setCardWowPct] = useState<string>(data.wowPct || '0.16');
@@ -134,6 +135,10 @@ function PowerBINode({ data, selected }: PowerBINodeProps) {
     setMatrixFirstColumnWidth(nextWidth);
     setMatrixFirstColumnWidthInput(String(nextWidth));
   }, [data.matrixFirstColumnWidth, data.componentType]);
+  useEffect(() => {
+    if (data.componentType !== 'matrix') return;
+    setMatrixShowColorBlocks(Boolean(data.matrixShowColorBlocks));
+  }, [data.matrixShowColorBlocks, data.componentType]);
   useEffect(() => {
     setBarData(data.chartData || defaultBarData);
     setLineData(data.chartData || defaultLineData);
@@ -233,6 +238,11 @@ function PowerBINode({ data, selected }: PowerBINodeProps) {
     setMatrixFirstColumnWidth(clampedWidth);
     setMatrixFirstColumnWidthInput(String(clampedWidth));
     updateNodeData({ matrixFirstColumnWidth: clampedWidth });
+  };
+  const toggleMatrixColorBlocks = () => {
+    const nextValue = !matrixShowColorBlocks;
+    setMatrixShowColorBlocks(nextValue);
+    updateNodeData({ matrixShowColorBlocks: nextValue });
   };
 
   const updatePieValue = (index: number, value: string) => {
@@ -394,6 +404,7 @@ function PowerBINode({ data, selected }: PowerBINodeProps) {
             data={data.matrixData}
             columnLabels={tableColumnLabels}
             firstColumnWidth={matrixFirstColumnWidth}
+            showColorBlocks={matrixShowColorBlocks}
             onCellChange={updateMatrixCell}
             onColumnLabelChange={updateMatrixColumnLabel}
           />
@@ -410,6 +421,14 @@ function PowerBINode({ data, selected }: PowerBINodeProps) {
   const headerThemeClass = isCardGrayTheme
     ? 'bg-[#666666] text-light'
     : 'bg-white text-dark';
+  const nodeMinHeight = isCardNode
+    ? hideHeader
+      ? 88
+      : 112
+    : 120;
+  const headerLayoutClass = isCardNode
+    ? 'px-3 py-2 min-h-[44px]'
+    : 'px-3 py-3.5 min-h-[56px]';
 
   return (
     <div 
@@ -424,7 +443,7 @@ function PowerBINode({ data, selected }: PowerBINodeProps) {
     >
       <NodeResizer 
         minWidth={160} 
-        minHeight={120} 
+        minHeight={nodeMinHeight} 
         isVisible={selected && !isPreview}
         color="#EA0029"
         handleStyle={{
@@ -440,7 +459,7 @@ function PowerBINode({ data, selected }: PowerBINodeProps) {
         isPreview ? 'border-2 border-primary border-dashed' : ''
       }`}>
         {!hideHeader && (
-          <div className={`node-drag-handle px-3 py-3.5 min-h-[56px] flex justify-between items-start cursor-move select-none ${headerThemeClass}`}>
+          <div className={`node-drag-handle ${headerLayoutClass} flex justify-between items-start cursor-move select-none ${headerThemeClass}`}>
             <div className="min-w-0 flex-1 pr-2">
               <input
                 value={title}
@@ -608,6 +627,16 @@ function PowerBINode({ data, selected }: PowerBINodeProps) {
                   className="nodrag w-20 px-2 py-1 text-xs border border-gray-200 focus:outline-none"
                   title="Set first column width"
                 />
+                <label className="flex items-center gap-1 text-[10px] text-gray-600 font-medium ml-1 select-none">
+                  <input
+                    type="checkbox"
+                    checked={matrixShowColorBlocks}
+                    onChange={toggleMatrixColorBlocks}
+                    onMouseDown={(e) => e.stopPropagation()}
+                    className="nodrag h-3.5 w-3.5 border border-gray-300"
+                  />
+                  Row color blocks
+                </label>
               </>
             )}
 

@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "savedAt": "2026-05-19T12:49:51.408Z",
+  "savedAt": "2026-05-20T12:38:38.718Z",
   "appTitle": "Executive Summary",
   "nodes": [
     {
       "id": "9",
       "type": "powerbi",
       "position": {
-        "x": 900,
-        "y": 40
+        "x": 60,
+        "y": 500
       },
       "data": {
         "label": "Booked Sales by Channel",
@@ -95,17 +95,17 @@
         ]
       },
       "style": {
-        "width": 720,
-        "height": 420
+        "width": 620,
+        "height": 200
       },
       "resizing": false,
       "draggable": true,
       "selectable": true,
-      "width": 720,
-      "height": 420,
+      "width": 620,
+      "height": 200,
       "positionAbsolute": {
-        "x": 900,
-        "y": 40
+        "x": 60,
+        "y": 500
       },
       "selected": false,
       "dragging": false
@@ -114,8 +114,8 @@
       "id": "10",
       "type": "powerbi",
       "position": {
-        "x": 900,
-        "y": 480
+        "x": 60,
+        "y": 720
       },
       "data": {
         "label": "Channel Bookings Matrix",
@@ -189,17 +189,17 @@
         "matrixFirstColumnWidth": 122
       },
       "style": {
-        "width": 460,
-        "height": 320
+        "width": 860,
+        "height": 300
       },
       "resizing": false,
       "draggable": true,
       "selectable": true,
-      "width": 460,
-      "height": 320,
+      "width": 860,
+      "height": 300,
       "positionAbsolute": {
-        "x": 900,
-        "y": 480
+        "x": 60,
+        "y": 720
       },
       "selected": false,
       "dragging": false
@@ -208,8 +208,8 @@
       "id": "14",
       "type": "powerbi",
       "position": {
-        "x": 1380,
-        "y": 480
+        "x": 700,
+        "y": 500
       },
       "data": {
         "label": "Gross Contribution",
@@ -234,27 +234,27 @@
         ]
       },
       "style": {
-        "width": 240,
-        "height": 320
+        "width": 220,
+        "height": 200
       },
       "resizing": false,
-      "width": 240,
-      "height": 320,
+      "width": 220,
+      "height": 200,
       "selected": false,
       "dragging": false,
       "draggable": true,
       "selectable": true,
       "positionAbsolute": {
-        "x": 1380,
-        "y": 480
+        "x": 700,
+        "y": 500
       }
     },
     {
       "id": "16",
       "type": "powerbi",
       "position": {
-        "x": 380,
-        "y": 20
+        "x": 60,
+        "y": 240
       },
       "data": {
         "label": "Enterprise-Level Bookings",
@@ -312,17 +312,17 @@
         "matrixFirstColumnWidth": 120
       },
       "style": {
-        "width": 500,
-        "height": 320
+        "width": 840,
+        "height": 240
       },
       "resizing": false,
       "draggable": true,
       "selectable": true,
-      "width": 500,
-      "height": 320,
+      "width": 840,
+      "height": 240,
       "positionAbsolute": {
-        "x": 380,
-        "y": 20
+        "x": 60,
+        "y": 240
       },
       "selected": false,
       "dragging": false
@@ -331,11 +331,11 @@
       "id": "18",
       "type": "powerbi",
       "position": {
-        "x": 900,
-        "y": 860
+        "x": 700,
+        "y": 20
       },
       "data": {
-        "label": "Enterprise Bookings by Category (Wk 19)",
+        "label": "Gross Contribution",
         "componentType": "pie",
         "chartData": [
           572,
@@ -353,17 +353,17 @@
         ]
       },
       "style": {
-        "width": 280,
-        "height": 320
+        "width": 200,
+        "height": 200
       },
       "resizing": false,
       "draggable": true,
       "selectable": true,
-      "width": 280,
-      "height": 320,
+      "width": 200,
+      "height": 200,
       "positionAbsolute": {
-        "x": 900,
-        "y": 860
+        "x": 700,
+        "y": 20
       },
       "selected": false,
       "dragging": false
@@ -372,8 +372,8 @@
       "id": "19",
       "type": "powerbi",
       "position": {
-        "x": 380,
-        "y": 820
+        "x": 60,
+        "y": 20
       },
       "data": {
         "label": "Enterprise Bookings by Category",
@@ -393,11 +393,41 @@
           "#06B6D4"
         ],
         "seriesData": [
-          [518, 532, 546, 555, 572],
-          [230, 236, 242, 246, 253],
-          [208, 213, 219, 222, 229],
-          [116, 119, 122, 124, 127],
-          [83, 85, 87, 89, 92]
+          [
+            518,
+            532,
+            546,
+            555,
+            572
+          ],
+          [
+            230,
+            236,
+            242,
+            246,
+            253
+          ],
+          [
+            208,
+            213,
+            219,
+            222,
+            229
+          ],
+          [
+            116,
+            119,
+            122,
+            124,
+            127
+          ],
+          [
+            83,
+            85,
+            87,
+            89,
+            92
+          ]
         ],
         "axisLabels": {
           "x": "Week",
@@ -412,17 +442,17 @@
         ]
       },
       "style": {
-        "width": 600,
-        "height": 400
+        "width": 620,
+        "height": 200
       },
       "resizing": false,
       "draggable": true,
       "selectable": true,
-      "width": 600,
-      "height": 400,
+      "width": 620,
+      "height": 200,
       "positionAbsolute": {
-        "x": 380,
-        "y": 820
+        "x": 60,
+        "y": 20
       },
       "selected": false,
       "dragging": false

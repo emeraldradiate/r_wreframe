@@ -139,16 +139,18 @@ function ReportingPeriodFilter({ value, onChange }: ReportingPeriodFilterProps) 
   };
 
   return (
-    <section className="bg-transparent px-2.5 py-2 text-left text-light">
-      <div className="text-[9px] uppercase tracking-wide text-white/90 font-semibold font-body">Reporting Period</div>
+    <section className="bg-transparent px-1.5 py-1 text-light w-full">
+      <div className="text-center text-[9px] uppercase tracking-wide text-white/90 font-semibold font-body">
+        Reporting Period
+      </div>
 
-      <div className="mt-1 grid grid-cols-[1fr_1fr_auto_1.2fr] gap-1.5 items-end">
+      <div className="mt-0.5 grid grid-cols-[1fr_1fr_auto_1.2fr] gap-1.5 items-end text-light">
         <label className="text-[9px] font-semibold text-white font-body">
           Year
           <select
             value={selectedYear}
             onChange={handleYearChange}
-            className="mt-0.5 w-full border border-gray-300 rounded px-1.5 py-1 text-[11px] leading-tight text-dark bg-white focus:outline-none"
+            className="mt-0.5 h-6 w-full border border-gray-300 rounded px-1 text-[10px] leading-tight text-dark bg-white focus:outline-none"
           >
             <option value="">Select</option>
             {yearOptions.map((year) => (
@@ -164,7 +166,7 @@ function ReportingPeriodFilter({ value, onChange }: ReportingPeriodFilterProps) 
           <select
             value={selectedWeek}
             onChange={handleWeekChange}
-            className="mt-0.5 w-full border border-gray-300 rounded px-1.5 py-1 text-[11px] leading-tight text-dark bg-white focus:outline-none"
+            className="mt-0.5 h-6 w-full border border-gray-300 rounded px-1 text-[10px] leading-tight text-dark bg-white focus:outline-none"
           >
             <option value="">Select</option>
             {weekOptions.map((week) => (
@@ -174,7 +176,8 @@ function ReportingPeriodFilter({ value, onChange }: ReportingPeriodFilterProps) 
             ))}
           </select>
         </label>
-        <div className="text-[9px] text-white/85 font-body pb-1">OR</div>
+
+        <div className="text-[9px] text-white/85 font-body pb-1 uppercase">or</div>
 
         <label className="text-[9px] font-semibold text-white font-body">
           Date
@@ -182,12 +185,10 @@ function ReportingPeriodFilter({ value, onChange }: ReportingPeriodFilterProps) 
             type="date"
             value={selectedDate}
             onChange={handleDateChange}
-            className="mt-0.5 w-full border border-gray-300 rounded px-1.5 py-1 text-[11px] leading-tight text-dark bg-white focus:outline-none"
+            className="mt-0.5 h-6 w-full border border-gray-300 rounded px-1 text-[10px] leading-tight text-dark bg-white focus:outline-none"
           />
         </label>
       </div>
-
-      {/* Status line removed as requested */}
     </section>
   );
 }
