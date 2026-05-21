@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-05-20T12:38:38.718Z",
+  "savedAt": "2026-05-20T18:47:46.517Z",
   "appTitle": "Executive Summary",
   "nodes": [
     {
@@ -11,7 +11,7 @@
         "y": 500
       },
       "data": {
-        "label": "Booked Sales by Channel",
+        "label": "Net Sales by Channel",
         "componentType": "stackedArea",
         "seriesLabels": [
           "recteq.com",
@@ -86,6 +86,7 @@
           "x": "Week",
           "y": "Booked Sales ($k)"
         },
+        "stackedYAxisLabelOffset": -18,
         "xAxisLabels": [
           "Wk 15",
           "Wk 16",
@@ -95,13 +96,13 @@
         ]
       },
       "style": {
-        "width": 620,
+        "width": 640,
         "height": 200
       },
       "resizing": false,
       "draggable": true,
       "selectable": true,
-      "width": 620,
+      "width": 640,
       "height": 200,
       "positionAbsolute": {
         "x": 60,
@@ -118,7 +119,7 @@
         "y": 720
       },
       "data": {
-        "label": "Channel Bookings Matrix",
+        "label": "Channel Net Sales",
         "componentType": "matrix",
         "columnLabels": [
           "Channel",
@@ -186,7 +187,8 @@
             "53k"
           ]
         ],
-        "matrixFirstColumnWidth": 122
+        "matrixFirstColumnWidth": 122,
+        "matrixShowColorBlocks": true
       },
       "style": {
         "width": 860,
@@ -201,7 +203,7 @@
         "x": 60,
         "y": 720
       },
-      "selected": false,
+      "selected": true,
       "dragging": false
     },
     {
@@ -257,7 +259,7 @@
         "y": 240
       },
       "data": {
-        "label": "Enterprise-Level Bookings",
+        "label": "Category Net Sales",
         "componentType": "matrix",
         "columnLabels": [
           "Category",
@@ -309,7 +311,8 @@
             "83k"
           ]
         ],
-        "matrixFirstColumnWidth": 120
+        "matrixFirstColumnWidth": 120,
+        "matrixShowColorBlocks": true
       },
       "style": {
         "width": 840,
@@ -376,7 +379,7 @@
         "y": 20
       },
       "data": {
-        "label": "Enterprise Bookings by Category",
+        "label": "Net Sales by Category",
         "componentType": "stackedArea",
         "seriesLabels": [
           "Grills",
@@ -433,6 +436,7 @@
           "x": "Week",
           "y": "Booked Sales ($k)"
         },
+        "stackedYAxisLabelOffset": -18,
         "xAxisLabels": [
           "Wk 15",
           "Wk 16",
@@ -442,13 +446,13 @@
         ]
       },
       "style": {
-        "width": 620,
+        "width": 640,
         "height": 200
       },
       "resizing": false,
       "draggable": true,
       "selectable": true,
-      "width": 620,
+      "width": 640,
       "height": 200,
       "positionAbsolute": {
         "x": 60,

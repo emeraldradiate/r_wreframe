@@ -6,6 +6,7 @@ interface StackedAreaChartVisualProps {
   seriesColors?: string[];
   axisLabels?: { x?: string; y?: string };
   xLabels?: string[];
+  stackedYAxisLabelOffset?: number;
 }
 
 const defaultStackedSeriesData = [
@@ -25,8 +26,9 @@ const StackedAreaChartVisual = ({
   seriesColors = defaultStackedSeriesColors,
   axisLabels,
   xLabels,
+  stackedYAxisLabelOffset = 0,
 }: StackedAreaChartVisualProps) => {
-  const margin = { top: 12, right: 30, bottom: 12, left: 30 };
+  const margin = { top: 12, right: 30, bottom: 36, left: 30 };
   const fallback = { width: 260, height: 190 };
   const { elementRef, size } = useElementSize<HTMLDivElement>();
   const { width, height, plotWidth, plotHeight } = resolveChartBounds({ size, fallback, margin });
@@ -58,46 +60,53 @@ const StackedAreaChartVisual = ({
     for (const series of plottedSeries) { cumulative += series.values[i]; column.push(cumulative); }
     cumulativeData.push(column);
   }
-  const maxValue = Math.max(...cumulativeData.flat(), 1), yScale = plotHeight / maxValue;
-  const dataLabelFontSize = 9;
+  const totalSeriesIndex = plottedSeries.length;
+  const forecastTotals: number[] = [];
+  const priorYearTotals: number[] = [];
+  for (let i = 0; i < numPoints; i++) {
+    const progress = numPoints > 1 ? i / (numPoints - 1) : 0;
+    const baseTotal = cumulativeData[i][totalSeriesIndex];
+    const forecastAdjustment = 1 + (progress - 0.5) * 0.2 + Math.sin(progress * Math.PI * 1.8) * 0.09;
+    const priorYearAdjustment = 0.86 + (progress - 0.5) * 0.08 - Math.sin(progress * Math.PI * 1.2) * 0.04;
+    forecastTotals.push(Math.max(0, baseTotal * forecastAdjustment));
+    priorYearTotals.push(Math.max(0, baseTotal * priorYearAdjustment));
+  }
+  const maxValue = Math.max(...cumulativeData.flat(), ...forecastTotals, ...priorYearTotals, 1), yScale = plotHeight / maxValue;
   const layers = plottedSeries.map((series, seriesIndex) => {
     const pathPoints: string[] = [];
     for (let i = 0; i < numPoints; i++) pathPoints.push((i === 0 ? 'M' : 'L') + `${margin.left + i * xStep},${chartBottom - cumulativeData[i][seriesIndex + 1] * yScale}`);
     for (let i = numPoints - 1; i >= 0; i--) pathPoints.push(`L${margin.left + i * xStep},${chartBottom - cumulativeData[i][seriesIndex] * yScale}`);
     pathPoints.push('Z');
-    const dotPoints = Array.from({ length: numPoints }, (_, i) => ({
-      x: margin.left + i * xStep,
-      y: chartBottom - cumulativeData[i][seriesIndex + 1] * yScale,
-      value: series.values[i],
-    }));
-    return { color: series.color, label: series.label, path: pathPoints.join(' '), dotPoints };
+    return { color: series.color, label: series.label, path: pathPoints.join(' ') };
   });
-
-  // Compute label y positions with minimum vertical spacing per x column
-  const minLabelSpacing = dataLabelFontSize + 3;
-  const adjustedLabelY: number[][] = layers.map((layer) =>
-    layer.dotPoints.map((pt) => Math.min(pt.y + dataLabelFontSize + 3, chartBottom - 2))
-  );
+  const forecastPathPoints: string[] = [];
+  const priorYearPathPoints: string[] = [];
   for (let i = 0; i < numPoints; i++) {
-    // Collect [seriesIndex, rawY] sorted top-to-bottom
-    const entries = layers.map((_, si) => ({ si, y: adjustedLabelY[si][i] }))
-      .sort((a, b) => a.y - b.y);
-    // Push labels down if too close to the one above
-    for (let k = 1; k < entries.length; k++) {
-      const gap = entries[k].y - entries[k - 1].y;
-      if (gap < minLabelSpacing) entries[k].y = entries[k - 1].y + minLabelSpacing;
-    }
-    // Push labels up from bottom if they spilled past chartBottom
-    for (let k = entries.length - 1; k >= 0; k--) {
-      if (entries[k].y > chartBottom - 2) entries[k].y = chartBottom - 2;
-      if (k > 0 && entries[k].y - entries[k - 1].y < minLabelSpacing)
-        entries[k - 1].y = entries[k].y - minLabelSpacing;
-    }
-    for (const { si, y } of entries) adjustedLabelY[si][i] = y;
+    const x = margin.left + i * xStep;
+    const forecastY = chartBottom - forecastTotals[i] * yScale;
+    const priorYearY = chartBottom - priorYearTotals[i] * yScale;
+    forecastPathPoints.push(`${i === 0 ? 'M' : 'L'}${x},${forecastY}`);
+    priorYearPathPoints.push(`${i === 0 ? 'M' : 'L'}${x},${priorYearY}`);
   }
+  const forecastPath = forecastPathPoints.join(' ');
+  const priorYearPath = priorYearPathPoints.join(' ');
 
   return (
     <div ref={elementRef} className="flex flex-col h-full w-full px-1 py-1 overflow-hidden">
+      <div className="h-4 flex items-center justify-end gap-3 px-2">
+        <div className="flex items-center gap-1">
+          <svg width="16" height="4" aria-hidden="true">
+            <line x1="0" y1="2" x2="16" y2="2" stroke="#111111" strokeWidth="2" />
+          </svg>
+          <span className="text-[8px] leading-none text-dark font-body">Budget</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <svg width="16" height="4" aria-hidden="true">
+            <line x1="0" y1="2" x2="16" y2="2" stroke="#111111" strokeWidth="2" strokeDasharray="4 3" />
+          </svg>
+          <span className="text-[8px] leading-none text-dark font-body">PY</span>
+        </div>
+      </div>
       <div className="flex-1 flex items-center justify-center overflow-hidden">
         <svg width={width} height={height} className="w-full h-full overflow-visible">
           <line x1={margin.left} y1={margin.top} x2={margin.left} y2={chartBottom} stroke="#C7C7C7" strokeWidth="1" />
@@ -105,25 +114,13 @@ const StackedAreaChartVisual = ({
           {layers.map((layer, index) => (
             <path key={index} d={layer.path} fill={layer.color} fillOpacity="0.85" />
           ))}
-          {layers.map((layer, seriesIndex) =>
-            layer.dotPoints.map((pt, i) => (
-              <text
-                key={`label-${seriesIndex}-${i}`}
-                x={pt.x}
-                y={adjustedLabelY[seriesIndex][i]}
-                textAnchor="middle"
-                className="fill-dark font-body"
-                style={{ fontSize: `${dataLabelFontSize}px` }}
-              >
-                {pt.value}
-              </text>
-            ))
-          )}
+          <path d={forecastPath} fill="none" stroke="#111111" strokeWidth="2.25" />
+          <path d={priorYearPath} fill="none" stroke="#111111" strokeWidth="2" strokeDasharray="4 3" />
           {categoryLabels.map((label, index) => (
             <text
               key={`stacked-x-label-${index}`}
               x={margin.left + index * xStep}
-              y={chartBottom + 12}
+              y={height - margin.bottom + 12}
               textAnchor="middle"
               className="fill-medium-gray font-body"
               style={{ fontSize: '9px' }}
@@ -133,9 +130,9 @@ const StackedAreaChartVisual = ({
           ))}
           <text
             x={12}
-            y={height / 2}
+            y={height / 2 + stackedYAxisLabelOffset}
             textAnchor="middle"
-            transform={`rotate(-90 12 ${height / 2})`}
+            transform={`rotate(-90 12 ${height / 2 + stackedYAxisLabelOffset})`}
             className="fill-medium-gray font-semibold font-body"
             style={{ fontSize: `${axisTitleFontSize}px` }}
           >

@@ -5,15 +5,24 @@ export interface PowerBINodeProps {
     label: string;
     componentType: string;
     value?: number | string;
-    wowPct?: string;
+    wowPct?: {
+      percentage: string;
+      dollarValue?: string; // Make dollarValue optional
+    };
     ytdPriorYear?: string;
-    variancePct?: string;
+    ytdPriorYearPct?: string;
+    variancePct?: {
+      percentage: string;
+      dollarValue?: string; // Make dollarValue optional
+      flatValue?: string;
+    };
     cardTheme?: 'light' | 'gray';
     chartData?: number[];
     pieLabels?: string[];
     seriesData?: number[][];
     seriesLabels?: string[];
     seriesColors?: string[];
+    stackedYAxisLabelOffset?: number;
     matrixData?: Array<Array<number | string>>;
     matrixFirstColumnWidth?: number;
     matrixShowColorBlocks?: boolean;
@@ -23,6 +32,7 @@ export interface PowerBINodeProps {
     thirdAxisEnabled?: boolean;
     thirdAxisData?: number[];
     expectedRealityData?: { expected: number[]; reality: number[] };
+    expectedRealityPointLabelFormat?: 'difference' | 'currencyK';
     columnLabels?: string[];
     reportingYear?: number;
     reportingWeek?: number;

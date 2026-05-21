@@ -14,9 +14,17 @@
         "label": "YTD Net Sales",
         "componentType": "card",
         "value": "5.42M",
-        "wowPct": "0.16",
+        "wowPct": {
+          "percentage": "0.16%",
+          "dollarValue": "+8.67K"
+        },
         "ytdPriorYear": "5.08M",
-        "variancePct": "6.7",
+        "ytdPriorYearPct": "6.7",
+        "variancePct": {
+          "percentage": "6.7%",
+          "dollarValue": "+340K",
+          "flatValue": "+340K"
+        },
         "cardTheme": "red"
       },
       "style": {
@@ -44,9 +52,17 @@
         "label": "YTD Gross Margin",
         "componentType": "card",
         "value": "2.14M",
-        "wowPct": "0.11",
+        "wowPct": {
+          "percentage": "0.11%",
+          "dollarValue": "+2.35K"
+        },
         "ytdPriorYear": "1.97M",
-        "variancePct": "8.6",
+        "ytdPriorYearPct": "8.6",
+        "variancePct": {
+          "percentage": "8.6%",
+          "dollarValue": "+170K",
+          "flatValue": "+170K"
+        },
         "cardTheme": "light"
       },
       "style": {
@@ -76,9 +92,17 @@
         "label": "YTD Contribution Margin",
         "componentType": "card",
         "value": "1.26M",
-        "wowPct": "-0.08",
+        "wowPct": {
+          "percentage": "-0.08%",
+          "dollarValue": "-1.01K"
+        },
         "ytdPriorYear": "1.14M",
-        "variancePct": "10.5",
+        "ytdPriorYearPct": "10.5",
+        "variancePct": {
+          "percentage": "10.5%",
+          "dollarValue": "+120K",
+          "flatValue": "+120K"
+        },
         "cardTheme": "light"
       },
       "style": {

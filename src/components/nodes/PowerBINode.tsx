@@ -77,9 +77,11 @@ function PowerBINode({ data, selected }: PowerBINodeProps) {
   const [matrixShowColorBlocks, setMatrixShowColorBlocks] = useState<boolean>(Boolean(data.matrixShowColorBlocks));
   const [gaugeValue, setGaugeValue] = useState<number>(Number(data.value) || 0);
   const [cardValueText, setCardValueText] = useState<string>(String(data.value ?? '42,500'));
-  const [cardWowPct, setCardWowPct] = useState<string>(data.wowPct || '0.16');
+  const [cardWowPct, setCardWowPct] = useState<string>(data.wowPct?.percentage || '0.16%');
+  const [cardWowDollarValue, setCardWowDollarValue] = useState<string>(data.wowPct?.dollarValue || '');
   const [cardYtdPriorYear, setCardYtdPriorYear] = useState<string>(data.ytdPriorYear || '39,800');
-  const [cardVariancePct, setCardVariancePct] = useState<string>(data.variancePct || '6.8%');
+  const [cardVariancePct, setCardVariancePct] = useState<string>(data.variancePct?.percentage || '6.8%');
+  const [cardVarianceDollarValue, setCardVarianceDollarValue] = useState<string>(data.variancePct?.flatValue || data.variancePct?.dollarValue || '');
   const [cardTheme, setCardTheme] = useState<'light' | 'gray' | undefined>(data.cardTheme === 'gray' ? 'gray' : 'light');
   const [barData, setBarData] = useState<number[]>(data.chartData || defaultBarData);
   const [thirdAxisEnabled, setThirdAxisEnabled] = useState(Boolean(data.thirdAxisEnabled));
@@ -162,7 +164,11 @@ function PowerBINode({ data, selected }: PowerBINodeProps) {
     if (data.componentType === 'card') { setCardValueText(String(data.value ?? '42,500')); return; }
     setGaugeValue(Number(data.value) || 0);
   }, [data.value, data.componentType]);
-  useEffect(() => { setCardWowPct(data.wowPct || '0.16'); setCardYtdPriorYear(data.ytdPriorYear || '39,800'); setCardVariancePct(data.variancePct || '6.8%'); }, [data.wowPct, data.ytdPriorYear, data.variancePct]);
+  useEffect(() => { setCardYtdPriorYear(data.ytdPriorYear || '39,800'); }, [data.ytdPriorYear]);
+  useEffect(() => { setCardWowPct(data.wowPct?.percentage || '0.16%'); setCardWowDollarValue(data.wowPct?.dollarValue || '');
+    setCardVariancePct(data.variancePct?.percentage || '6.8%');
+    setCardVarianceDollarValue(data.variancePct?.flatValue || data.variancePct?.dollarValue || '');
+  }, [data.wowPct, data.variancePct]);
   useEffect(() => { setCardTheme(data.cardTheme === 'gray' ? 'gray' : 'light'); }, [data.cardTheme]);
   useEffect(() => { setHideHeader(Boolean(data.hideHeader)); }, [data.hideHeader]);
   useEffect(() => { setLineCleanView(Boolean(data.lineCleanView)); }, [data.lineCleanView]);
@@ -178,10 +184,29 @@ function PowerBINode({ data, selected }: PowerBINodeProps) {
 
   const commitHeaderEdits = () => { data.label = title.trim() || 'Untitled'; };
   const updateTitle = (value: string) => { setTitle(value); data.label = value; };
-  const updateCardKpis = (field: 'ytdPriorYear' | 'variancePct', value: string) => {
-    if (field === 'ytdPriorYear') setCardYtdPriorYear(value);
-    if (field === 'variancePct') { const normalized = value.replace(/[^0-9.-]/g, ''); setCardVariancePct(normalized); data[field] = normalized; return; }
-    data[field] = value;
+  const updateCardKpis = (field: 'ytdPriorYear' | 'variancePct' | 'varianceFlatValue', value: string) => {
+    if (field === 'ytdPriorYear') {
+      setCardYtdPriorYear(value);
+      data[field] = value;
+    } else if (field === 'variancePct') {
+      const normalized = value.replace(/[^0-9.-]/g, '');
+      setCardVariancePct(normalized);
+      data[field] = { ...data[field], percentage: normalized };
+    } else if (field === 'varianceFlatValue') {
+      const trimmed = value.trim();
+      if (!trimmed) {
+        setCardVarianceDollarValue('');
+        data.variancePct = { percentage: data.variancePct?.percentage || cardVariancePct || '0', dollarValue: '', flatValue: '' };
+        return;
+      }
+      const normalized = /^[+-]/.test(trimmed) ? trimmed : `+${trimmed}`;
+      setCardVarianceDollarValue(normalized);
+      data.variancePct = {
+        percentage: data.variancePct?.percentage || cardVariancePct || '0',
+        dollarValue: normalized,
+        flatValue: normalized,
+      };
+    }
   };
   const updateAxisTitle = (axis: 'x' | 'y' | 'third', value: string) => setAxisTitles((current) => { const next = { ...current, [axis]: value }; updateNodeData({ axisLabels: next }); return next; });
   const updateGaugeValue = (value: number) => { setGaugeValue(value); data.value = value; };
@@ -377,10 +402,16 @@ function PowerBINode({ data, selected }: PowerBINodeProps) {
             seriesColors={data.seriesColors || defaultStackedSeriesColors}
             axisLabels={axisTitles}
             xLabels={stackedXAxisLabels}
+            stackedYAxisLabelOffset={data.stackedYAxisLabelOffset}
           />
         );
       case 'expectedReality':
-        return <ExpectedVsRealityChartVisual axisLabels={axisTitles} />;
+        return (
+          <ExpectedVsRealityChartVisual
+            axisLabels={axisTitles}
+            pointLabelFormat={data.expectedRealityPointLabelFormat}
+          />
+        );
       case 'pie':
         return <PieChartVisual data={pieValues} labels={pieLabels} />;
       case 'gauge':
@@ -390,12 +421,16 @@ function PowerBINode({ data, selected }: PowerBINodeProps) {
           <CardVisual
             value={cardValueText}
             wowPct={cardWowPct}
+            wowDollarValue={cardWowDollarValue}
             ytdPriorYear={cardYtdPriorYear}
             variancePct={cardVariancePct}
+            varianceFlatValue={cardVarianceDollarValue}
+            varianceDollarValue={cardVarianceDollarValue}
             theme={cardTheme}
             onValueChange={updateCardValue}
             onYtdPriorYearChange={(value) => updateCardKpis('ytdPriorYear', value)}
             onVariancePctChange={(value) => updateCardKpis('variancePct', value)}
+            onVarianceFlatValueChange={(value) => updateCardKpis('varianceFlatValue', value)}
           />
         );
       case 'matrix':

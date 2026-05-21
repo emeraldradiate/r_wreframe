@@ -1,4 +1,5 @@
 import React, { useCallback, useRef, useState, useEffect } from 'react';
+import html2canvas from 'html2canvas';
 import ReactFlow, {
   applyNodeChanges,
   Background,
@@ -15,7 +16,7 @@ import ReactFlow, {
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 import PowerBINode from './nodes/PowerBINode';
-import defaultSalesDashboard from '../data/defaultSalesDashboard.json';
+import executiveSummaryDashboard from '../data/executiveSummaryDashboard.json';
 
 const nodeTypes = {
   powerbi: PowerBINode,
@@ -25,7 +26,6 @@ const initialNodes: Node[] = [];
 
 const initialEdges: Edge[] = [];
 
-const AUTOSAVE_KEY = 'r_wreframing_autosave_v1';
 const GRID_SIZE = 20;
 
 const cloneJsonValue = <T,>(value: T): T => JSON.parse(JSON.stringify(value));
@@ -172,7 +172,15 @@ const getDefaultData = (componentType: string, label: string) => {
     case 'gauge':
       return { ...baseData, value: 72 };
     case 'card':
-      return { ...baseData, value: '42.5k', wowPct: '0.16', ytdPriorYear: '39.8k', variancePct: '6.8%', cardTheme: 'light' };
+      return {
+        ...baseData,
+        value: '42.5k',
+        wowPct: { percentage: '0.16', dollarValue: '+$0.1k' },
+        ytdPriorYear: '39.8k',
+        ytdPriorYearPct: '5.2',
+        variancePct: { percentage: '6.8', dollarValue: '+$2.7k', flatValue: '+$2.7k' },
+        cardTheme: 'light',
+      };
     case 'slicer':
       {
         const weekEndingDate = getNearestWeekEndingSunday(new Date());
@@ -218,7 +226,6 @@ function WireframeCanvasInner({
   const copiedNodesRef = useRef<any[]>([]);
   const pasteCountRef = useRef(0);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [hasLoadedInitialState, setHasLoadedInitialState] = useState(false);
   const [dragPreview, setDragPreview] = useState<{
     position: { x: number; y: number };
     screenPosition: { x: number; y: number };
@@ -226,8 +233,7 @@ function WireframeCanvasInner({
     zoom: number;
     data: any;
   } | null>(null);
-  const [saveStatus, setSaveStatus] = useState('Autosaved');
-  const [lastSavedAt, setLastSavedAt] = useState<string | null>(null);
+  const [isCapturingScreenshot, setIsCapturingScreenshot] = useState(false);
   const appTitleRef = useRef(appTitle);
   const onHeaderChangeRef = useRef(onHeaderChange);
 
@@ -238,23 +244,6 @@ function WireframeCanvasInner({
   useEffect(() => {
     onHeaderChangeRef.current = onHeaderChange;
   }, [onHeaderChange]);
-
-  const persistWireframe = useCallback((
-    nextNodes: any[],
-    nextEdges: Edge[],
-    headerOverride?: { appTitle?: string },
-  ) => {
-    const payload = {
-      version: 1,
-      savedAt: new Date().toISOString(),
-      appTitle: headerOverride?.appTitle ?? appTitleRef.current,
-      nodes: nextNodes,
-      edges: nextEdges,
-    };
-
-    localStorage.setItem(AUTOSAVE_KEY, JSON.stringify(payload));
-    return payload;
-  }, []);
 
   const onConnect = useCallback(
     (params: Connection | Edge) => {
@@ -301,10 +290,61 @@ function WireframeCanvasInner({
     URL.revokeObjectURL(url);
   }, [appTitle, nodes, edges]);
 
+  const copyCanvasScreenshotToClipboard = useCallback(async () => {
+    if (isCapturingScreenshot) {
+      return;
+    }
+
+    if (!navigator.clipboard || typeof window.ClipboardItem === 'undefined') {
+      window.alert('Clipboard image copy is not supported in this browser.');
+      return;
+    }
+
+    const screenshotTarget = document.querySelector<HTMLElement>('[data-capture-target="letter-canvas"]');
+    if (!screenshotTarget) {
+      window.alert('Could not find the canvas area to capture.');
+      return;
+    }
+
+    try {
+      setIsCapturingScreenshot(true);
+
+      // Wait for controls to hide before rendering the capture.
+      await new Promise<void>((resolve) => {
+        window.requestAnimationFrame(() => {
+          window.requestAnimationFrame(() => resolve());
+        });
+      });
+
+      const screenshotCanvas = await html2canvas(screenshotTarget, {
+        backgroundColor: '#ffffff',
+        useCORS: true,
+        logging: false,
+        scale: Math.min(window.devicePixelRatio || 1, 2),
+      });
+
+      const screenshotBlob = await new Promise<Blob | null>((resolve) => {
+        screenshotCanvas.toBlob(resolve, 'image/png');
+      });
+
+      if (!screenshotBlob) {
+        throw new Error('Failed to generate screenshot blob.');
+      }
+
+      await navigator.clipboard.write([
+        new ClipboardItem({ [screenshotBlob.type]: screenshotBlob }),
+      ]);
+    } catch (error) {
+      console.error('Failed to copy screenshot to clipboard', error);
+      window.alert('Unable to copy screenshot. Please make sure clipboard permissions are allowed.');
+    } finally {
+      setIsCapturingScreenshot(false);
+    }
+  }, [isCapturingScreenshot]);
+
   const resetToEmptyCanvas = useCallback(() => {
     const emptyNodes: Node[] = [];
     const emptyEdges: Edge[] = [];
-    localStorage.removeItem(AUTOSAVE_KEY);
     setNodes(emptyNodes);
     setEdges(emptyEdges);
     const resolvedTitle = appTitleRef.current;
@@ -312,12 +352,7 @@ function WireframeCanvasInner({
       title: resolvedTitle,
     });
     syncNodeCounter(emptyNodes);
-    persistWireframe(emptyNodes, emptyEdges, {
-      appTitle: resolvedTitle,
-    });
-    setSaveStatus('Reset to empty canvas');
-    setLastSavedAt(new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }));
-  }, [persistWireframe, setEdges, setNodes, syncNodeCounter]);
+  }, [setEdges, setNodes, syncNodeCounter]);
 
   const loadFromJsonFile = useCallback(async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -342,26 +377,17 @@ function WireframeCanvasInner({
         title: resolvedTitle,
       });
       syncNodeCounter(normalizedNodes);
-      persistWireframe(normalizedNodes, nextEdges, {
-        appTitle: resolvedTitle,
-      });
-      setSaveStatus('Loaded from file');
-      setLastSavedAt(new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }));
     } catch (error) {
       console.error('Failed to load wireframe JSON', error);
       window.alert('Unable to load this file. Please choose a valid wireframe JSON export.');
     } finally {
       event.target.value = '';
     }
-  }, [persistWireframe, setNodes, setEdges, syncNodeCounter]);
+  }, [setNodes, setEdges, syncNodeCounter]);
 
   useEffect(() => {
     try {
-      const raw = localStorage.getItem(AUTOSAVE_KEY);
-      const source = raw ? JSON.parse(raw) : defaultSalesDashboard;
-      const parsedSource = source as { appSubtitle?: unknown; headerSubtitle?: unknown };
-      const hasLegacySubtitle = typeof parsedSource.appSubtitle === 'string'
-        || typeof parsedSource.headerSubtitle === 'string';
+      const source = executiveSummaryDashboard;
       const {
         nodes: nextNodes,
         edges: nextEdges,
@@ -376,34 +402,10 @@ function WireframeCanvasInner({
         title: resolvedTitle,
       });
       syncNodeCounter(normalizedNodes);
-      setSaveStatus(raw ? 'Loaded from browser' : 'Loaded starter dashboard');
-      setLastSavedAt(new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }));
-      setHasLoadedInitialState(true);
-
-      if (!raw || hasLegacySubtitle) {
-        persistWireframe(normalizedNodes, nextEdges, {
-          appTitle: resolvedTitle,
-        });
-      }
     } catch (error) {
-      console.error('Failed to restore autosaved wireframe', error);
-      setHasLoadedInitialState(true);
+      console.error('Failed to load starter dashboard', error);
     }
-  }, [persistWireframe, setNodes, setEdges, syncNodeCounter]);
-
-  useEffect(() => {
-    if (!hasLoadedInitialState) {
-      return;
-    }
-
-    try {
-      persistWireframe(nodes, edges);
-      setSaveStatus('Autosaved');
-      setLastSavedAt(new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }));
-    } catch (error) {
-      console.error('Failed to autosave wireframe', error);
-    }
-  }, [hasLoadedInitialState, nodes, edges, appTitle, persistWireframe]);
+  }, [setNodes, setEdges, syncNodeCounter]);
 
   useEffect(() => {
     if (!externalDashboardLoad || externalDashboardLoad.requestId <= 0) {
@@ -424,12 +426,7 @@ function WireframeCanvasInner({
       title: resolvedTitle,
     });
     syncNodeCounter(normalizedNodes);
-    persistWireframe(normalizedNodes, nextEdges, {
-      appTitle: resolvedTitle,
-    });
-    setSaveStatus('Loaded dashboard');
-    setLastSavedAt(new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }));
-  }, [externalDashboardLoad, persistWireframe, setNodes, setEdges, syncNodeCounter]);
+  }, [externalDashboardLoad, setNodes, setEdges, syncNodeCounter]);
 
   // Handle delete key and Ctrl+A
   useEffect(() => {
@@ -708,11 +705,7 @@ function WireframeCanvasInner({
       )}
 
       {gridVisible && (
-        <div className="absolute right-4 bottom-4 z-50 flex items-center gap-2">
-          <div className="mr-2 rounded-full bg-white/90 px-3 py-2 text-[11px] font-semibold text-gray-700 shadow-sm border border-gray-200">
-            <span>{saveStatus}</span>
-            {lastSavedAt && <span className="ml-2 text-gray-500">{lastSavedAt}</span>}
-          </div>
+        <div className={`absolute right-4 bottom-4 z-50 flex items-center gap-2 ${isCapturingScreenshot ? 'opacity-0 pointer-events-none' : ''}`}>
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
@@ -723,9 +716,17 @@ function WireframeCanvasInner({
           </button>
           <button
             type="button"
+            onClick={copyCanvasScreenshotToClipboard}
+            className="px-3 py-2 text-xs font-semibold bg-white border border-gray-300 text-gray-700 hover:text-dark hover:border-gray-400"
+            title="Copy screenshot of the center canvas to clipboard"
+          >
+            Screenshot
+          </button>
+          <button
+            type="button"
             onClick={resetToEmptyCanvas}
             className="px-3 py-2 text-xs font-semibold bg-white border border-red-300 text-red-700 hover:bg-red-50 hover:border-red-400"
-            title="Clear browser autosave and reset to an empty canvas"
+            title="Reset to an empty canvas"
           >
             Reset
           </button>

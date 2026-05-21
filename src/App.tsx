@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import WireframeCanvas from './components/WireframeCanvas';
 import Toolbar from './components/Toolbar';
 import DashboardMenu from './components/DashboardMenu';
@@ -13,6 +14,8 @@ const DEFAULT_APP_TITLE = 'Executive Summary';
 
 function App() {
   const [gridVisible, setGridVisible] = useState(true);
+  const [toolbarOpen, setToolbarOpen] = useState(true);
+  const [dashboardMenuOpen, setDashboardMenuOpen] = useState(true);
   const [appTitle, setAppTitle] = useState(DEFAULT_APP_TITLE);
   const [reportingPeriod, setReportingPeriod] = useState<ReportingPeriodValue>(() => getDefaultReportingPeriod());
   const [activeDashboard, setActiveDashboard] = useState('Executive Summary');
@@ -55,17 +58,38 @@ function App() {
 
   return (
     <div className="h-screen w-screen bg-[#f3f4f6] overflow-hidden">
-      <div className="h-full flex items-stretch justify-center gap-4 px-4 py-4">
-        <Toolbar
-          gridVisible={gridVisible}
-          onGridVisibleChange={setGridVisible}
-          isOpen={true}
-        />
-
-        <div className="flex-1 h-full min-w-0 flex items-center justify-center overflow-hidden">
+      <div className="h-full flex flex-row items-stretch justify-center gap-0 px-0 py-0">
+        {/* Left Sidebar (Toolbar) */}
+        <div className="h-full flex items-stretch flex-shrink-0">
           <div
-            className="w-full max-w-[980px] h-full max-h-[calc(100vh-2rem)] bg-white shadow-2xl border border-gray-300 overflow-hidden"
-            style={{ aspectRatio: '8.5 / 11' }}
+            className="h-full overflow-hidden transition-all duration-300"
+            style={{ width: toolbarOpen ? 256 : 0 }}
+          >
+            <div className="h-full w-64">
+              <Toolbar
+                gridVisible={gridVisible}
+                onGridVisibleChange={setGridVisible}
+                isOpen={true}
+              />
+            </div>
+          </div>
+          <div className="relative w-0 h-full">
+            <button
+              onClick={() => setToolbarOpen(!toolbarOpen)}
+              className="absolute top-1/2 -translate-y-1/2 left-0 z-50 bg-white border border-gray-200 rounded-r-md w-5 h-10 flex items-center justify-center shadow-sm hover:bg-gray-50 transition-colors"
+              title={toolbarOpen ? 'Collapse components panel' : 'Expand components panel'}
+            >
+              {toolbarOpen ? <ChevronLeft size={14} /> : <ChevronRight size={14} />}
+            </button>
+          </div>
+        </div>
+
+        {/* Center Canvas with fixed aspect ratio */}
+        <div className="flex-1 flex flex-col items-center justify-center min-w-0 min-h-0 overflow-hidden">
+          <div
+            className="relative bg-white border border-gray-300 overflow-hidden flex flex-col"
+            data-capture-target="letter-canvas"
+            style={{ aspectRatio: '11 / 8.5', width: 'min(100vw, calc(100vh * 11 / 8.5))', height: 'min(100vh, calc(100vw * 8.5 / 11))', maxWidth: '1447px', maxHeight: 'calc(100vw * 8.5 / 11)' }}
           >
             <div className="h-full flex flex-col overflow-hidden">
               <header className="bg-black text-light px-6 py-3 shadow-lg relative min-h-[90px] flex flex-col items-center justify-start">
@@ -103,28 +127,48 @@ function App() {
                   }}
                 />
               </main>
+
+              <div className="pointer-events-none absolute bottom-3 right-3 z-20 opacity-50">
+                <img
+                  src={projectLogo}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-36 w-36 object-contain"
+                />
+              </div>
             </div>
           </div>
         </div>
 
-        <DashboardMenu
-          isOpen={true}
-          side="right"
-          activeDashboard={activeDashboard}
-          onDashboardSelect={handleDashboardSelect}
-          executiveSummaryPage={executiveSummaryPage}
-          onExecutiveSummaryPageChange={handleExecutiveSummaryPageChange}
-        />
+        {/* Right Sidebar (DashboardMenu) */}
+        <div className="h-full flex items-stretch flex-shrink-0">
+          <div className="relative w-0 h-full">
+            <button
+              onClick={() => setDashboardMenuOpen(!dashboardMenuOpen)}
+              className="absolute top-1/2 -translate-y-1/2 right-0 z-50 bg-white border border-gray-200 rounded-l-md w-5 h-10 flex items-center justify-center shadow-sm hover:bg-gray-50 transition-colors"
+              title={dashboardMenuOpen ? 'Collapse dashboards panel' : 'Expand dashboards panel'}
+            >
+              {dashboardMenuOpen ? <ChevronRight size={14} /> : <ChevronLeft size={14} />}
+            </button>
+          </div>
+          <div
+            className="h-full overflow-hidden transition-all duration-300"
+            style={{ width: dashboardMenuOpen ? 256 : 0 }}
+          >
+            <div className="h-full w-64">
+              <DashboardMenu
+                isOpen={true}
+                side="right"
+                activeDashboard={activeDashboard}
+                onDashboardSelect={handleDashboardSelect}
+                executiveSummaryPage={executiveSummaryPage}
+                onExecutiveSummaryPageChange={handleExecutiveSummaryPageChange}
+              />
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div className="pointer-events-none fixed right-4 z-[70] opacity-25" style={{ bottom: '-2.5rem', position: 'fixed' }}>
-        <img
-          src={projectLogo}
-          alt=""
-          aria-hidden="true"
-          className="h-48 w-48 object-contain"
-        />
-      </div>
     </div>
   );
 }

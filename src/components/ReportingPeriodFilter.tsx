@@ -144,13 +144,14 @@ function ReportingPeriodFilter({ value, onChange }: ReportingPeriodFilterProps) 
         Reporting Period
       </div>
 
-      <div className="mt-0.5 grid grid-cols-[1fr_1fr_auto_1.2fr] gap-1.5 items-end text-light">
-        <label className="text-[9px] font-semibold text-white font-body">
+      <div className="mt-1 flex flex-row items-end justify-center gap-3 text-light">
+        <label className="text-[9px] font-semibold text-white font-body min-w-0 flex flex-col items-start">
           Year
           <select
             value={selectedYear}
             onChange={handleYearChange}
-            className="mt-0.5 h-6 w-full border border-gray-300 rounded px-1 text-[10px] leading-tight text-dark bg-white focus:outline-none"
+            className="mt-0.5 h-6 w-full min-w-0 border border-gray-300 rounded px-1 text-[10px] leading-tight text-dark bg-white focus:outline-none"
+            style={{ maxWidth: '70px' }}
           >
             <option value="">Select</option>
             {yearOptions.map((year) => (
@@ -161,12 +162,13 @@ function ReportingPeriodFilter({ value, onChange }: ReportingPeriodFilterProps) 
           </select>
         </label>
 
-        <label className="text-[9px] font-semibold text-white font-body">
+        <label className="text-[9px] font-semibold text-white font-body min-w-0 flex flex-col items-start">
           Week
           <select
             value={selectedWeek}
             onChange={handleWeekChange}
-            className="mt-0.5 h-6 w-full border border-gray-300 rounded px-1 text-[10px] leading-tight text-dark bg-white focus:outline-none"
+            className="mt-0.5 h-6 w-full min-w-0 border border-gray-300 rounded px-1 text-[10px] leading-tight text-dark bg-white focus:outline-none"
+            style={{ maxWidth: '60px' }}
           >
             <option value="">Select</option>
             {weekOptions.map((week) => (
@@ -177,15 +179,16 @@ function ReportingPeriodFilter({ value, onChange }: ReportingPeriodFilterProps) 
           </select>
         </label>
 
-        <div className="text-[9px] text-white/85 font-body pb-1 uppercase">or</div>
+        <div className="text-[9px] text-white/85 font-body pb-1 uppercase flex items-center mx-1">OR</div>
 
-        <label className="text-[9px] font-semibold text-white font-body">
+        <label className="text-[9px] font-semibold text-white font-body min-w-0 flex flex-col items-start">
           Date
           <input
             type="date"
             value={selectedDate}
             onChange={handleDateChange}
-            className="mt-0.5 h-6 w-full border border-gray-300 rounded px-1 text-[10px] leading-tight text-dark bg-white focus:outline-none"
+            className="mt-0.5 h-6 w-full min-w-0 border border-gray-300 rounded px-1 text-[10px] leading-tight text-dark bg-white focus:outline-none"
+            style={{ maxWidth: '110px' }}
           />
         </label>
       </div>

@@ -8,8 +8,10 @@ import {
 
 const ExpectedVsRealityChartVisual = ({
   axisLabels,
+  pointLabelFormat,
 }: {
   axisLabels?: { x?: string; y?: string };
+  pointLabelFormat?: 'difference' | 'currencyK';
 }) => {
   const { elementRef, size } = useElementSize<HTMLDivElement>();
   const margin = { top: 8, right: 24, bottom: 38, left: 34 };
@@ -153,7 +155,9 @@ const ExpectedVsRealityChartVisual = ({
 
           {realityPoints.map((point, index) => {
             const diff = realityValues[index] - flatExpectedValue;
-            const label = diff < 0 ? `(${Math.abs(diff)})` : `${diff}`;
+            const label = pointLabelFormat === 'currencyK'
+              ? (diff < 0 ? `($${Math.abs(diff)}k)` : `$${diff}k`)
+              : (diff < 0 ? `(${Math.abs(diff)})` : `${diff}`);
             const isBelow = diff < 0;
             return (
               <text
