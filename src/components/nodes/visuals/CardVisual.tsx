@@ -2,13 +2,11 @@ const CardVisual = ({
   value = '42500',
   wowPct,
   wowDollarValue,
-  ytdPriorYear = '39,800',
   variancePct = '6.8%',
   varianceFlatValue,
   varianceDollarValue,
   theme = 'light',
   onValueChange,
-  onYtdPriorYearChange,
   onVariancePctChange,
   onVarianceFlatValueChange,
 }: {
@@ -93,14 +91,14 @@ const CardVisual = ({
       <div className={`w-full pt-[max(0.2rem,min(0.45rem,3.5%))] text-xs font-body ${isGrayTheme ? 'text-white/85' : 'text-medium-gray'}`}>
         <div className="flex flex-col gap-[max(0.15rem,min(0.35rem,2.5%))]">
           <div className="flex min-w-0 items-center justify-between gap-2">
-            <div className={`text-[10px] uppercase tracking-wide ${isGrayTheme ? 'text-white/80' : 'text-medium-gray'}`}>PY YTD $</div>
-            <div className="flex min-w-0 items-center gap-0.5">
+            <div className={`text-[10px] uppercase tracking-wide ${isGrayTheme ? 'text-white/80' : 'text-medium-gray'}`}>PY YTD $ VAR</div>
+            <div className={`flex min-w-0 items-center gap-0.5 ${varianceValueClassName}`}>
               <input
-                size={Math.max(String(ytdPriorYear || '').length, 1)}
-                value={ytdPriorYear}
-                onChange={(e) => onYtdPriorYearChange?.(e.target.value)}
+                size={Math.max(String(varianceFlatValue || varianceDollarValue || '').length, 1)}
+                value={varianceFlatValue || varianceDollarValue || ''}
+                onChange={(e) => onVarianceFlatValueChange?.(e.target.value)}
                 onMouseDown={(e) => e.stopPropagation()}
-                className={`nodrag m-0 min-w-0 max-w-[7.5rem] bg-transparent border-0 p-0 text-right leading-none focus:outline-none ${isGrayTheme ? 'text-white' : 'text-black'}`}
+                className="nodrag m-0 min-w-0 max-w-[7.5rem] bg-transparent border-0 p-0 text-right leading-none focus:outline-none text-current"
               />
             </div>
           </div>
@@ -116,18 +114,6 @@ const CardVisual = ({
                 className="nodrag m-0 min-w-0 max-w-[3.25rem] bg-transparent border-0 p-0 text-right leading-none focus:outline-none text-current"
               />
               <span className="text-[10px] leading-none text-current">%</span>
-              <div className="flex items-center gap-0">
-                <span className="text-[10px] leading-none text-current">(</span>
-                <input
-                  type="text"
-                  size={Math.max(String(varianceFlatValue || varianceDollarValue || '').length, 1)}
-                  value={varianceFlatValue || varianceDollarValue || ''}
-                  onChange={(e) => onVarianceFlatValueChange?.(e.target.value)}
-                  onMouseDown={(e) => e.stopPropagation()}
-                  className="nodrag m-0 min-w-0 max-w-[4.75rem] bg-transparent border-0 p-0 text-right leading-none focus:outline-none text-current"
-                />
-                <span className="text-[10px] leading-none text-current">)</span>
-              </div>
             </div>
           </div>
         </div>

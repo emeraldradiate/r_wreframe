@@ -12,6 +12,84 @@ import './App.css';
 
 const DEFAULT_APP_TITLE = 'Executive Summary';
 
+const getIsoWeeksInYear = (year: number) => {
+  const reference = new Date(Date.UTC(year, 11, 28));
+  const day = reference.getUTCDay() || 7;
+  reference.setUTCDate(reference.getUTCDate() + 4 - day);
+  const isoYear = reference.getUTCFullYear();
+  const yearStart = new Date(Date.UTC(isoYear, 0, 1));
+  return Math.ceil((((reference.getTime() - yearStart.getTime()) / 86400000) + 1) / 7);
+};
+
+const getRecentWeekLabels = (reportingYear: number, reportingWeek: number, count = 5) => {
+  const labels: string[] = [];
+
+  for (let offset = count - 1; offset >= 0; offset -= 1) {
+    let yearCursor = reportingYear;
+    let weekCursor = reportingWeek;
+    let remaining = offset;
+
+    while (remaining > 0) {
+      weekCursor -= 1;
+      if (weekCursor < 1) {
+        yearCursor -= 1;
+        weekCursor = getIsoWeeksInYear(yearCursor);
+      }
+      remaining -= 1;
+    }
+
+    labels.push(`Wk ${weekCursor}`);
+  }
+
+  return labels;
+};
+
+const buildFinancialSummaryPayload = (basePayload: unknown, reportingPeriod: ReportingPeriodValue) => {
+  const clonedPayload = JSON.parse(JSON.stringify(basePayload)) as {
+    nodes?: Array<{
+      data?: {
+        componentType?: string;
+        columnLabels?: string[];
+        matrixLayout?: 'weekly' | 'budget';
+        matrixData?: Array<Array<number | string>>;
+      };
+    }>;
+  };
+  const weekLabels = getRecentWeekLabels(reportingPeriod.reportingYear, reportingPeriod.reportingWeek, 5);
+  const weeklyColumnLabels = [
+    'Channel',
+    ...weekLabels,
+  ];
+  const budgetColumnLabels = [
+    'CW Budget',
+    'Budget vs Actual $',
+    'Budget vs Actual %',
+  ];
+
+  if (Array.isArray(clonedPayload.nodes)) {
+    clonedPayload.nodes = clonedPayload.nodes.map((node) => {
+      if (node?.data?.componentType !== 'matrix') {
+        return node;
+      }
+
+      const rowWidth = node.data.matrixData?.[0]?.length || 0;
+      const inferredLayout = rowWidth === 6 ? 'weekly' : rowWidth === 3 ? 'budget' : null;
+      const matrixLayout = node.data.matrixLayout || inferredLayout;
+      const columnLabels = matrixLayout === 'budget' ? budgetColumnLabels : weeklyColumnLabels;
+
+      return {
+        ...node,
+        data: {
+          ...node.data,
+          columnLabels,
+        },
+      };
+    });
+  }
+
+  return clonedPayload;
+};
+
 function App() {
   const [gridVisible, setGridVisible] = useState(true);
   const [toolbarOpen, setToolbarOpen] = useState(true);
@@ -33,12 +111,12 @@ function App() {
     if (activeDashboard === 'Financial Summary') {
       return {
         requestId: dashboardLoadRequestId,
-        payload: financialSummaryDashboard,
+        payload: buildFinancialSummaryPayload(financialSummaryDashboard, reportingPeriod),
       };
     }
 
     return null;
-  }, [activeDashboard, dashboardLoadRequestId, executiveSummaryPage]);
+  }, [activeDashboard, dashboardLoadRequestId, executiveSummaryPage, reportingPeriod]);
 
   const handleDashboardSelect = (dashboardLabel: string) => {
     setActiveDashboard(dashboardLabel);

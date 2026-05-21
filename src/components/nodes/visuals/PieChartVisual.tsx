@@ -5,6 +5,12 @@ interface PieChartVisualProps {
   labels?: string[];
 }
 
+const LABEL_VERTICAL_PROXIMITY = 200;
+const LABEL_HORIZONTAL_PROXIMITY = 200;
+const LABEL_MAX_NUDGE = 10;
+const LABEL_MIN_Y = 54;
+const LABEL_MAX_Y = 146;
+
 const isDarkColor = (hexColor: string) => {
   const hex = hexColor.replace('#', '');
   if (hex.length !== 6) return false;
@@ -14,6 +20,8 @@ const isDarkColor = (hexColor: string) => {
   const luminance = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
   return luminance < 0.5;
 };
+
+const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
 
 const PieChartVisual = ({ data = [45, 30, 25] }: PieChartVisualProps) => {
   const sanitized = data.map((value) => Math.max(1, Math.round(value)));
@@ -51,17 +59,35 @@ const PieChartVisual = ({ data = [45, 30, 25] }: PieChartVisualProps) => {
     };
   });
 
+  const adjustedSlices = [...slices];
+  const byY = [...adjustedSlices].sort((a, b) => a.percentY - b.percentY);
+
+  // Nudge nearby labels apart vertically to improve readability when slices are small.
+  for (let i = 1; i < byY.length; i += 1) {
+    const prev = byY[i - 1];
+    const curr = byY[i];
+    const verticalGap = curr.percentY - prev.percentY;
+    const horizontalGap = Math.abs(curr.percentX - prev.percentX);
+
+    if (verticalGap < LABEL_VERTICAL_PROXIMITY && horizontalGap < LABEL_HORIZONTAL_PROXIMITY) {
+      const needed = LABEL_VERTICAL_PROXIMITY - verticalGap;
+      const nudge = Math.min(LABEL_MAX_NUDGE, Math.ceil(needed / 2));
+      prev.percentY = clamp(prev.percentY - nudge, LABEL_MIN_Y, LABEL_MAX_Y);
+      curr.percentY = clamp(curr.percentY + nudge, LABEL_MIN_Y, LABEL_MAX_Y);
+    }
+  }
+
   return (
     <div className="flex items-center justify-center h-full w-full relative z-10">
       <svg width="100%" height="100%" viewBox="30 30 150 150" preserveAspectRatio="xMidYMid meet">
-        {slices.map((slice) => (
+        {adjustedSlices.map((slice) => (
           <path
             key={`slice-${slice.index}`}
             d={`M 100 100 L ${slice.x1} ${slice.y1} A 65 65 0 ${slice.angle > 180 ? 1 : 0} 1 ${slice.x2} ${slice.y2} Z`}
             fill={slice.sliceColor}
           />
         ))}
-        {slices.map((slice) => (
+        {adjustedSlices.map((slice) => (
           <text
             key={`pct-${slice.index}`}
             x={slice.percentX}
@@ -70,7 +96,7 @@ const PieChartVisual = ({ data = [45, 30, 25] }: PieChartVisualProps) => {
             dominantBaseline="middle"
             fill={slice.pctColor}
             className="font-body"
-            fontSize="9"
+            fontSize="14"
             fontWeight="700"
           >
             {slice.pct}%

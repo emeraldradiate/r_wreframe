@@ -152,7 +152,7 @@ const getDefaultData = (componentType: string, label: string) => {
       return {
         ...baseData,
         seriesLabels: ['Website', 'Call Center', 'Company Stores', 'Amazon', 'Guys.com', 'Domestic Retail', 'International Retail'],
-        seriesColors: ['#EA0029', '#F97316', '#F59E0B', '#10B981', '#06B6D4', '#3B82F6', '#8B5CF6'],
+        seriesColors: ['#8B0000', '#FF8C00', '#FFF275', '#2E8B57', '#003A8C', '#7B3FB3', '#FFB6C1'],
         seriesData: [
           [120, 132, 128, 140, 148, 156],
           [84, 88, 92, 98, 104, 109],

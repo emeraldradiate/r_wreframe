@@ -75,6 +75,7 @@ function PowerBINode({ data, selected }: PowerBINodeProps) {
     String(data.matrixFirstColumnWidth || DEFAULT_MATRIX_FIRST_COLUMN_WIDTH),
   );
   const [matrixShowColorBlocks, setMatrixShowColorBlocks] = useState<boolean>(Boolean(data.matrixShowColorBlocks));
+  const [matrixRegularFirstColumn, setMatrixRegularFirstColumn] = useState<boolean>(Boolean(data.matrixRegularFirstColumn));
   const [gaugeValue, setGaugeValue] = useState<number>(Number(data.value) || 0);
   const [cardValueText, setCardValueText] = useState<string>(String(data.value ?? '42,500'));
   const [cardWowPct, setCardWowPct] = useState<string>(data.wowPct?.percentage || '0.16%');
@@ -142,6 +143,10 @@ function PowerBINode({ data, selected }: PowerBINodeProps) {
     setMatrixShowColorBlocks(Boolean(data.matrixShowColorBlocks));
   }, [data.matrixShowColorBlocks, data.componentType]);
   useEffect(() => {
+    if (data.componentType !== 'matrix') return;
+    setMatrixRegularFirstColumn(Boolean(data.matrixRegularFirstColumn));
+  }, [data.matrixRegularFirstColumn, data.componentType]);
+  useEffect(() => {
     setBarData(data.chartData || defaultBarData);
     setLineData(data.chartData || defaultLineData);
 
@@ -182,7 +187,7 @@ function PowerBINode({ data, selected }: PowerBINodeProps) {
     if (!isEditingThirdAxisValues) setThirdAxisValueText(thirdAxisData.join(', '));
   }, [data.componentType, barData, lineData, xAxisLabels, thirdAxisData, isEditingAxisValues, isEditingXAxisValues, isEditingThirdAxisValues]);
 
-  const commitHeaderEdits = () => { data.label = title.trim() || 'Untitled'; };
+  const commitHeaderEdits = () => { data.label = title.trim(); };
   const updateTitle = (value: string) => { setTitle(value); data.label = value; };
   const updateCardKpis = (field: 'ytdPriorYear' | 'variancePct' | 'varianceFlatValue', value: string) => {
     if (field === 'ytdPriorYear') {
@@ -268,6 +273,11 @@ function PowerBINode({ data, selected }: PowerBINodeProps) {
     const nextValue = !matrixShowColorBlocks;
     setMatrixShowColorBlocks(nextValue);
     updateNodeData({ matrixShowColorBlocks: nextValue });
+  };
+  const toggleMatrixRegularFirstColumn = () => {
+    const nextValue = !matrixRegularFirstColumn;
+    setMatrixRegularFirstColumn(nextValue);
+    updateNodeData({ matrixRegularFirstColumn: nextValue });
   };
 
   const updatePieValue = (index: number, value: string) => {
@@ -440,6 +450,7 @@ function PowerBINode({ data, selected }: PowerBINodeProps) {
             columnLabels={tableColumnLabels}
             firstColumnWidth={matrixFirstColumnWidth}
             showColorBlocks={matrixShowColorBlocks}
+            regularFirstColumn={matrixRegularFirstColumn}
             onCellChange={updateMatrixCell}
             onColumnLabelChange={updateMatrixColumnLabel}
           />
@@ -659,9 +670,20 @@ function PowerBINode({ data, selected }: PowerBINodeProps) {
                     e.preventDefault();
                     e.currentTarget.blur();
                   }}
-                  className="nodrag w-20 px-2 py-1 text-xs border border-gray-200 focus:outline-none"
+                  disabled={matrixRegularFirstColumn}
+                  className="nodrag w-20 px-2 py-1 text-xs border border-gray-200 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
                   title="Set first column width"
                 />
+                <label className="flex items-center gap-1 text-[10px] text-gray-600 font-medium ml-1 select-none">
+                  <input
+                    type="checkbox"
+                    checked={matrixRegularFirstColumn}
+                    onChange={toggleMatrixRegularFirstColumn}
+                    onMouseDown={(e) => e.stopPropagation()}
+                    className="nodrag h-3.5 w-3.5 border border-gray-300"
+                  />
+                  Regular first column
+                </label>
                 <label className="flex items-center gap-1 text-[10px] text-gray-600 font-medium ml-1 select-none">
                   <input
                     type="checkbox"

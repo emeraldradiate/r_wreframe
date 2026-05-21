@@ -63,12 +63,13 @@ const getNearestWeekEndingSunday = (date: Date) => {
 };
 
 export const getDefaultReportingPeriod = (): ReportingPeriodValue => {
-  const weekEndingDate = getNearestWeekEndingSunday(new Date());
-  const weekInfo = getIsoWeekInfo(weekEndingDate);
+  const reportingYear = 2026;
+  const reportingWeek = 32;
+  const weekEndingDate = getWeekEndingSundayFromIsoWeek(reportingYear, reportingWeek);
 
   return {
-    reportingYear: weekInfo.year,
-    reportingWeek: weekInfo.week,
+    reportingYear,
+    reportingWeek,
     reportDate: toIsoDateInput(weekEndingDate),
     selectionMode: 'yearWeek',
   };

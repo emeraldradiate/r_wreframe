@@ -26,6 +26,7 @@ export interface PowerBINodeProps {
     matrixData?: Array<Array<number | string>>;
     matrixFirstColumnWidth?: number;
     matrixShowColorBlocks?: boolean;
+    matrixRegularFirstColumn?: boolean;
     mapData?: string;
     axisLabels?: { x?: string; y?: string; third?: string };
     xAxisLabels?: string[];
@@ -50,7 +51,7 @@ export const defaultBarData = [65, 85, 45, 92, 78];
 export const defaultLineData = [30, 65, 50, 75, 85, 60, 90];
 export const defaultThirdAxisData = [70, 80, 55, 88, 76];
 export const DEFAULT_MATRIX_FIRST_COLUMN_WIDTH = 150;
-export const CHART_COLOR_PALETTE = ['#EA0029', '#F97316', '#F59E0B', '#10B981', '#06B6D4', '#3B82F6', '#8B5CF6'];
+export const CHART_COLOR_PALETTE = ['#8B0000', '#FF8C00', '#FFF275', '#2E8B57', '#003A8C', '#7B3FB3', '#FFB6C1'];
 export const getDefaultXAxisLabels = (length: number) => Array.from({ length }, (_, index) => `${index + 1}`);
 export const normalizeSeriesLength = (series: number[], targetLength: number, fallbackValue = 0) => {
   if (targetLength <= 0) return [];
