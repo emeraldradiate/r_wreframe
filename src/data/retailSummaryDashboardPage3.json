@@ -1,0 +1,1904 @@
+{
+  "version": 1,
+  "savedAt": "2026-06-24T13:00:16.042Z",
+  "appTitle": "Retail Summary",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "powerbi",
+      "position": {
+        "x": -60,
+        "y": -40
+      },
+      "data": {
+        "label": "Domestic Shipped Sales by Partner",
+        "componentType": "matrix",
+        "matrixRegularFirstColumn": false,
+        "matrixFirstColumnWidth": 120,
+        "matrixLeftAlignedColumns": [
+          0
+        ],
+        "matrixGroupedColumns": [
+          {
+            "label": "Group"
+          },
+          {
+            "label": "Wk 15"
+          },
+          {
+            "label": "Wk 16"
+          },
+          {
+            "label": "Wk 17"
+          },
+          {
+            "label": "Wk 18"
+          },
+          {
+            "label": "Wk 19"
+          },
+          {
+            "label": "MTD ($)"
+          },
+          {
+            "label": "YTD ($)"
+          },
+          {
+            "label": "CW (%)"
+          },
+          {
+            "label": "MTD (%)"
+          },
+          {
+            "label": "YTD (%)"
+          },
+          {
+            "label": "CW CM%"
+          },
+          {
+            "label": "MTD CM%"
+          },
+          {
+            "label": "YTD CM%"
+          },
+          {
+            "label": "MTD $ YoY",
+            "subLabels": [
+              "$",
+              "%"
+            ]
+          },
+          {
+            "label": "YTD $ YoY",
+            "subLabels": [
+              "$",
+              "%"
+            ]
+          },
+          {
+            "label": "MTD % YoY"
+          },
+          {
+            "label": "YTD % YoY"
+          }
+        ],
+        "columnLabels": [
+          "Group",
+          "Wk 15",
+          "Wk 16",
+          "Wk 17",
+          "Wk 18",
+          "Wk 19",
+          "MTD",
+          "YTD",
+          "CW % Mix",
+          "MTD % Mix",
+          "YTD % Mix",
+          "CW CM%",
+          "MTD CM%",
+          "YTD CM%",
+          "$",
+          "%",
+          "$",
+          "%",
+          "MTD % YoY",
+          "YTD % YoY"
+        ],
+        "matrixData": [
+          [
+            "Hardware",
+            "$948,191",
+            "$889,412",
+            "$656,517",
+            "$736,761",
+            "$751,014",
+            "$1,628,955",
+            "$6,893,518",
+            "57.1%",
+            "57.1%",
+            "57.1%",
+            "46.8%",
+            "46.6%",
+            "45.8%",
+            "+820,456",
+            "+19.4%",
+            "+1,502,787",
+            "+21.8%",
+            "+1.1%",
+            "+0.9%"
+          ],
+          [
+            "Sporting",
+            "$281,364",
+            "$263,923",
+            "$194,814",
+            "$218,625",
+            "$222,855",
+            "$469,156",
+            "$2,045,570",
+            "17.4%",
+            "17.4%",
+            "17.4%",
+            "47.6%",
+            "47.4%",
+            "46.6%",
+            "+214,785",
+            "+19.4%",
+            "-52,400",
+            "-4.6%",
+            "+1.1%",
+            "+0.9%"
+          ],
+          [
+            "Independents",
+            "$328,218",
+            "$307,872",
+            "$227,254",
+            "$255,031",
+            "$259,965",
+            "$569,393",
+            "$2,386,203",
+            "20.3%",
+            "20.3%",
+            "20.3%",
+            "43.8%",
+            "43.6%",
+            "42.8%",
+            "+231,022",
+            "+19.4%",
+            "+415,200",
+            "+21.8%",
+            "+1.1%",
+            "+0.9%"
+          ],
+          [
+            "Nationwide",
+            "$51,244",
+            "$48,067",
+            "$35,481",
+            "$39,817",
+            "$40,587",
+            "$84,582",
+            "$372,550",
+            "3.2%",
+            "3.2%",
+            "3.2%",
+            "44.2%",
+            "44.0%",
+            "43.2%",
+            "+34,426",
+            "+19.4%",
+            "+60,353",
+            "+21.8%",
+            "+1.1%",
+            "+0.9%"
+          ],
+          [
+            "Farm",
+            "$6,828",
+            "$6,404",
+            "$4,727",
+            "$5,305",
+            "$5,408",
+            "$10,120",
+            "$49,637",
+            "0.4%",
+            "0.4%",
+            "0.4%",
+            "45.5%",
+            "45.3%",
+            "44.5%",
+            "-1,494",
+            "-5.8%",
+            "+9,381",
+            "+21.8%",
+            "-0.7%",
+            "+0.9%"
+          ],
+          [
+            "Nation's Best",
+            "$28,184",
+            "$26,437",
+            "$19,515",
+            "$21,899",
+            "$22,323",
+            "$46,520",
+            "$204,903",
+            "1.8%",
+            "1.8%",
+            "1.8%",
+            "44.2%",
+            "44.0%",
+            "43.2%",
+            "+18,934",
+            "+19.4%",
+            "+33,194",
+            "+21.8%",
+            "+1.1%",
+            "+0.9%"
+          ]
+        ],
+        "matrixSubRows": [
+          [
+            {
+              "label": "Grills",
+              "share": 0.53,
+              "revenueMix": {
+                "cw": 53,
+                "mtd": 54,
+                "ytd": 55
+              },
+              "cmPercent": {
+                "cw": 48,
+                "mtd": 48.2,
+                "ytd": 48.4
+              },
+              "yoyRevenueMix": {
+                "mtd": 1.2,
+                "ytd": 1.5
+              },
+              "yoyCmPercent": {
+                "mtd": 0.5,
+                "ytd": 0.4
+              }
+            },
+            {
+              "label": "Accessories",
+              "share": 0.18,
+              "revenueMix": {
+                "cw": 18,
+                "mtd": 17,
+                "ytd": 16
+              },
+              "cmPercent": {
+                "cw": 62,
+                "mtd": 61.7,
+                "ytd": 61.4
+              },
+              "yoyRevenueMix": {
+                "mtd": -0.8,
+                "ytd": -1
+              },
+              "yoyCmPercent": {
+                "mtd": 1.8,
+                "ytd": 1.5
+              }
+            },
+            {
+              "label": "Pellets",
+              "share": 0.08,
+              "revenueMix": {
+                "cw": 8,
+                "mtd": 8,
+                "ytd": 8
+              },
+              "cmPercent": {
+                "cw": 38,
+                "mtd": 38.3,
+                "ytd": 38.6
+              },
+              "yoyRevenueMix": {
+                "mtd": 0.1,
+                "ytd": 0
+              },
+              "yoyCmPercent": {
+                "mtd": -0.3,
+                "ytd": -0.2
+              }
+            },
+            {
+              "label": "Rubs & Sauces",
+              "share": 0.08,
+              "revenueMix": {
+                "cw": 8,
+                "mtd": 9,
+                "ytd": 10
+              },
+              "cmPercent": {
+                "cw": 56,
+                "mtd": 55.7,
+                "ytd": 55.4
+              },
+              "yoyRevenueMix": {
+                "mtd": 0.4,
+                "ytd": 0.5
+              },
+              "yoyCmPercent": {
+                "mtd": 0.9,
+                "ytd": 0.7
+              }
+            },
+            {
+              "label": "Other",
+              "share": 0.13,
+              "revenueMix": {
+                "cw": 13,
+                "mtd": 12,
+                "ytd": 11
+              },
+              "cmPercent": {
+                "cw": 34,
+                "mtd": 34.3,
+                "ytd": 34.6
+              },
+              "yoyRevenueMix": {
+                "mtd": -0.3,
+                "ytd": -0.2
+              },
+              "yoyCmPercent": {
+                "mtd": -0.4,
+                "ytd": -0.3
+              }
+            }
+          ],
+          [
+            {
+              "label": "Grills",
+              "share": 0.53,
+              "revenueMix": {
+                "cw": 53,
+                "mtd": 54,
+                "ytd": 55
+              },
+              "cmPercent": {
+                "cw": 48,
+                "mtd": 48.2,
+                "ytd": 48.4
+              },
+              "yoyRevenueMix": {
+                "mtd": 1.2,
+                "ytd": 1.5
+              },
+              "yoyCmPercent": {
+                "mtd": 0.5,
+                "ytd": 0.4
+              }
+            },
+            {
+              "label": "Accessories",
+              "share": 0.18,
+              "revenueMix": {
+                "cw": 18,
+                "mtd": 17,
+                "ytd": 16
+              },
+              "cmPercent": {
+                "cw": 62,
+                "mtd": 61.7,
+                "ytd": 61.4
+              },
+              "yoyRevenueMix": {
+                "mtd": -0.8,
+                "ytd": -1
+              },
+              "yoyCmPercent": {
+                "mtd": 1.8,
+                "ytd": 1.5
+              }
+            },
+            {
+              "label": "Pellets",
+              "share": 0.08,
+              "revenueMix": {
+                "cw": 8,
+                "mtd": 8,
+                "ytd": 8
+              },
+              "cmPercent": {
+                "cw": 38,
+                "mtd": 38.3,
+                "ytd": 38.6
+              },
+              "yoyRevenueMix": {
+                "mtd": 0.1,
+                "ytd": 0
+              },
+              "yoyCmPercent": {
+                "mtd": -0.3,
+                "ytd": -0.2
+              }
+            },
+            {
+              "label": "Rubs & Sauces",
+              "share": 0.08,
+              "revenueMix": {
+                "cw": 8,
+                "mtd": 9,
+                "ytd": 10
+              },
+              "cmPercent": {
+                "cw": 56,
+                "mtd": 55.7,
+                "ytd": 55.4
+              },
+              "yoyRevenueMix": {
+                "mtd": 0.4,
+                "ytd": 0.5
+              },
+              "yoyCmPercent": {
+                "mtd": 0.9,
+                "ytd": 0.7
+              }
+            },
+            {
+              "label": "Other",
+              "share": 0.13,
+              "revenueMix": {
+                "cw": 13,
+                "mtd": 12,
+                "ytd": 11
+              },
+              "cmPercent": {
+                "cw": 34,
+                "mtd": 34.3,
+                "ytd": 34.6
+              },
+              "yoyRevenueMix": {
+                "mtd": -0.3,
+                "ytd": -0.2
+              },
+              "yoyCmPercent": {
+                "mtd": -0.4,
+                "ytd": -0.3
+              }
+            }
+          ],
+          [
+            {
+              "label": "Grills",
+              "share": 0.53,
+              "revenueMix": {
+                "cw": 53,
+                "mtd": 54,
+                "ytd": 55
+              },
+              "cmPercent": {
+                "cw": 48,
+                "mtd": 48.2,
+                "ytd": 48.4
+              },
+              "yoyRevenueMix": {
+                "mtd": 1.2,
+                "ytd": 1.5
+              },
+              "yoyCmPercent": {
+                "mtd": 0.5,
+                "ytd": 0.4
+              }
+            },
+            {
+              "label": "Accessories",
+              "share": 0.18,
+              "revenueMix": {
+                "cw": 18,
+                "mtd": 17,
+                "ytd": 16
+              },
+              "cmPercent": {
+                "cw": 62,
+                "mtd": 61.7,
+                "ytd": 61.4
+              },
+              "yoyRevenueMix": {
+                "mtd": -0.8,
+                "ytd": -1
+              },
+              "yoyCmPercent": {
+                "mtd": 1.8,
+                "ytd": 1.5
+              }
+            },
+            {
+              "label": "Pellets",
+              "share": 0.08,
+              "revenueMix": {
+                "cw": 8,
+                "mtd": 8,
+                "ytd": 8
+              },
+              "cmPercent": {
+                "cw": 38,
+                "mtd": 38.3,
+                "ytd": 38.6
+              },
+              "yoyRevenueMix": {
+                "mtd": 0.1,
+                "ytd": 0
+              },
+              "yoyCmPercent": {
+                "mtd": -0.3,
+                "ytd": -0.2
+              }
+            },
+            {
+              "label": "Rubs & Sauces",
+              "share": 0.08,
+              "revenueMix": {
+                "cw": 8,
+                "mtd": 9,
+                "ytd": 10
+              },
+              "cmPercent": {
+                "cw": 56,
+                "mtd": 55.7,
+                "ytd": 55.4
+              },
+              "yoyRevenueMix": {
+                "mtd": 0.4,
+                "ytd": 0.5
+              },
+              "yoyCmPercent": {
+                "mtd": 0.9,
+                "ytd": 0.7
+              }
+            },
+            {
+              "label": "Other",
+              "share": 0.13,
+              "revenueMix": {
+                "cw": 13,
+                "mtd": 12,
+                "ytd": 11
+              },
+              "cmPercent": {
+                "cw": 34,
+                "mtd": 34.3,
+                "ytd": 34.6
+              },
+              "yoyRevenueMix": {
+                "mtd": -0.3,
+                "ytd": -0.2
+              },
+              "yoyCmPercent": {
+                "mtd": -0.4,
+                "ytd": -0.3
+              }
+            }
+          ],
+          [
+            {
+              "label": "Grills",
+              "share": 0.53,
+              "revenueMix": {
+                "cw": 53,
+                "mtd": 54,
+                "ytd": 55
+              },
+              "cmPercent": {
+                "cw": 48,
+                "mtd": 48.2,
+                "ytd": 48.4
+              },
+              "yoyRevenueMix": {
+                "mtd": 1.2,
+                "ytd": 1.5
+              },
+              "yoyCmPercent": {
+                "mtd": 0.5,
+                "ytd": 0.4
+              }
+            },
+            {
+              "label": "Accessories",
+              "share": 0.18,
+              "revenueMix": {
+                "cw": 18,
+                "mtd": 17,
+                "ytd": 16
+              },
+              "cmPercent": {
+                "cw": 62,
+                "mtd": 61.7,
+                "ytd": 61.4
+              },
+              "yoyRevenueMix": {
+                "mtd": -0.8,
+                "ytd": -1
+              },
+              "yoyCmPercent": {
+                "mtd": 1.8,
+                "ytd": 1.5
+              }
+            },
+            {
+              "label": "Pellets",
+              "share": 0.08,
+              "revenueMix": {
+                "cw": 8,
+                "mtd": 8,
+                "ytd": 8
+              },
+              "cmPercent": {
+                "cw": 38,
+                "mtd": 38.3,
+                "ytd": 38.6
+              },
+              "yoyRevenueMix": {
+                "mtd": 0.1,
+                "ytd": 0
+              },
+              "yoyCmPercent": {
+                "mtd": -0.3,
+                "ytd": -0.2
+              }
+            },
+            {
+              "label": "Rubs & Sauces",
+              "share": 0.08,
+              "revenueMix": {
+                "cw": 8,
+                "mtd": 9,
+                "ytd": 10
+              },
+              "cmPercent": {
+                "cw": 56,
+                "mtd": 55.7,
+                "ytd": 55.4
+              },
+              "yoyRevenueMix": {
+                "mtd": 0.4,
+                "ytd": 0.5
+              },
+              "yoyCmPercent": {
+                "mtd": 0.9,
+                "ytd": 0.7
+              }
+            },
+            {
+              "label": "Other",
+              "share": 0.13,
+              "revenueMix": {
+                "cw": 13,
+                "mtd": 12,
+                "ytd": 11
+              },
+              "cmPercent": {
+                "cw": 34,
+                "mtd": 34.3,
+                "ytd": 34.6
+              },
+              "yoyRevenueMix": {
+                "mtd": -0.3,
+                "ytd": -0.2
+              },
+              "yoyCmPercent": {
+                "mtd": -0.4,
+                "ytd": -0.3
+              }
+            }
+          ],
+          [
+            {
+              "label": "Grills",
+              "share": 0.53,
+              "revenueMix": {
+                "cw": 53,
+                "mtd": 54,
+                "ytd": 55
+              },
+              "cmPercent": {
+                "cw": 48,
+                "mtd": 48.2,
+                "ytd": 48.4
+              },
+              "yoyRevenueMix": {
+                "mtd": 1.2,
+                "ytd": 1.5
+              },
+              "yoyCmPercent": {
+                "mtd": 0.5,
+                "ytd": 0.4
+              }
+            },
+            {
+              "label": "Accessories",
+              "share": 0.18,
+              "revenueMix": {
+                "cw": 18,
+                "mtd": 17,
+                "ytd": 16
+              },
+              "cmPercent": {
+                "cw": 62,
+                "mtd": 61.7,
+                "ytd": 61.4
+              },
+              "yoyRevenueMix": {
+                "mtd": -0.8,
+                "ytd": -1
+              },
+              "yoyCmPercent": {
+                "mtd": 1.8,
+                "ytd": 1.5
+              }
+            },
+            {
+              "label": "Pellets",
+              "share": 0.08,
+              "revenueMix": {
+                "cw": 8,
+                "mtd": 8,
+                "ytd": 8
+              },
+              "cmPercent": {
+                "cw": 38,
+                "mtd": 38.3,
+                "ytd": 38.6
+              },
+              "yoyRevenueMix": {
+                "mtd": 0.1,
+                "ytd": 0
+              },
+              "yoyCmPercent": {
+                "mtd": -0.3,
+                "ytd": -0.2
+              }
+            },
+            {
+              "label": "Rubs & Sauces",
+              "share": 0.08,
+              "revenueMix": {
+                "cw": 8,
+                "mtd": 9,
+                "ytd": 10
+              },
+              "cmPercent": {
+                "cw": 56,
+                "mtd": 55.7,
+                "ytd": 55.4
+              },
+              "yoyRevenueMix": {
+                "mtd": 0.4,
+                "ytd": 0.5
+              },
+              "yoyCmPercent": {
+                "mtd": 0.9,
+                "ytd": 0.7
+              }
+            },
+            {
+              "label": "Other",
+              "share": 0.13,
+              "revenueMix": {
+                "cw": 13,
+                "mtd": 12,
+                "ytd": 11
+              },
+              "cmPercent": {
+                "cw": 34,
+                "mtd": 34.3,
+                "ytd": 34.6
+              },
+              "yoyRevenueMix": {
+                "mtd": -0.3,
+                "ytd": -0.2
+              },
+              "yoyCmPercent": {
+                "mtd": -0.4,
+                "ytd": -0.3
+              }
+            }
+          ],
+          [
+            {
+              "label": "Grills",
+              "share": 0.53,
+              "revenueMix": {
+                "cw": 53,
+                "mtd": 54,
+                "ytd": 55
+              },
+              "cmPercent": {
+                "cw": 48,
+                "mtd": 48.2,
+                "ytd": 48.4
+              },
+              "yoyRevenueMix": {
+                "mtd": 1.2,
+                "ytd": 1.5
+              },
+              "yoyCmPercent": {
+                "mtd": 0.5,
+                "ytd": 0.4
+              }
+            },
+            {
+              "label": "Accessories",
+              "share": 0.18,
+              "revenueMix": {
+                "cw": 18,
+                "mtd": 17,
+                "ytd": 16
+              },
+              "cmPercent": {
+                "cw": 62,
+                "mtd": 61.7,
+                "ytd": 61.4
+              },
+              "yoyRevenueMix": {
+                "mtd": -0.8,
+                "ytd": -1
+              },
+              "yoyCmPercent": {
+                "mtd": 1.8,
+                "ytd": 1.5
+              }
+            },
+            {
+              "label": "Pellets",
+              "share": 0.08,
+              "revenueMix": {
+                "cw": 8,
+                "mtd": 8,
+                "ytd": 8
+              },
+              "cmPercent": {
+                "cw": 38,
+                "mtd": 38.3,
+                "ytd": 38.6
+              },
+              "yoyRevenueMix": {
+                "mtd": 0.1,
+                "ytd": 0
+              },
+              "yoyCmPercent": {
+                "mtd": -0.3,
+                "ytd": -0.2
+              }
+            },
+            {
+              "label": "Rubs & Sauces",
+              "share": 0.08,
+              "revenueMix": {
+                "cw": 8,
+                "mtd": 9,
+                "ytd": 10
+              },
+              "cmPercent": {
+                "cw": 56,
+                "mtd": 55.7,
+                "ytd": 55.4
+              },
+              "yoyRevenueMix": {
+                "mtd": 0.4,
+                "ytd": 0.5
+              },
+              "yoyCmPercent": {
+                "mtd": 0.9,
+                "ytd": 0.7
+              }
+            },
+            {
+              "label": "Other",
+              "share": 0.13,
+              "revenueMix": {
+                "cw": 13,
+                "mtd": 12,
+                "ytd": 11
+              },
+              "cmPercent": {
+                "cw": 34,
+                "mtd": 34.3,
+                "ytd": 34.6
+              },
+              "yoyRevenueMix": {
+                "mtd": -0.3,
+                "ytd": -0.2
+              },
+              "yoyCmPercent": {
+                "mtd": -0.4,
+                "ytd": -0.3
+              }
+            }
+          ]
+        ],
+        "matrixStripedRows": false
+      },
+      "style": {
+        "width": 1560,
+        "height": 820
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 1560,
+      "height": 820,
+      "positionAbsolute": {
+        "x": -60,
+        "y": -40
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "5",
+      "type": "powerbi",
+      "position": {
+        "x": -320,
+        "y": 880
+      },
+      "data": {
+        "label": "CW Hardware AOV",
+        "componentType": "card",
+        "cardLayout": "periodKpi",
+        "cardHeroFontSize": "compact",
+        "value": "$10,444.41",
+        "ytdPriorYear": "$10,413.17",
+        "cardPriorActualLabel": "YTD AOV",
+        "cardBudgetLabel": "CW vs YTD",
+        "budgetVariance": {
+          "dollarValue": "-$18.24",
+          "percentage": ""
+        },
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 260,
+        "height": 120
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 260,
+      "height": 120,
+      "positionAbsolute": {
+        "x": -320,
+        "y": 880
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "6",
+      "type": "powerbi",
+      "position": {
+        "x": -320,
+        "y": 1240
+      },
+      "data": {
+        "label": "CW Nationwide AOV",
+        "componentType": "card",
+        "cardLayout": "periodKpi",
+        "cardHeroFontSize": "compact",
+        "value": "$15,585.02",
+        "ytdPriorYear": "$15,522.93",
+        "cardPriorActualLabel": "YTD AOV",
+        "cardBudgetLabel": "CW vs YTD",
+        "budgetVariance": {
+          "dollarValue": "+$62.09",
+          "percentage": ""
+        },
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 260,
+        "height": 120
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 260,
+      "height": 120,
+      "positionAbsolute": {
+        "x": -320,
+        "y": 1240
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "7",
+      "type": "powerbi",
+      "position": {
+        "x": -320,
+        "y": 1360
+      },
+      "data": {
+        "label": "CW Farm AOV",
+        "componentType": "card",
+        "cardLayout": "periodKpi",
+        "cardHeroFontSize": "compact",
+        "value": "$9,907.61",
+        "ytdPriorYear": "$9,927.46",
+        "cardPriorActualLabel": "YTD AOV",
+        "cardBudgetLabel": "CW vs YTD",
+        "budgetVariance": {
+          "dollarValue": "+$14.20",
+          "percentage": ""
+        },
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 260,
+        "height": 120
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 260,
+      "height": 120,
+      "positionAbsolute": {
+        "x": -320,
+        "y": 1360
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "8",
+      "type": "powerbi",
+      "position": {
+        "x": -320,
+        "y": 1000
+      },
+      "data": {
+        "label": "CW Sporting AOV",
+        "componentType": "card",
+        "cardLayout": "periodKpi",
+        "cardHeroFontSize": "compact",
+        "value": "$62,110.95",
+        "ytdPriorYear": "$61,986.98",
+        "cardPriorActualLabel": "YTD AOV",
+        "cardBudgetLabel": "CW vs YTD",
+        "budgetVariance": {
+          "dollarValue": "+$123.97",
+          "percentage": ""
+        },
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 260,
+        "height": 120
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 260,
+      "height": 120,
+      "positionAbsolute": {
+        "x": -320,
+        "y": 1000
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "9",
+      "type": "powerbi",
+      "position": {
+        "x": -320,
+        "y": 1120
+      },
+      "data": {
+        "label": "CW Independents AOV",
+        "componentType": "card",
+        "cardLayout": "periodKpi",
+        "cardHeroFontSize": "compact",
+        "value": "$22,748.47",
+        "ytdPriorYear": "$22,725.75",
+        "cardPriorActualLabel": "YTD AOV",
+        "cardBudgetLabel": "CW vs YTD",
+        "budgetVariance": {
+          "dollarValue": "+$22.72",
+          "percentage": ""
+        },
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 260,
+        "height": 120
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 260,
+      "height": 120,
+      "positionAbsolute": {
+        "x": -320,
+        "y": 1120
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "4",
+      "type": "powerbi",
+      "position": {
+        "x": -60,
+        "y": 780
+      },
+      "data": {
+        "label": "Domestic Orders & Revenue by Partner",
+        "componentType": "matrix",
+        "matrixRegularFirstColumn": false,
+        "matrixFirstColumnWidth": 120,
+        "matrixLeftAlignedColumns": [
+          0
+        ],
+        "matrixGroupedColumns": [
+          {
+            "label": "Group"
+          },
+          {
+            "label": "Wk 15"
+          },
+          {
+            "label": "Wk 16"
+          },
+          {
+            "label": "Wk 17"
+          },
+          {
+            "label": "Wk 18"
+          },
+          {
+            "label": "Wk 19"
+          },
+          {
+            "label": "MTD"
+          },
+          {
+            "label": "YTD"
+          },
+          {
+            "label": "MTD YoY",
+            "subLabels": [
+              "$",
+              "%"
+            ]
+          },
+          {
+            "label": "YTD YoY",
+            "subLabels": [
+              "$",
+              "%"
+            ]
+          }
+        ],
+        "columnLabels": [
+          "Group",
+          "Wk 15",
+          "Wk 16",
+          "Wk 17",
+          "Wk 18",
+          "Wk 19",
+          "MTD",
+          "YTD",
+          "$",
+          "%",
+          "$",
+          "%"
+        ],
+        "matrixData": [
+          [
+            "Hardware",
+            "$948,191",
+            "$889,412",
+            "$656,517",
+            "$736,761",
+            "$751,014",
+            "$1,628,955",
+            "$6,893,518",
+            "+193,876",
+            "+19.4%",
+            "+1,502,787",
+            "+21.8%"
+          ],
+          [
+            "Sporting",
+            "$281,364",
+            "$263,923",
+            "$194,814",
+            "$218,625",
+            "$222,855",
+            "$469,156",
+            "$2,045,570",
+            "+49,261",
+            "+19.4%",
+            "+390,703",
+            "+21.8%"
+          ],
+          [
+            "Independents",
+            "$328,218",
+            "$307,872",
+            "$227,254",
+            "$255,031",
+            "$259,965",
+            "$569,393",
+            "$2,386,203",
+            "+55,126",
+            "+19.4%",
+            "-38,200",
+            "-3.5%"
+          ],
+          [
+            "Nationwide",
+            "$51,244",
+            "$48,067",
+            "$35,481",
+            "$39,817",
+            "$40,587",
+            "$84,582",
+            "$372,550",
+            "-2,140",
+            "-7.8%",
+            "+60,353",
+            "+21.8%"
+          ],
+          [
+            "Farm",
+            "$6,828",
+            "$6,404",
+            "$4,727",
+            "$5,305",
+            "$5,408",
+            "$11,614",
+            "$49,637",
+            "+1,234",
+            "+19.4%",
+            "+9,381",
+            "+21.8%"
+          ],
+          [
+            "Nation's Best",
+            "$28,184",
+            "$26,437",
+            "$19,515",
+            "$21,899",
+            "$22,323",
+            "$46,520",
+            "$204,903",
+            "-1,177",
+            "-7.8%",
+            "+33,194",
+            "+21.8%"
+          ]
+        ],
+        "matrixSubRows": [
+          [
+            {
+              "label": "# Orders",
+              "share": 0.2
+            },
+            {
+              "label": "$ Revenue",
+              "share": 0.35
+            },
+            {
+              "label": "$ Freebies",
+              "share": 0.1
+            },
+            {
+              "label": "W/D $s",
+              "share": 0.15
+            },
+            {
+              "label": "Shipping Cost $s",
+              "share": 0.2
+            }
+          ],
+          [
+            {
+              "label": "# Orders",
+              "share": 0.2
+            },
+            {
+              "label": "$ Revenue",
+              "share": 0.35
+            },
+            {
+              "label": "$ Freebies",
+              "share": 0.1
+            },
+            {
+              "label": "W/D $s",
+              "share": 0.15
+            },
+            {
+              "label": "Shipping Cost $s",
+              "share": 0.2
+            }
+          ],
+          [
+            {
+              "label": "# Orders",
+              "share": 0.2
+            },
+            {
+              "label": "$ Revenue",
+              "share": 0.35
+            },
+            {
+              "label": "$ Freebies",
+              "share": 0.1
+            },
+            {
+              "label": "W/D $s",
+              "share": 0.15
+            },
+            {
+              "label": "Shipping Cost $s",
+              "share": 0.2
+            }
+          ],
+          [
+            {
+              "label": "# Orders",
+              "share": 0.2
+            },
+            {
+              "label": "$ Revenue",
+              "share": 0.35
+            },
+            {
+              "label": "$ Freebies",
+              "share": 0.1
+            },
+            {
+              "label": "W/D $s",
+              "share": 0.15
+            },
+            {
+              "label": "Shipping Cost $s",
+              "share": 0.2
+            }
+          ],
+          [
+            {
+              "label": "# Orders",
+              "share": 0.2
+            },
+            {
+              "label": "$ Revenue",
+              "share": 0.35
+            },
+            {
+              "label": "$ Freebies",
+              "share": 0.1
+            },
+            {
+              "label": "W/D $s",
+              "share": 0.15
+            },
+            {
+              "label": "Shipping Cost $s",
+              "share": 0.2
+            }
+          ],
+          [
+            {
+              "label": "# Orders",
+              "share": 0.2
+            },
+            {
+              "label": "$ Revenue",
+              "share": 0.35
+            },
+            {
+              "label": "$ Freebies",
+              "share": 0.1
+            },
+            {
+              "label": "W/D $s",
+              "share": 0.15
+            },
+            {
+              "label": "Shipping Cost $s",
+              "share": 0.2
+            }
+          ]
+        ],
+        "matrixSubRowData": [
+          [
+            [
+              "",
+              "2215",
+              "2078",
+              "1534",
+              "1721",
+              "1755",
+              "3806",
+              "16,106",
+              "+193,876",
+              "+19.4%",
+              "+1,502,787",
+              "+21.8%"
+            ],
+            [
+              "",
+              "$948,191",
+              "$889,412",
+              "$656,517",
+              "$736,761",
+              "$751,014",
+              "$1,628,955",
+              "$6,893,518",
+              "+193,876",
+              "+19.4%",
+              "+1,502,787",
+              "+21.8%"
+            ],
+            [
+              "",
+              "$5,126",
+              "$4,572",
+              "$3,654",
+              "$3,866",
+              "$4,100",
+              "$20,787",
+              "$36,353",
+              "+1,048",
+              "+18.4%",
+              "+7,885",
+              "+20.7%"
+            ],
+            [
+              "",
+              "$8,236",
+              "$7,496",
+              "$5,872",
+              "$6,463",
+              "$6,200",
+              "$33,730",
+              "$58,988",
+              "+1,684",
+              "+18.4%",
+              "+12,665",
+              "+20.7%"
+            ],
+            [
+              "",
+              "$65,616",
+              "$64,035",
+              "$44,514",
+              "$54,075",
+              "$53,021",
+              "$274,151",
+              "$479,448",
+              "+13,958",
+              "+18.4%",
+              "+101,893",
+              "+20.7%"
+            ]
+          ],
+          [
+            [
+              "",
+              "657",
+              "617",
+              "455",
+              "511",
+              "521",
+              "1096",
+              "4,779",
+              "+49,261",
+              "+19.4%",
+              "+390,703",
+              "+21.8%"
+            ],
+            [
+              "",
+              "$281,364",
+              "$263,923",
+              "$194,814",
+              "$218,625",
+              "$222,855",
+              "$469,156",
+              "$2,045,570",
+              "+49,261",
+              "+19.4%",
+              "+390,703",
+              "+21.8%"
+            ],
+            [
+              "",
+              "$1,521",
+              "$1,357",
+              "$1,084",
+              "$1,147",
+              "$1,217",
+              "$6,168",
+              "$10,787",
+              "+266",
+              "+18.4%",
+              "+2,050",
+              "+20.7%"
+            ],
+            [
+              "",
+              "$2,444",
+              "$2,224",
+              "$1,742",
+              "$1,918",
+              "$1,840",
+              "$10,009",
+              "$17,504",
+              "+428",
+              "+18.4%",
+              "+3,293",
+              "+20.7%"
+            ],
+            [
+              "",
+              "$19,471",
+              "$19,002",
+              "$13,209",
+              "$16,046",
+              "$15,733",
+              "$81,351",
+              "$142,270",
+              "+3,547",
+              "+18.4%",
+              "+26,491",
+              "+20.7%"
+            ]
+          ],
+          [
+            [
+              "",
+              "767",
+              "719",
+              "531",
+              "596",
+              "607",
+              "1330",
+              "5,575",
+              "+55,126",
+              "+19.4%",
+              "+415,200",
+              "+21.8%"
+            ],
+            [
+              "",
+              "$328,218",
+              "$307,872",
+              "$227,254",
+              "$255,031",
+              "$259,965",
+              "$569,393",
+              "$2,386,203",
+              "+55,126",
+              "+19.4%",
+              "+415,200",
+              "+21.8%"
+            ],
+            [
+              "",
+              "$1,774",
+              "$1,583",
+              "$1,265",
+              "$1,338",
+              "$1,419",
+              "$7,195",
+              "$12,584",
+              "+298",
+              "+18.4%",
+              "+2,179",
+              "+20.7%"
+            ],
+            [
+              "",
+              "$2,851",
+              "$2,595",
+              "$2,033",
+              "$2,237",
+              "$2,146",
+              "$11,676",
+              "$20,419",
+              "+479",
+              "+18.4%",
+              "+3,499",
+              "+20.7%"
+            ],
+            [
+              "",
+              "$22,713",
+              "$22,166",
+              "$15,409",
+              "$18,718",
+              "$18,353",
+              "$94,898",
+              "$165,962",
+              "+3,969",
+              "+18.4%",
+              "+28,152",
+              "+20.7%"
+            ]
+          ],
+          [
+            [
+              "",
+              "120",
+              "112",
+              "83",
+              "93",
+              "95",
+              "198",
+              "870",
+              "+7,816",
+              "+19.4%",
+              "+60,353",
+              "+21.8%"
+            ],
+            [
+              "",
+              "$51,244",
+              "$48,067",
+              "$35,481",
+              "$39,817",
+              "$40,587",
+              "$84,582",
+              "$372,550",
+              "+7,816",
+              "+19.4%",
+              "+60,353",
+              "+21.8%"
+            ],
+            [
+              "",
+              "$277",
+              "$247",
+              "$197",
+              "$209",
+              "$222",
+              "$1,123",
+              "$1,965",
+              "+42",
+              "+18.4%",
+              "+317",
+              "+20.7%"
+            ],
+            [
+              "",
+              "$445",
+              "$405",
+              "$317",
+              "$349",
+              "$335",
+              "$1,823",
+              "$3,188",
+              "+68",
+              "+18.4%",
+              "+509",
+              "+20.7%"
+            ],
+            [
+              "",
+              "$3,546",
+              "$3,461",
+              "$2,406",
+              "$2,922",
+              "$2,865",
+              "$14,816",
+              "$25,911",
+              "+563",
+              "+18.4%",
+              "+4,092",
+              "+20.7%"
+            ]
+          ],
+          [
+            [
+              "",
+              "16",
+              "15",
+              "11",
+              "12",
+              "13",
+              "27",
+              "116",
+              "+1,234",
+              "+19.4%",
+              "+9,381",
+              "+21.8%"
+            ],
+            [
+              "",
+              "$6,828",
+              "$6,404",
+              "$4,727",
+              "$5,305",
+              "$5,408",
+              "$11,614",
+              "$49,637",
+              "+1,234",
+              "+19.4%",
+              "+9,381",
+              "+21.8%"
+            ],
+            [
+              "",
+              "$37",
+              "$33",
+              "$26",
+              "$28",
+              "$30",
+              "$150",
+              "$262",
+              "+7",
+              "+18.4%",
+              "+49",
+              "+20.7%"
+            ],
+            [
+              "",
+              "$59",
+              "$54",
+              "$42",
+              "$47",
+              "$45",
+              "$243",
+              "$425",
+              "+11",
+              "+18.4%",
+              "+79",
+              "+20.7%"
+            ],
+            [
+              "",
+              "$472",
+              "$460",
+              "$320",
+              "$389",
+              "$381",
+              "$1,971",
+              "$3,447",
+              "+89",
+              "+18.4%",
+              "+635",
+              "+20.7%"
+            ]
+          ],
+          [
+            [
+              "",
+              "120",
+              "112",
+              "83",
+              "93",
+              "95",
+              "198",
+              "870",
+              "+7,816",
+              "+19.4%",
+              "+60,353",
+              "+21.8%"
+            ],
+            [
+              "",
+              "$51,244",
+              "$48,067",
+              "$35,481",
+              "$39,817",
+              "$40,587",
+              "$84,582",
+              "$372,550",
+              "+7,816",
+              "+19.4%",
+              "+60,353",
+              "+21.8%"
+            ],
+            [
+              "",
+              "$277",
+              "$247",
+              "$197",
+              "$209",
+              "$222",
+              "$1,123",
+              "$1,965",
+              "+42",
+              "+18.4%",
+              "+317",
+              "+20.7%"
+            ],
+            [
+              "",
+              "$445",
+              "$405",
+              "$317",
+              "$349",
+              "$335",
+              "$1,823",
+              "$3,188",
+              "+68",
+              "+18.4%",
+              "+509",
+              "+20.7%"
+            ],
+            [
+              "",
+              "$3,546",
+              "$3,461",
+              "$2,406",
+              "$2,922",
+              "$2,865",
+              "$14,816",
+              "$25,911",
+              "+563",
+              "+18.4%",
+              "+4,092",
+              "+20.7%"
+            ]
+          ]
+        ],
+        "matrixStripedRows": false
+      },
+      "style": {
+        "width": 1560,
+        "height": 820
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 1560,
+      "height": 820,
+      "positionAbsolute": {
+        "x": -60,
+        "y": 780
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "10",
+      "type": "powerbi",
+      "position": {
+        "x": -320,
+        "y": 1480
+      },
+      "data": {
+        "label": "CW Nation's Best AOV",
+        "componentType": "card",
+        "cardLayout": "periodKpi",
+        "cardHeroFontSize": "compact",
+        "value": "$12,480.00",
+        "ytdPriorYear": "$12,310.00",
+        "cardPriorActualLabel": "YTD AOV",
+        "cardBudgetLabel": "CW vs YTD",
+        "budgetVariance": {
+          "dollarValue": "+$170.00",
+          "percentage": ""
+        },
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 260,
+        "height": 120
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 260,
+      "height": 120,
+      "positionAbsolute": {
+        "x": -320,
+        "y": 1480
+      },
+      "selected": false,
+      "dragging": false
+    }
+  ],
+  "edges": []
+}

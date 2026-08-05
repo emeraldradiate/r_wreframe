@@ -1,0 +1,867 @@
+{
+  "version": 1,
+  "savedAt": "2026-07-27T14:19:41.962Z",
+  "appTitle": "Agent Search",
+  "nodes": [
+    {
+      "id": "sq5-agents-matrix",
+      "type": "powerbi",
+      "position": {
+        "x": 40,
+        "y": 40
+      },
+      "data": {
+        "label": "Agents",
+        "componentType": "matrix",
+        "hideHeader": true,
+        "matrixRegularFirstColumn": true,
+        "matrixStripedRows": true,
+        "matrixDisableVarianceColors": true,
+        "matrixWrapColumnHeaders": true,
+        "matrixLeftAlignedColumns": [],
+        "matrixColumnWidths": [
+          null,
+          null,
+          118,
+          170,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "columnLabels": [
+          "LAST NAME",
+          "FIRST NAME",
+          "PHONE NUMBER",
+          "EMAIL",
+          "CITY",
+          "STATE",
+          "AVG HOURS/WK",
+          "HOURS UPCOMING",
+          "ESCALATION RATE",
+          "FCR RATE",
+          "OPEN TICKETS"
+        ],
+        "matrixData": [
+          [
+            "Rivera",
+            "Alex",
+            "(706) 555-1101",
+            "alex.rivera@company.com",
+            "Augusta",
+            "GA",
+            "38.5",
+            "40",
+            "3.8%",
+            "84%",
+            "6"
+          ],
+          [
+            "Kim",
+            "Jordan",
+            "(801) 555-1102",
+            "jordan.kim@company.com",
+            "Lehi",
+            "UT",
+            "40.0",
+            "40",
+            "2.9%",
+            "87%",
+            "4"
+          ],
+          [
+            "Patel",
+            "Sam",
+            "(512) 555-1103",
+            "sam.patel@company.com",
+            "Austin",
+            "TX",
+            "36.0",
+            "32",
+            "5.1%",
+            "79%",
+            "9"
+          ],
+          [
+            "Brooks",
+            "Taylor",
+            "(404) 555-1104",
+            "taylor.brooks@company.com",
+            "Atlanta",
+            "GA",
+            "39.0",
+            "40",
+            "4.4%",
+            "81%",
+            "7"
+          ],
+          [
+            "Lee",
+            "Morgan",
+            "(706) 555-1105",
+            "morgan.lee@company.com",
+            "Augusta",
+            "GA",
+            "40.0",
+            "40",
+            "1.2%",
+            "91%",
+            "2"
+          ],
+          [
+            "Dunn",
+            "Chris",
+            "(801) 555-1106",
+            "chris.dunn@company.com",
+            "Lehi",
+            "UT",
+            "40.0",
+            "40",
+            "1.8%",
+            "89%",
+            "3"
+          ],
+          [
+            "OBrien",
+            "Pat",
+            "(615) 555-1107",
+            "pat.obrien@company.com",
+            "Nashville",
+            "TN",
+            "40.0",
+            "32",
+            "0.9%",
+            "93%",
+            "1"
+          ],
+          [
+            "Nguyen",
+            "Linh",
+            "(206) 555-1108",
+            "linh.nguyen@company.com",
+            "Seattle",
+            "WA",
+            "37.5",
+            "40",
+            "4.8%",
+            "80%",
+            "8"
+          ],
+          [
+            "Foster",
+            "Marcus",
+            "(303) 555-1109",
+            "marcus.foster@company.com",
+            "Denver",
+            "CO",
+            "32.0",
+            "24",
+            "6.2%",
+            "76%",
+            "11"
+          ],
+          [
+            "Reed",
+            "Hannah",
+            "(919) 555-1110",
+            "hannah.reed@company.com",
+            "Raleigh",
+            "NC",
+            "38.0",
+            "40",
+            "3.5%",
+            "85%",
+            "5"
+          ],
+          [
+            "Coleman",
+            "Derek",
+            "(312) 555-1111",
+            "derek.coleman@company.com",
+            "Chicago",
+            "IL",
+            "40.0",
+            "40",
+            "5.6%",
+            "78%",
+            "10"
+          ],
+          [
+            "Price",
+            "Olivia",
+            "(503) 555-1112",
+            "olivia.price@company.com",
+            "Portland",
+            "OR",
+            "24.0",
+            "16",
+            "7.1%",
+            "74%",
+            "3"
+          ],
+          [
+            "Hayes",
+            "Nathan",
+            "(702) 555-1113",
+            "nathan.hayes@company.com",
+            "Las Vegas",
+            "NV",
+            "0.0",
+            "0",
+            "0.0%",
+            "0%",
+            "0"
+          ],
+          [
+            "Barnes",
+            "Priya",
+            "(617) 555-1114",
+            "priya.barnes@company.com",
+            "Boston",
+            "MA",
+            "39.5",
+            "40",
+            "3.1%",
+            "86%",
+            "4"
+          ],
+          [
+            "Russell",
+            "Ethan",
+            "(843) 555-1115",
+            "ethan.russell@company.com",
+            "Charleston",
+            "SC",
+            "36.5",
+            "40",
+            "4.9%",
+            "82%",
+            "6"
+          ],
+          [
+            "Griffin",
+            "Sofia",
+            "(858) 555-1116",
+            "sofia.griffin@company.com",
+            "San Diego",
+            "CA",
+            "38.0",
+            "32",
+            "2.4%",
+            "88%",
+            "3"
+          ],
+          [
+            "Wallace",
+            "Tyler",
+            "(901) 555-1117",
+            "tyler.wallace@company.com",
+            "Memphis",
+            "TN",
+            "40.0",
+            "40",
+            "6.8%",
+            "77%",
+            "12"
+          ],
+          [
+            "Sullivan",
+            "Maya",
+            "(407) 555-1118",
+            "maya.sullivan@company.com",
+            "Orlando",
+            "FL",
+            "35.0",
+            "40",
+            "3.3%",
+            "83%",
+            "5"
+          ],
+          [
+            "Torres",
+            "Isabella",
+            "(210) 555-1119",
+            "isabella.torres@company.com",
+            "San Antonio",
+            "TX",
+            "37.0",
+            "40",
+            "4.1%",
+            "83%",
+            "5"
+          ],
+          [
+            "Mitchell",
+            "Caleb",
+            "(314) 555-1120",
+            "caleb.mitchell@company.com",
+            "St. Louis",
+            "MO",
+            "39.0",
+            "40",
+            "3.9%",
+            "84%",
+            "6"
+          ],
+          [
+            "Campbell",
+            "Ava",
+            "(916) 555-1121",
+            "ava.campbell@company.com",
+            "Sacramento",
+            "CA",
+            "38.5",
+            "32",
+            "2.7%",
+            "89%",
+            "3"
+          ],
+          [
+            "Parker",
+            "Logan",
+            "(205) 555-1122",
+            "logan.parker@company.com",
+            "Birmingham",
+            "AL",
+            "36.0",
+            "40",
+            "5.3%",
+            "80%",
+            "8"
+          ],
+          [
+            "Evans",
+            "Chloe",
+            "(317) 555-1123",
+            "chloe.evans@company.com",
+            "Indianapolis",
+            "IN",
+            "40.0",
+            "40",
+            "3.0%",
+            "86%",
+            "4"
+          ],
+          [
+            "Edwards",
+            "Noah",
+            "(602) 555-1124",
+            "noah.edwards@company.com",
+            "Phoenix",
+            "AZ",
+            "34.5",
+            "40",
+            "5.8%",
+            "78%",
+            "9"
+          ],
+          [
+            "Collins",
+            "Zoe",
+            "(704) 555-1125",
+            "zoe.collins@company.com",
+            "Charlotte",
+            "NC",
+            "37.5",
+            "40",
+            "4.6%",
+            "81%",
+            "7"
+          ],
+          [
+            "Stewart",
+            "Liam",
+            "(502) 555-1126",
+            "liam.stewart@company.com",
+            "Louisville",
+            "KY",
+            "38.0",
+            "32",
+            "3.4%",
+            "85%",
+            "5"
+          ],
+          [
+            "Morris",
+            "Aria",
+            "(405) 555-1127",
+            "aria.morris@company.com",
+            "Oklahoma City",
+            "OK",
+            "35.5",
+            "40",
+            "4.7%",
+            "82%",
+            "6"
+          ],
+          [
+            "Rogers",
+            "Jackson",
+            "(414) 555-1128",
+            "jackson.rogers@company.com",
+            "Milwaukee",
+            "WI",
+            "40.0",
+            "40",
+            "6.1%",
+            "77%",
+            "10"
+          ],
+          [
+            "Reed",
+            "Natalie",
+            "(216) 555-1129",
+            "natalie.reed@company.com",
+            "Cleveland",
+            "OH",
+            "39.5",
+            "40",
+            "3.6%",
+            "84%",
+            "4"
+          ],
+          [
+            "Cook",
+            "Benjamin",
+            "(505) 555-1130",
+            "benjamin.cook@company.com",
+            "Albuquerque",
+            "NM",
+            "33.0",
+            "24",
+            "5.9%",
+            "79%",
+            "8"
+          ],
+          [
+            "Morgan",
+            "Grace",
+            "(901) 555-1131",
+            "grace.morgan@company.com",
+            "Memphis",
+            "TN",
+            "36.5",
+            "40",
+            "4.2%",
+            "83%",
+            "5"
+          ],
+          [
+            "Bell",
+            "Henry",
+            "(402) 555-1132",
+            "henry.bell@company.com",
+            "Omaha",
+            "NE",
+            "38.0",
+            "40",
+            "3.8%",
+            "85%",
+            "6"
+          ],
+          [
+            "Murphy",
+            "Lily",
+            "(775) 555-1133",
+            "lily.murphy@company.com",
+            "Reno",
+            "NV",
+            "28.0",
+            "16",
+            "6.5%",
+            "75%",
+            "4"
+          ],
+          [
+            "Bailey",
+            "Owen",
+            "(334) 555-1134",
+            "owen.bailey@company.com",
+            "Montgomery",
+            "AL",
+            "40.0",
+            "40",
+            "4.0%",
+            "82%",
+            "7"
+          ],
+          [
+            "Rivera",
+            "Camila",
+            "(787) 555-1135",
+            "camila.rivera@company.com",
+            "San Juan",
+            "PR",
+            "32.0",
+            "32",
+            "5.4%",
+            "80%",
+            "6"
+          ],
+          [
+            "Cooper",
+            "Elijah",
+            "(208) 555-1136",
+            "elijah.cooper@company.com",
+            "Boise",
+            "ID",
+            "37.0",
+            "40",
+            "3.2%",
+            "87%",
+            "3"
+          ],
+          [
+            "Richardson",
+            "Harper",
+            "(501) 555-1137",
+            "harper.richardson@company.com",
+            "Little Rock",
+            "AR",
+            "35.0",
+            "40",
+            "4.5%",
+            "81%",
+            "5"
+          ],
+          [
+            "Cox",
+            "Mason",
+            "(307) 555-1138",
+            "mason.cox@company.com",
+            "Cheyenne",
+            "WY",
+            "20.0",
+            "8",
+            "8.2%",
+            "72%",
+            "2"
+          ],
+          [
+            "Howard",
+            "Ella",
+            "(401) 555-1139",
+            "ella.howard@company.com",
+            "Providence",
+            "RI",
+            "39.0",
+            "40",
+            "2.8%",
+            "88%",
+            "4"
+          ],
+          [
+            "Ward",
+            "Aiden",
+            "(605) 555-1140",
+            "aiden.ward@company.com",
+            "Sioux Falls",
+            "SD",
+            "38.5",
+            "40",
+            "4.3%",
+            "83%",
+            "6"
+          ],
+          [
+            "Peterson",
+            "Scarlett",
+            "(907) 555-1141",
+            "scarlett.peterson@company.com",
+            "Anchorage",
+            "AK",
+            "30.0",
+            "24",
+            "5.0%",
+            "79%",
+            "5"
+          ],
+          [
+            "Ramirez",
+            "Lucas",
+            "(505) 555-1142",
+            "lucas.ramirez@company.com",
+            "Santa Fe",
+            "NM",
+            "36.0",
+            "32",
+            "4.8%",
+            "80%",
+            "7"
+          ],
+          [
+            "James",
+            "Violet",
+            "(304) 555-1143",
+            "violet.james@company.com",
+            "Charleston",
+            "WV",
+            "34.0",
+            "40",
+            "5.5%",
+            "78%",
+            "8"
+          ],
+          [
+            "Watson",
+            "Sebastian",
+            "(208) 555-1144",
+            "sebastian.watson@company.com",
+            "Idaho Falls",
+            "ID",
+            "40.0",
+            "40",
+            "3.7%",
+            "84%",
+            "5"
+          ],
+          [
+            "Brooks",
+            "Stella",
+            "(603) 555-1145",
+            "stella.brooks@company.com",
+            "Manchester",
+            "NH",
+            "37.5",
+            "40",
+            "2.5%",
+            "90%",
+            "2"
+          ],
+          [
+            "Kelly",
+            "Wyatt",
+            "(406) 555-1146",
+            "wyatt.kelly@company.com",
+            "Billings",
+            "MT",
+            "38.0",
+            "32",
+            "4.9%",
+            "81%",
+            "6"
+          ],
+          [
+            "Sanders",
+            "Penelope",
+            "(701) 555-1147",
+            "penelope.sanders@company.com",
+            "Fargo",
+            "ND",
+            "39.0",
+            "40",
+            "3.3%",
+            "86%",
+            "4"
+          ],
+          [
+            "Price",
+            "Levi",
+            "(802) 555-1148",
+            "levi.price@company.com",
+            "Burlington",
+            "VT",
+            "36.5",
+            "40",
+            "4.4%",
+            "82%",
+            "5"
+          ],
+          [
+            "Bennett",
+            "Layla",
+            "(410) 555-1149",
+            "layla.bennett@company.com",
+            "Baltimore",
+            "MD",
+            "40.0",
+            "40",
+            "5.2%",
+            "79%",
+            "9"
+          ],
+          [
+            "Wood",
+            "Isaiah",
+            "(505) 555-1150",
+            "isaiah.wood@company.com",
+            "Las Cruces",
+            "NM",
+            "33.5",
+            "24",
+            "6.0%",
+            "76%",
+            "7"
+          ],
+          [
+            "Barnes",
+            "Aurora",
+            "(208) 555-1151",
+            "aurora.barnes@company.com",
+            "Nampa",
+            "ID",
+            "35.0",
+            "40",
+            "4.1%",
+            "83%",
+            "5"
+          ],
+          [
+            "Ross",
+            "Carter",
+            "(843) 555-1152",
+            "carter.ross@company.com",
+            "Columbia",
+            "SC",
+            "38.0",
+            "40",
+            "3.9%",
+            "85%",
+            "6"
+          ]
+        ]
+      },
+      "style": {
+        "width": 1180,
+        "height": 640
+      },
+      "width": 1180,
+      "height": 640,
+      "draggable": true,
+      "selectable": true,
+      "resizing": false
+    },
+    {
+      "id": "sq5-field-chooser",
+      "type": "powerbi",
+      "position": {
+        "x": 1240,
+        "y": 40
+      },
+      "data": {
+        "label": "Choose your field",
+        "componentType": "fieldChooser",
+        "hideHeader": true,
+        "fieldChooserFields": [
+          {
+            "label": "Select all",
+            "checked": false
+          },
+          {
+            "label": "LAST NAME",
+            "checked": true
+          },
+          {
+            "label": "FIRST NAME",
+            "checked": true
+          },
+          {
+            "label": "PHONE NUMBER",
+            "checked": true
+          },
+          {
+            "label": "EMAIL",
+            "checked": true
+          },
+          {
+            "label": "CITY",
+            "checked": true
+          },
+          {
+            "label": "STATE",
+            "checked": true
+          },
+          {
+            "label": "AVG HOURS/WK",
+            "checked": true
+          },
+          {
+            "label": "HOURS UPCOMING",
+            "checked": true
+          },
+          {
+            "label": "ESCALATION RATE",
+            "checked": true
+          },
+          {
+            "label": "FCR RATE",
+            "checked": true
+          },
+          {
+            "label": "OPEN TICKETS",
+            "checked": true
+          },
+          {
+            "label": "TEAM",
+            "checked": false
+          },
+          {
+            "label": "SHIFT",
+            "checked": false
+          },
+          {
+            "label": "TENURE",
+            "checked": false
+          },
+          {
+            "label": "CUSTOMERS ASSIGNED",
+            "checked": false
+          },
+          {
+            "label": "CALLS THIS WEEK",
+            "checked": false
+          },
+          {
+            "label": "AVG HANDLE TIME",
+            "checked": false
+          },
+          {
+            "label": "CSAT",
+            "checked": false
+          },
+          {
+            "label": "TRANSFER RATE",
+            "checked": false
+          },
+          {
+            "label": "RE-OPEN RATE",
+            "checked": false
+          },
+          {
+            "label": "LAST LOGIN",
+            "checked": false
+          },
+          {
+            "label": "AGENT STATUS",
+            "checked": false
+          },
+          {
+            "label": "SUPERVISOR",
+            "checked": false
+          },
+          {
+            "label": "SATISFACTION RATE",
+            "checked": false
+          },
+          {
+            "label": "TRAINING STATUS",
+            "checked": false
+          }
+        ]
+      },
+      "style": {
+        "width": 260,
+        "height": 640
+      },
+      "width": 260,
+      "height": 640,
+      "draggable": true,
+      "selectable": true,
+      "resizing": false
+    }
+  ],
+  "edges": []
+}

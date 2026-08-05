@@ -1,0 +1,721 @@
+{
+  "version": 1,
+  "savedAt": "2026-06-24T11:48:49.519Z",
+  "appTitle": "Retail Summary",
+  "nodes": [
+    {
+      "id": "3",
+      "type": "powerbi",
+      "position": {
+        "x": -60,
+        "y": -40
+      },
+      "data": {
+        "label": "Total Stores",
+        "componentType": "card",
+        "cardLayout": "periodKpi",
+        "value": "2,243",
+        "ytdPriorYear": "2,237",
+        "cardPriorActualLabel": "Previous Month End Total",
+        "cardBudgetLabel": "MTD New",
+        "cardPriorLabel": "MTD Lost",
+        "budgetVariance": {
+          "dollarValue": "+52",
+          "percentage": "+4.0%"
+        },
+        "priorVariance": {
+          "dollarValue": "-14",
+          "percentage": "-1.1%"
+        },
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 260,
+        "height": 180
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 260,
+      "height": 180,
+      "positionAbsolute": {
+        "x": -60,
+        "y": -40
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "4",
+      "type": "powerbi",
+      "position": {
+        "x": -60,
+        "y": 160
+      },
+      "data": {
+        "label": "Total Diamond Stores",
+        "componentType": "card",
+        "cardLayout": "periodKpi",
+        "value": "184",
+        "ytdPriorYear": "184",
+        "cardPriorActualLabel": "Previous Month End Total",
+        "cardBudgetLabel": "MTD New",
+        "cardPriorLabel": "MTD Lost",
+        "budgetVariance": {
+          "dollarValue": "+52",
+          "percentage": "+4.0%"
+        },
+        "priorVariance": {
+          "dollarValue": "-14",
+          "percentage": "-1.1%"
+        },
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 260,
+        "height": 180
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 260,
+      "height": 180,
+      "positionAbsolute": {
+        "x": -60,
+        "y": 160
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "5",
+      "type": "powerbi",
+      "position": {
+        "x": -60,
+        "y": 360
+      },
+      "data": {
+        "label": "Total Authorized Stores",
+        "componentType": "card",
+        "cardLayout": "periodKpi",
+        "value": "2,059",
+        "ytdPriorYear": "2,053",
+        "cardPriorActualLabel": "Previous Month End Total",
+        "cardBudgetLabel": "MTD New",
+        "cardPriorLabel": "MTD Lost",
+        "budgetVariance": {
+          "dollarValue": "+52",
+          "percentage": "+4.0%"
+        },
+        "priorVariance": {
+          "dollarValue": "-14",
+          "percentage": "-1.1%"
+        },
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 260,
+        "height": 180
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 260,
+      "height": 180,
+      "positionAbsolute": {
+        "x": -60,
+        "y": 360
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "6",
+      "type": "powerbi",
+      "position": {
+        "x": -60,
+        "y": 560
+      },
+      "data": {
+        "label": "YTD Completed Events",
+        "componentType": "card",
+        "cardLayout": "periodKpi",
+        "value": "197",
+        "ytdPriorYear": "269",
+        "cardPriorActualLabel": "Budget",
+        "cardBudgetLabel": "YTD vs Budget",
+        "budgetVariance": {
+          "dollarValue": "-72",
+          "percentage": "-26.8%"
+        },
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 260,
+        "height": 180
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 260,
+      "height": 180,
+      "positionAbsolute": {
+        "x": -60,
+        "y": 560
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "7",
+      "type": "powerbi",
+      "position": {
+        "x": -60,
+        "y": 760
+      },
+      "data": {
+        "label": "YTD Completed Training",
+        "componentType": "card",
+        "cardLayout": "periodKpi",
+        "value": "38",
+        "ytdPriorYear": "60",
+        "cardPriorActualLabel": "Budget",
+        "cardBudgetLabel": "YTD vs Budget",
+        "budgetVariance": {
+          "dollarValue": "-22",
+          "percentage": "-36.7%"
+        },
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 260,
+        "height": 180
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 260,
+      "height": 180,
+      "positionAbsolute": {
+        "x": -60,
+        "y": 760
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "1",
+      "type": "powerbi",
+      "position": {
+        "x": 220,
+        "y": -40
+      },
+      "data": {
+        "label": "All Dealers Store Concentration Map",
+        "componentType": "map",
+        "mapImageSrc": "map1.png"
+      },
+      "style": {
+        "width": 540,
+        "height": 460
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 540,
+      "height": 460,
+      "positionAbsolute": {
+        "x": 220,
+        "y": -40
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "8",
+      "type": "powerbi",
+      "position": {
+        "x": 780,
+        "y": -40
+      },
+      "data": {
+        "label": "Partner Store Count",
+        "componentType": "matrix",
+        "matrixGroupMode": true,
+        "matrixTotalRows": [
+          12
+        ],
+        "matrixRegularFirstColumn": false,
+        "matrixFirstColumnWidth": 90,
+        "matrixColumnWidths": [
+          null,
+          90,
+          50,
+          null,
+          null,
+          null
+        ],
+        "matrixColumnWidthWeights": [
+          null,
+          null,
+          null,
+          1.15,
+          0.95,
+          1.1
+        ],
+        "matrixLeftAlignedColumns": [
+          0,
+          1
+        ],
+        "columnLabels": [
+          "Format",
+          "Partner",
+          "HPC",
+          "Authorized",
+          "Diamond",
+          "Total"
+        ],
+        "matrixData": [
+          [
+            "Hardware",
+            "Ace",
+            "Yes",
+            "1,542",
+            "136",
+            "1,678"
+          ],
+          [
+            "",
+            "Emery Jensen",
+            "Yes",
+            "108",
+            "2",
+            "110"
+          ],
+          [
+            "Sporting",
+            "Scheels",
+            "Yes",
+            "29",
+            "5",
+            "34"
+          ],
+          [
+            "Independents",
+            "Independents",
+            "Yes",
+            "181",
+            "36",
+            "217"
+          ],
+          [
+            "Nationwide",
+            "Nationwide",
+            "Yes",
+            "33",
+            "3",
+            "36"
+          ],
+          [
+            "",
+            "Abt Electronics",
+            "No",
+            "5",
+            "0",
+            "5"
+          ],
+          [
+            "Farm",
+            "Murdoch's",
+            "Yes",
+            "28",
+            "0",
+            "28"
+          ],
+          [
+            "",
+            "Atwoods",
+            "No",
+            "31",
+            "0",
+            "31"
+          ],
+          [
+            "",
+            "Runnings",
+            "No",
+            "47",
+            "0",
+            "47"
+          ],
+          [
+            "",
+            "Rural King",
+            "No",
+            "38",
+            "0",
+            "38"
+          ],
+          [
+            "",
+            "Fleet Farm",
+            "No",
+            "14",
+            "0",
+            "14"
+          ],
+          [
+            "Nation's Best",
+            "Nation's Best",
+            "No",
+            "22",
+            "2",
+            "24"
+          ],
+          [
+            "",
+            "Retailer Total",
+            "",
+            "2,078",
+            "184",
+            "2,262"
+          ]
+        ]
+      },
+      "style": {
+        "width": 540,
+        "height": 450
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 540,
+      "height": 450,
+      "positionAbsolute": {
+        "x": 780,
+        "y": -40
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "10",
+      "type": "powerbi",
+      "position": {
+        "x": 220,
+        "y": 700
+      },
+      "data": {
+        "label": "Events & Training by Month",
+        "componentType": "matrix",
+        "matrixRegularFirstColumn": false,
+        "matrixFirstColumnWidth": 120,
+        "columnLabels": [
+          "",
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec",
+          "Year Total"
+        ],
+        "matrixData": [
+          [
+            "Budgeted Events",
+            "4",
+            "15",
+            "18",
+            "46",
+            "69",
+            "35",
+            "45",
+            "37",
+            "32",
+            "28",
+            "24",
+            "20",
+            "373"
+          ],
+          [
+            "Budgeted Training",
+            "9",
+            "4",
+            "19",
+            "9",
+            "5",
+            "5",
+            "5",
+            "4",
+            "4",
+            "4",
+            "3",
+            "3",
+            "74"
+          ]
+        ],
+        "matrixSubRowData": [
+          [
+            [
+              "",
+              "5",
+              "14",
+              "20",
+              "50",
+              "74",
+              "33",
+              "48",
+              "41",
+              "",
+              "",
+              "",
+              "",
+              "285"
+            ],
+            [
+              "",
+              "5",
+              "19",
+              "39",
+              "89",
+              "163",
+              "196",
+              "244",
+              "285",
+              "",
+              "",
+              "",
+              "",
+              "373"
+            ]
+          ],
+          [
+            [
+              "",
+              "10",
+              "5",
+              "17",
+              "11",
+              "7",
+              "6",
+              "6",
+              "3",
+              "",
+              "",
+              "",
+              "",
+              "65"
+            ],
+            [
+              "",
+              "10",
+              "15",
+              "32",
+              "43",
+              "50",
+              "56",
+              "62",
+              "65",
+              "",
+              "",
+              "",
+              "",
+              "74"
+            ]
+          ]
+        ],
+        "matrixSubRows": [
+          [
+            {
+              "label": "Actuals",
+              "share": 0
+            },
+            {
+              "label": "Cumulative",
+              "share": 0
+            }
+          ],
+          [
+            {
+              "label": "Actuals",
+              "share": 0
+            },
+            {
+              "label": "Cumulative",
+              "share": 0
+            }
+          ]
+        ],
+        "matrixStripedRows": false
+      },
+      "style": {
+        "width": 1100,
+        "height": 240
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 1100,
+      "height": 240,
+      "positionAbsolute": {
+        "x": 220,
+        "y": 700
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "11",
+      "type": "powerbi",
+      "position": {
+        "x": 220,
+        "y": 440
+      },
+      "data": {
+        "label": "Store Door Count by Month",
+        "componentType": "matrix",
+        "matrixGroupMode": true,
+        "matrixRegularFirstColumn": false,
+        "matrixFirstColumnWidth": 90,
+        "matrixColumnWidths": [
+          null,
+          90
+        ],
+        "matrixLeftAlignedColumns": [
+          0,
+          1
+        ],
+        "matrixStripedRows": false,
+        "matrixHighlightColumns": [
+          14
+        ],
+        "columnLabels": [
+          "Group",
+          "",
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec",
+          "Year Total"
+        ],
+        "matrixData": [
+          [
+            "Cumulative",
+            "Actual",
+            "2,294",
+            "2,296",
+            "2,301",
+            "2,305",
+            "2,311",
+            "2,315",
+            "2,237",
+            "2,243",
+            "",
+            "",
+            "",
+            "",
+            "2,243"
+          ],
+          [
+            "",
+            "Budget",
+            "2,254",
+            "2,261",
+            "2,267",
+            "2,273",
+            "2,280",
+            "2,286",
+            "2,292",
+            "2,299",
+            "2,303",
+            "2,306",
+            "2,308",
+            "2,310",
+            "2,310"
+          ],
+          [
+            "",
+            "Variance",
+            "+16",
+            "+11",
+            "+10",
+            "+8",
+            "+7",
+            "+5",
+            "+2",
+            "+1",
+            "",
+            "",
+            "",
+            "",
+            "+1"
+          ],
+          [
+            "Growth",
+            "Actual",
+            "+22",
+            "+2",
+            "+5",
+            "+4",
+            "+6",
+            "+4",
+            "+3",
+            "+6",
+            "",
+            "",
+            "",
+            "",
+            "+52"
+          ],
+          [
+            "",
+            "Budget",
+            "+5",
+            "+7",
+            "+6",
+            "+6",
+            "+7",
+            "+6",
+            "+6",
+            "+7",
+            "+4",
+            "+3",
+            "+2",
+            "+2",
+            "+50"
+          ]
+        ]
+      },
+      "style": {
+        "width": 1100,
+        "height": 240
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 1100,
+      "height": 240,
+      "positionAbsolute": {
+        "x": 220,
+        "y": 440
+      },
+      "selected": false,
+      "dragging": false
+    }
+  ],
+  "edges": []
+}

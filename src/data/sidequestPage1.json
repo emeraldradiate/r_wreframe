@@ -1,0 +1,1152 @@
+{
+  "version": 1,
+  "savedAt": "2026-07-29T15:03:57.859Z",
+  "appTitle": "Quality & Contact Drivers",
+  "nodes": [
+    {
+      "id": "sq1-fcr",
+      "type": "powerbi",
+      "position": {
+        "x": 40,
+        "y": 40
+      },
+      "data": {
+        "label": "First Contact Resolution",
+        "componentType": "card",
+        "cardLayout": "periodKpi",
+        "value": "78%",
+        "ytdPriorYear": "74%",
+        "cardPriorActualLabel": "Prior Year",
+        "cardBudgetLabel": "vs Target",
+        "cardPriorLabel": "YoY",
+        "budgetVariance": {
+          "dollarValue": "+2%",
+          "percentage": "+2.6%"
+        },
+        "priorVariance": {
+          "dollarValue": "+4%",
+          "percentage": "+5.4%"
+        },
+        "cardTheme": "red"
+      },
+      "style": {
+        "width": 300,
+        "height": 200
+      },
+      "width": 300,
+      "height": 200,
+      "draggable": true,
+      "selectable": true,
+      "resizing": false
+    },
+    {
+      "id": "sq1-reopen",
+      "type": "powerbi",
+      "position": {
+        "x": 360,
+        "y": 40
+      },
+      "data": {
+        "label": "Re-Open Rate",
+        "componentType": "card",
+        "cardLayout": "periodKpi",
+        "value": "12%",
+        "ytdPriorYear": "14%",
+        "cardPriorActualLabel": "Prior Year",
+        "cardBudgetLabel": "vs Target",
+        "cardPriorLabel": "YoY",
+        "budgetVariance": {
+          "dollarValue": "-1%",
+          "percentage": "-7.7%"
+        },
+        "priorVariance": {
+          "dollarValue": "-2%",
+          "percentage": "-14.3%"
+        },
+        "cardInvertVarianceColors": true,
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 300,
+        "height": 200
+      },
+      "width": 300,
+      "height": 200,
+      "draggable": true,
+      "selectable": true,
+      "resizing": false
+    },
+    {
+      "id": "sq1-transfer",
+      "type": "powerbi",
+      "position": {
+        "x": 680,
+        "y": 40
+      },
+      "data": {
+        "label": "Transfer Rate",
+        "componentType": "card",
+        "cardLayout": "periodKpi",
+        "value": "9%",
+        "ytdPriorYear": "11%",
+        "cardPriorActualLabel": "Prior Year",
+        "cardBudgetLabel": "vs Target",
+        "cardPriorLabel": "YoY",
+        "budgetVariance": {
+          "dollarValue": "+0.5%",
+          "percentage": "+5.9%"
+        },
+        "priorVariance": {
+          "dollarValue": "-2%",
+          "percentage": "-18.2%"
+        },
+        "cardInvertVarianceColors": true,
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 300,
+        "height": 200
+      },
+      "width": 300,
+      "height": 200,
+      "draggable": true,
+      "selectable": true,
+      "resizing": false
+    },
+    {
+      "id": "sq1-contact-volume",
+      "type": "powerbi",
+      "position": {
+        "x": 1000,
+        "y": 40
+      },
+      "data": {
+        "label": "Contact Volume",
+        "componentType": "card",
+        "cardLayout": "periodKpi",
+        "value": "1,290",
+        "ytdPriorYear": "1,180",
+        "cardPriorActualLabel": "Prior Year",
+        "cardBudgetLabel": "vs Target",
+        "cardPriorLabel": "YoY",
+        "budgetVariance": {
+          "dollarValue": "+40",
+          "percentage": "+3.2%"
+        },
+        "priorVariance": {
+          "dollarValue": "+110",
+          "percentage": "+9.3%"
+        },
+        "cardDisableVarianceColors": true,
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 300,
+        "height": 200
+      },
+      "width": 300,
+      "height": 200,
+      "draggable": true,
+      "selectable": true,
+      "resizing": false
+    },
+    {
+      "id": "sq1-missed-calls",
+      "type": "powerbi",
+      "position": {
+        "x": 1320,
+        "y": 40
+      },
+      "data": {
+        "label": "Missed Calls",
+        "componentType": "card",
+        "cardLayout": "periodKpi",
+        "value": "6.7%",
+        "ytdPriorYear": "86",
+        "cardPriorActualLabel": "Count",
+        "cardBudgetLabel": "vs Target",
+        "cardPriorLabel": "YoY",
+        "budgetVariance": {
+          "dollarValue": "-12",
+          "percentage": "-12.2%"
+        },
+        "priorVariance": {
+          "dollarValue": "-16",
+          "percentage": "-15.7%"
+        },
+        "cardInvertVarianceColors": true,
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 300,
+        "height": 200
+      },
+      "width": 300,
+      "height": 200,
+      "draggable": true,
+      "selectable": true,
+      "resizing": false
+    },
+    {
+      "id": "sq1-modality-pie",
+      "type": "powerbi",
+      "position": {
+        "x": 40,
+        "y": 260
+      },
+      "data": {
+        "label": "Modality Mix",
+        "componentType": "pie",
+        "chartData": [
+          46,
+          26,
+          14,
+          8,
+          6
+        ],
+        "pieLabels": [
+          "Phone",
+          "Chat",
+          "Email",
+          "WiFi Thread",
+          "Other"
+        ],
+        "pieScalePercent": 140,
+        "pieShowLegend": true
+      },
+      "style": {
+        "width": 300,
+        "height": 260
+      },
+      "width": 300,
+      "height": 260,
+      "draggable": true,
+      "selectable": true,
+      "resizing": false
+    },
+    {
+      "id": "sq1-reason-pie",
+      "type": "powerbi",
+      "position": {
+        "x": 680,
+        "y": 540
+      },
+      "data": {
+        "label": "Contact Reason Mix",
+        "componentType": "pie",
+        "chartData": [
+          22,
+          34,
+          18,
+          16,
+          10
+        ],
+        "pieLabels": [
+          "Sales",
+          "Troubleshooting",
+          "Inquiry",
+          "Return",
+          "Other"
+        ],
+        "pieScalePercent": 140,
+        "pieShowLegend": true
+      },
+      "style": {
+        "width": 300,
+        "height": 260
+      },
+      "width": 300,
+      "height": 260,
+      "draggable": true,
+      "selectable": true,
+      "resizing": false
+    },
+    {
+      "id": "sq1-quality-modality",
+      "type": "powerbi",
+      "position": {
+        "x": 360,
+        "y": 260
+      },
+      "data": {
+        "label": "Quality by Modality",
+        "componentType": "matrix",
+        "matrixRegularFirstColumn": false,
+        "matrixFirstColumnWidth": 100,
+        "matrixLeftAlignedColumns": [
+          0
+        ],
+        "matrixStripedRows": false,
+        "matrixDisableVarianceColors": true,
+        "matrixTotalRows": [
+          5
+        ],
+        "columnLabels": [
+          "Modality",
+          "FCR",
+          "Re-Open",
+          "Transfer",
+          "vs Budget"
+        ],
+        "matrixData": [
+          [
+            "Phone",
+            "76%",
+            "13%",
+            "11%",
+            "+1%"
+          ],
+          [
+            "Chat",
+            "82%",
+            "9%",
+            "6%",
+            "+0%"
+          ],
+          [
+            "Email",
+            "71%",
+            "15%",
+            "8%",
+            "-1%"
+          ],
+          [
+            "WiFi Thread",
+            "74%",
+            "14%",
+            "9%",
+            "-1%"
+          ],
+          [
+            "Other",
+            "69%",
+            "17%",
+            "12%",
+            "-1%"
+          ],
+          [
+            "All",
+            "78%",
+            "12%",
+            "9%",
+            ""
+          ]
+        ]
+      },
+      "style": {
+        "width": 620,
+        "height": 260
+      },
+      "width": 620,
+      "height": 260,
+      "draggable": true,
+      "selectable": true,
+      "resizing": false
+    },
+    {
+      "id": "sq1-reason-rates",
+      "type": "powerbi",
+      "position": {
+        "x": 40,
+        "y": 540
+      },
+      "data": {
+        "label": "Contact Reason Rates",
+        "componentType": "matrix",
+        "matrixRegularFirstColumn": false,
+        "matrixFirstColumnWidth": 140,
+        "matrixLeftAlignedColumns": [
+          0
+        ],
+        "matrixStripedRows": false,
+        "matrixDisableVarianceColors": true,
+        "matrixTotalRows": [
+          5
+        ],
+        "matrixGroupedColumns": [
+          {
+            "label": "Reason"
+          },
+          {
+            "label": "Contacts"
+          },
+          {
+            "label": "Share"
+          },
+          {
+            "label": "vs Budget",
+            "subLabels": [
+              "#",
+              "%"
+            ]
+          }
+        ],
+        "columnLabels": [
+          "Reason",
+          "Contacts",
+          "Share",
+          "#",
+          "%"
+        ],
+        "matrixData": [
+          [
+            "Sales",
+            "284",
+            "22%",
+            "+18",
+            "+6.8%"
+          ],
+          [
+            "Troubleshooting",
+            "439",
+            "34%",
+            "+12",
+            "+2.8%"
+          ],
+          [
+            "Inquiry",
+            "232",
+            "18%",
+            "-8",
+            "-3.3%"
+          ],
+          [
+            "Return",
+            "206",
+            "16%",
+            "+22",
+            "+12.0%"
+          ],
+          [
+            "Other",
+            "129",
+            "10%",
+            "-4",
+            "-3.0%"
+          ],
+          [
+            "Total",
+            "1,290",
+            "100%",
+            "",
+            ""
+          ]
+        ]
+      },
+      "style": {
+        "width": 620,
+        "height": 260
+      },
+      "width": 620,
+      "height": 260,
+      "draggable": true,
+      "selectable": true,
+      "resizing": false
+    },
+    {
+      "id": "sq1-contacts-line",
+      "type": "powerbi",
+      "position": {
+        "x": 1000,
+        "y": 260
+      },
+      "data": {
+        "label": "Contact Volume per Day",
+        "componentType": "line",
+        "chartData": [
+          164,
+          181,
+          147,
+          209,
+          172,
+          158,
+          193,
+          141,
+          204,
+          169,
+          186,
+          152,
+          198,
+          174,
+          211,
+          167
+        ],
+        "axisLabels": {
+          "x": "Date",
+          "y": "Contacts per Day"
+        },
+        "xAxisLabels": [
+          "3/10",
+          "",
+          "3/17",
+          "",
+          "",
+          "3/31",
+          "",
+          "4/7",
+          "",
+          "",
+          "4/21",
+          "",
+          "4/28",
+          "",
+          "5/5",
+          "5/9"
+        ]
+      },
+      "style": {
+        "width": 620,
+        "height": 360
+      },
+      "width": 620,
+      "height": 360,
+      "draggable": true,
+      "selectable": true,
+      "resizing": false
+    },
+    {
+      "id": "sq1-sku-contacts",
+      "type": "powerbi",
+      "position": {
+        "x": 40,
+        "y": 1400
+      },
+      "data": {
+        "label": "SKU Contacts",
+        "componentType": "matrix",
+        "matrixRegularFirstColumn": false,
+        "matrixFirstColumnWidth": 140,
+        "matrixLeftAlignedColumns": [
+          0
+        ],
+        "matrixStripedRows": true,
+        "matrixDisableVarianceColors": true,
+        "columnLabels": [
+          "Grill",
+          "Contacts",
+          "Rate",
+          "Sales",
+          "Troubleshooting",
+          "Interest",
+          "Warranty",
+          "Damage",
+          "Returns"
+        ],
+        "matrixData": [
+          [
+            "Deckboss 3.0",
+            "128",
+            "5.4%",
+            "32",
+            "48",
+            "18",
+            "20",
+            "9",
+            "22"
+          ],
+          [
+            "Backyard Beast 2.0",
+            "87",
+            "5.1%",
+            "22",
+            "32",
+            "12",
+            "14",
+            "6",
+            "14"
+          ],
+          [
+            "Bullseye Deluxe 2.0",
+            "58",
+            "4.8%",
+            "14",
+            "22",
+            "8",
+            "9",
+            "5",
+            "9"
+          ],
+          [
+            "Patio Legend 3.0",
+            "67",
+            "4.7%",
+            "16",
+            "24",
+            "10",
+            "10",
+            "4",
+            "11"
+          ],
+          [
+            "X-Fire Pro 1.0",
+            "28",
+            "4.2%",
+            "8",
+            "10",
+            "4",
+            "4",
+            "2",
+            "5"
+          ],
+          [
+            "Deckboss 2.0",
+            "24",
+            "4.0%",
+            "5",
+            "9",
+            "3",
+            "4",
+            "2",
+            "4"
+          ],
+          [
+            "Patio Legend 2.0",
+            "22",
+            "4.1%",
+            "5",
+            "8",
+            "3",
+            "3",
+            "2",
+            "3"
+          ],
+          [
+            "Smokestone 2.0",
+            "26",
+            "4.5%",
+            "6",
+            "10",
+            "4",
+            "4",
+            "2",
+            "4"
+          ],
+          [
+            "Dualfire",
+            "18",
+            "3.8%",
+            "4",
+            "7",
+            "2",
+            "3",
+            "1",
+            "3"
+          ],
+          [
+            "Road Warrior",
+            "20",
+            "4.0%",
+            "5",
+            "7",
+            "3",
+            "3",
+            "2",
+            "3"
+          ],
+          [
+            "Smokestone 1.0",
+            "16",
+            "3.6%",
+            "3",
+            "6",
+            "2",
+            "2",
+            "1",
+            "2"
+          ],
+          [
+            "Bullseye",
+            "38",
+            "4.4%",
+            "10",
+            "14",
+            "5",
+            "6",
+            "3",
+            "5"
+          ],
+          [
+            "E Series Built-In",
+            "14",
+            "3.2%",
+            "4",
+            "5",
+            "2",
+            "2",
+            "1",
+            "2"
+          ],
+          [
+            "Staq",
+            "12",
+            "3.0%",
+            "3",
+            "4",
+            "2",
+            "2",
+            "1",
+            "2"
+          ],
+          [
+            "BFG",
+            "32",
+            "4.6%",
+            "8",
+            "12",
+            "4",
+            "5",
+            "2",
+            "4"
+          ],
+          [
+            "Porch Pro",
+            "22",
+            "4.3%",
+            "5",
+            "8",
+            "3",
+            "3",
+            "2",
+            "3"
+          ]
+        ]
+      },
+      "style": {
+        "width": 1580,
+        "height": 520
+      },
+      "width": 1580,
+      "height": 520,
+      "draggable": true,
+      "selectable": true,
+      "resizing": false
+    },
+    {
+      "id": "sq1-returns-reason",
+      "type": "powerbi",
+      "position": {
+        "x": 360,
+        "y": 820
+      },
+      "data": {
+        "label": "Returns by Reason",
+        "componentType": "matrix",
+        "matrixRegularFirstColumn": false,
+        "matrixFirstColumnWidth": 180,
+        "matrixLeftAlignedColumns": [
+          0
+        ],
+        "matrixStripedRows": false,
+        "matrixInvertVarianceColors": true,
+        "matrixTotalRows": [
+          4
+        ],
+        "matrixGroupedColumns": [
+          {
+            "label": "Return Reason"
+          },
+          {
+            "label": "Returns"
+          },
+          {
+            "label": "Share"
+          },
+          {
+            "label": "vs Budget",
+            "subLabels": [
+              "#",
+              "%"
+            ]
+          }
+        ],
+        "columnLabels": [
+          "Return Reason",
+          "Returns",
+          "Share",
+          "#",
+          "%"
+        ],
+        "matrixData": [
+          [
+            "Fulfillment Error",
+            "62",
+            "30%",
+            "+8",
+            "+14.8%"
+          ],
+          [
+            "Customer Mis-order",
+            "54",
+            "26%",
+            "+3",
+            "+5.9%"
+          ],
+          [
+            "Not Meet Expectation",
+            "71",
+            "34%",
+            "+9",
+            "+14.5%"
+          ],
+          [
+            "Other",
+            "19",
+            "10%",
+            "+2",
+            "+11.8%"
+          ],
+          [
+            "Total",
+            "206",
+            "100%",
+            "",
+            ""
+          ]
+        ]
+      },
+      "style": {
+        "width": 620,
+        "height": 240
+      },
+      "width": 620,
+      "height": 240,
+      "draggable": true,
+      "selectable": true,
+      "resizing": false
+    },
+    {
+      "id": "sq1-returns-pie",
+      "type": "powerbi",
+      "position": {
+        "x": 40,
+        "y": 820
+      },
+      "data": {
+        "label": "Returns Reason Mix",
+        "componentType": "pie",
+        "chartData": [
+          62,
+          54,
+          71,
+          19
+        ],
+        "pieLabels": [
+          "Fulfillment Error",
+          "Customer Mis-order",
+          "Not Meet Expectation",
+          "Other"
+        ],
+        "pieScalePercent": 140,
+        "pieShowLegend": true
+      },
+      "style": {
+        "width": 300,
+        "height": 240
+      },
+      "width": 300,
+      "height": 240,
+      "draggable": true,
+      "selectable": true,
+      "resizing": false
+    },
+    {
+      "id": "sq3-order-count",
+      "type": "powerbi",
+      "position": {
+        "x": 1000,
+        "y": 640
+      },
+      "data": {
+        "label": "Order Count",
+        "componentType": "card",
+        "cardLayout": "periodKpi",
+        "value": "244",
+        "ytdPriorYear": "222",
+        "cardPriorActualLabel": "Prior Year",
+        "cardBudgetLabel": "vs Target",
+        "cardPriorLabel": "YoY",
+        "budgetVariance": {
+          "dollarValue": "+14",
+          "percentage": "+6%"
+        },
+        "priorVariance": {
+          "dollarValue": "+22",
+          "percentage": "+10%"
+        },
+        "cardTheme": "red"
+      },
+      "style": {
+        "width": 300,
+        "height": 200
+      },
+      "width": 300,
+      "height": 200,
+      "draggable": true,
+      "selectable": true,
+      "resizing": false
+    },
+    {
+      "id": "sq3-aov",
+      "type": "powerbi",
+      "position": {
+        "x": 1000,
+        "y": 860
+      },
+      "data": {
+        "label": "Average Order Value",
+        "componentType": "card",
+        "cardLayout": "periodKpi",
+        "value": "$337",
+        "ytdPriorYear": "$363",
+        "cardPriorActualLabel": "Prior Year",
+        "cardBudgetLabel": "vs Target",
+        "cardPriorLabel": "YoY",
+        "budgetVariance": {
+          "dollarValue": "-$8",
+          "percentage": "-2%"
+        },
+        "priorVariance": {
+          "dollarValue": "-$26",
+          "percentage": "-7%"
+        },
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 300,
+        "height": 200
+      },
+      "width": 300,
+      "height": 200,
+      "draggable": true,
+      "selectable": true,
+      "resizing": false
+    },
+    {
+      "id": "sq3-complimentary",
+      "type": "powerbi",
+      "position": {
+        "x": 1320,
+        "y": 640
+      },
+      "data": {
+        "label": "Complimentary Rate",
+        "componentType": "card",
+        "cardLayout": "periodKpi",
+        "value": "11.5%",
+        "ytdPriorYear": "$1,227",
+        "cardPriorActualLabel": "Dollar Amount",
+        "cardBudgetLabel": "vs Target",
+        "cardPriorLabel": "YoY",
+        "budgetVariance": {
+          "dollarValue": "-$118",
+          "percentage": "-1.2%"
+        },
+        "priorVariance": {
+          "dollarValue": "+$94",
+          "percentage": "+0.8%"
+        },
+        "cardInvertVarianceColors": true,
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 300,
+        "height": 200
+      },
+      "width": 300,
+      "height": 200,
+      "draggable": true,
+      "selectable": true,
+      "resizing": false
+    },
+    {
+      "id": "sq3-make-right",
+      "type": "powerbi",
+      "position": {
+        "x": 1320,
+        "y": 860
+      },
+      "data": {
+        "label": "Make Right Rate",
+        "componentType": "card",
+        "cardLayout": "periodKpi",
+        "value": "0.5%",
+        "ytdPriorYear": "$653",
+        "cardPriorActualLabel": "Dollar Amount",
+        "cardBudgetLabel": "vs Target",
+        "cardPriorLabel": "YoY",
+        "budgetVariance": {
+          "dollarValue": "-$22",
+          "percentage": "-0.2%"
+        },
+        "priorVariance": {
+          "dollarValue": "+$16",
+          "percentage": "+0.1%"
+        },
+        "cardInvertVarianceColors": true,
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 300,
+        "height": 200
+      },
+      "width": 300,
+      "height": 200,
+      "draggable": true,
+      "selectable": true,
+      "resizing": false
+    },
+    {
+      "id": "sq3-booked-sales-trend",
+      "type": "powerbi",
+      "position": {
+        "x": 40,
+        "y": 1080
+      },
+      "data": {
+        "label": "Booked Sales",
+        "componentType": "line",
+        "chartData": [
+          62.7,
+          71.6,
+          67.3,
+          75.6,
+          67.1,
+          72.6,
+          71.1,
+          76.7,
+          69,
+          76.7,
+          73.9,
+          80.3,
+          74.4,
+          79.3,
+          73.9,
+          83.7,
+          70,
+          78.6,
+          72,
+          74.4,
+          68,
+          74.5,
+          76.8,
+          89,
+          88.8,
+          107.7,
+          109.5,
+          119.8,
+          121.6,
+          130.9,
+          106.5,
+          114.7,
+          101.7,
+          101.3,
+          89.2,
+          93.7,
+          84.6,
+          86.8,
+          77.3,
+          84.2,
+          77.4,
+          76.9,
+          71.1,
+          80.3,
+          69.1,
+          80,
+          75.5,
+          80.3,
+          75.7,
+          85.4,
+          78.7,
+          82.5,
+          75.1,
+          83.6,
+          78.6,
+          79.9,
+          75.7,
+          86.1,
+          74.1,
+          84.6,
+          79.6
+        ],
+        "axisLabels": {
+          "x": "Date",
+          "y": "Book Sales"
+        },
+        "lineDataLabelFormat": "currencyK",
+        "xAxisLabels": [
+          "3/10",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "3/17",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "3/24",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "3/31",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "4/7",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "4/14",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "4/21",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "4/28",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "5/5",
+          "",
+          "",
+          "",
+          "5/9"
+        ]
+      },
+      "style": {
+        "width": 1580,
+        "height": 300
+      },
+      "width": 1580,
+      "height": 300,
+      "draggable": true,
+      "selectable": true,
+      "resizing": false
+    }
+  ],
+  "edges": []
+}

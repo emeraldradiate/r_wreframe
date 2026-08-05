@@ -1,0 +1,660 @@
+{
+  "version": 1,
+  "savedAt": "2026-07-10T13:20:00.000Z",
+  "appTitle": "Order Lookup",
+  "nodes": [
+    {
+      "id": "sq2-orders-matrix",
+      "type": "powerbi",
+      "position": {
+        "x": 40,
+        "y": 40
+      },
+      "data": {
+        "label": "Orders",
+        "componentType": "matrix",
+        "hideHeader": true,
+        "matrixRegularFirstColumn": true,
+        "matrixStripedRows": true,
+        "matrixDisableVarianceColors": true,
+        "matrixLeftAlignedColumns": [],
+        "columnLabels": [
+          "TRANSACTION",
+          "SKU",
+          "QUANTITY",
+          "INVOICED",
+          "FULFILLED",
+          "CLOSED?",
+          "AMOUNT",
+          "LOCATION",
+          "PRICE",
+          "EXPECTED SHIP",
+          "ACTUAL SHIP"
+        ],
+        "matrixData": [
+          [
+            "6/1/2026",
+            "SKU-001",
+            "7",
+            "0",
+            "0",
+            "Yes",
+            "587.72",
+            "Augusta - HQ",
+            "83.96",
+            "6/4/2026",
+            ""
+          ],
+          [
+            "6/1/2026",
+            "SKU-002",
+            "24",
+            "24",
+            "24",
+            "No",
+            "400.80",
+            "Augusta - HQ",
+            "16.70",
+            "6/4/2026",
+            "6/3/2026"
+          ],
+          [
+            "6/1/2026",
+            "SKU-003",
+            "140",
+            "140",
+            "140",
+            "No",
+            "701.40",
+            "Augusta - HQ",
+            "5.01",
+            "6/4/2026",
+            "6/3/2026"
+          ],
+          [
+            "6/1/2026",
+            "SKU-004",
+            "80",
+            "80",
+            "80",
+            "No",
+            "1,024.00",
+            "Augusta - HQ",
+            "12.80",
+            "6/4/2026",
+            "6/4/2026"
+          ],
+          [
+            "6/1/2026",
+            "SKU-005",
+            "104",
+            "104",
+            "104",
+            "No",
+            "1,331.20",
+            "Augusta - HQ",
+            "12.80",
+            "6/4/2026",
+            "6/4/2026"
+          ],
+          [
+            "6/1/2026",
+            "SKU-006",
+            "63",
+            "0",
+            "0",
+            "",
+            "806.40",
+            "Augusta - HQ",
+            "12.80",
+            "6/4/2026",
+            ""
+          ],
+          [
+            "6/1/2026",
+            "SKU-007",
+            "100",
+            "100",
+            "100",
+            "No",
+            "1,280.00",
+            "Augusta - HQ",
+            "12.80",
+            "6/4/2026",
+            "6/3/2026"
+          ],
+          [
+            "6/2/2026",
+            "SKU-008",
+            "24",
+            "24",
+            "24",
+            "No",
+            "400.80",
+            "Augusta - HQ",
+            "16.70",
+            "6/4/2026",
+            "6/4/2026"
+          ],
+          [
+            "6/2/2026",
+            "SKU-009",
+            "24",
+            "24",
+            "24",
+            "No",
+            "333.84",
+            "Augusta - HQ",
+            "13.91",
+            "6/4/2026",
+            "6/4/2026"
+          ],
+          [
+            "6/3/2026",
+            "SKU-010",
+            "1",
+            "1",
+            "1",
+            "No",
+            "899.99",
+            "Augusta - HQ",
+            "899.99",
+            "6/4/2026",
+            "6/4/2026"
+          ],
+          [
+            "6/3/2026",
+            "SKU-011",
+            "1",
+            "1",
+            "1",
+            "No",
+            "899.99",
+            "Augusta - HQ",
+            "899.99",
+            "6/4/2026",
+            "6/4/2026"
+          ],
+          [
+            "6/3/2026",
+            "SKU-012",
+            "12",
+            "12",
+            "12",
+            "No",
+            "959.88",
+            "Lehi",
+            "79.99",
+            "6/5/2026",
+            "6/5/2026"
+          ],
+          [
+            "6/3/2026",
+            "SKU-013",
+            "6",
+            "6",
+            "6",
+            "No",
+            "209.94",
+            "Lehi",
+            "34.99",
+            "6/5/2026",
+            "6/5/2026"
+          ],
+          [
+            "6/4/2026",
+            "SKU-014",
+            "2",
+            "0",
+            "0",
+            "Yes",
+            "2,599.98",
+            "Augusta - HQ",
+            "1,299.99",
+            "6/7/2026",
+            ""
+          ],
+          [
+            "6/4/2026",
+            "SKU-015",
+            "48",
+            "48",
+            "48",
+            "No",
+            "888.00",
+            "Augusta - HQ",
+            "18.50",
+            "6/6/2026",
+            "6/6/2026"
+          ],
+          [
+            "6/4/2026",
+            "SKU-016",
+            "36",
+            "36",
+            "36",
+            "No",
+            "666.00",
+            "Lehi",
+            "18.50",
+            "6/6/2026",
+            "6/5/2026"
+          ],
+          [
+            "6/4/2026",
+            "SKU-017",
+            "18",
+            "18",
+            "18",
+            "No",
+            "899.82",
+            "Augusta - HQ",
+            "49.99",
+            "6/7/2026",
+            "6/7/2026"
+          ],
+          [
+            "6/5/2026",
+            "SKU-018",
+            "4",
+            "4",
+            "4",
+            "No",
+            "519.96",
+            "Lehi",
+            "129.99",
+            "6/8/2026",
+            "6/8/2026"
+          ],
+          [
+            "6/5/2026",
+            "SKU-019",
+            "9",
+            "0",
+            "0",
+            "",
+            "449.91",
+            "Augusta - HQ",
+            "49.99",
+            "6/9/2026",
+            ""
+          ],
+          [
+            "6/5/2026",
+            "SKU-020",
+            "1",
+            "1",
+            "1",
+            "No",
+            "2,299.99",
+            "Augusta - HQ",
+            "2,299.99",
+            "6/8/2026",
+            "6/8/2026"
+          ],
+          [
+            "6/5/2026",
+            "SKU-021",
+            "15",
+            "15",
+            "15",
+            "No",
+            "224.85",
+            "Lehi",
+            "14.99",
+            "6/8/2026",
+            "6/7/2026"
+          ],
+          [
+            "6/6/2026",
+            "SKU-022",
+            "30",
+            "30",
+            "30",
+            "No",
+            "501.00",
+            "Augusta - HQ",
+            "16.70",
+            "6/9/2026",
+            "6/9/2026"
+          ],
+          [
+            "6/6/2026",
+            "SKU-023",
+            "2",
+            "2",
+            "2",
+            "No",
+            "1,799.98",
+            "Augusta - HQ",
+            "899.99",
+            "6/10/2026",
+            "6/9/2026"
+          ],
+          [
+            "6/6/2026",
+            "SKU-024",
+            "55",
+            "55",
+            "55",
+            "No",
+            "764.50",
+            "Lehi",
+            "13.90",
+            "6/9/2026",
+            "6/9/2026"
+          ],
+          [
+            "6/7/2026",
+            "SKU-025",
+            "8",
+            "0",
+            "0",
+            "Yes",
+            "639.92",
+            "Augusta - HQ",
+            "79.99",
+            "6/11/2026",
+            ""
+          ],
+          [
+            "6/7/2026",
+            "SKU-026",
+            "20",
+            "20",
+            "20",
+            "No",
+            "999.80",
+            "Augusta - HQ",
+            "49.99",
+            "6/10/2026",
+            "6/10/2026"
+          ],
+          [
+            "6/7/2026",
+            "SKU-027",
+            "3",
+            "3",
+            "3",
+            "No",
+            "3,599.97",
+            "Augusta - HQ",
+            "1,199.99",
+            "6/11/2026",
+            "6/11/2026"
+          ],
+          [
+            "6/8/2026",
+            "SKU-028",
+            "72",
+            "72",
+            "72",
+            "No",
+            "1,332.00",
+            "Lehi",
+            "18.50",
+            "6/12/2026",
+            "6/11/2026"
+          ],
+          [
+            "6/8/2026",
+            "SKU-029",
+            "5",
+            "5",
+            "5",
+            "No",
+            "174.95",
+            "Augusta - HQ",
+            "34.99",
+            "6/12/2026",
+            "6/12/2026"
+          ],
+          [
+            "6/8/2026",
+            "SKU-030",
+            "11",
+            "0",
+            "0",
+            "",
+            "549.89",
+            "Lehi",
+            "49.99",
+            "6/13/2026",
+            ""
+          ],
+          [
+            "6/9/2026",
+            "SKU-031",
+            "1",
+            "1",
+            "1",
+            "No",
+            "1,499.99",
+            "Augusta - HQ",
+            "1,499.99",
+            "6/13/2026",
+            "6/13/2026"
+          ],
+          [
+            "6/9/2026",
+            "SKU-032",
+            "42",
+            "42",
+            "42",
+            "No",
+            "701.40",
+            "Augusta - HQ",
+            "16.70",
+            "6/12/2026",
+            "6/12/2026"
+          ],
+          [
+            "6/9/2026",
+            "SKU-033",
+            "16",
+            "16",
+            "16",
+            "No",
+            "222.56",
+            "Lehi",
+            "13.91",
+            "6/13/2026",
+            "6/13/2026"
+          ],
+          [
+            "6/10/2026",
+            "SKU-034",
+            "2",
+            "2",
+            "2",
+            "No",
+            "259.98",
+            "Augusta - HQ",
+            "129.99",
+            "6/14/2026",
+            "6/14/2026"
+          ],
+          [
+            "6/10/2026",
+            "SKU-035",
+            "28",
+            "28",
+            "28",
+            "No",
+            "518.00",
+            "Lehi",
+            "18.50",
+            "6/14/2026",
+            "6/14/2026"
+          ]
+        ]
+      },
+      "style": {
+        "width": 1180,
+        "height": 640
+      },
+      "width": 1180,
+      "height": 640,
+      "draggable": true,
+      "selectable": true,
+      "resizing": false
+    },
+    {
+      "id": "sq2-field-chooser",
+      "type": "powerbi",
+      "position": {
+        "x": 1240,
+        "y": 40
+      },
+      "data": {
+        "label": "Choose your field",
+        "componentType": "fieldChooser",
+        "hideHeader": true,
+        "fieldChooserFields": [
+          {
+            "label": "Select all",
+            "checked": false
+          },
+          {
+            "label": "TRANSACTION",
+            "checked": true
+          },
+          {
+            "label": "SKU",
+            "checked": true
+          },
+          {
+            "label": "QUANTITY",
+            "checked": true
+          },
+          {
+            "label": "INVOICED",
+            "checked": true
+          },
+          {
+            "label": "FULFILLED",
+            "checked": true
+          },
+          {
+            "label": "CLOSED?",
+            "checked": true
+          },
+          {
+            "label": "AMOUNT",
+            "checked": true
+          },
+          {
+            "label": "LOCATION",
+            "checked": true
+          },
+          {
+            "label": "PRICE",
+            "checked": true
+          },
+          {
+            "label": "EXPECTED SHIP",
+            "checked": true
+          },
+          {
+            "label": "ACTUAL SHIP",
+            "checked": true
+          },
+          {
+            "label": "DAMAGES",
+            "checked": false
+          },
+          {
+            "label": "EXCHANGE RATE",
+            "checked": false
+          },
+          {
+            "label": "FX COST",
+            "checked": false
+          },
+          {
+            "label": "SHIPPING",
+            "checked": false
+          },
+          {
+            "label": "BACK ORDERED",
+            "checked": false
+          },
+          {
+            "label": "COMMITTED",
+            "checked": false
+          },
+          {
+            "label": "PENDING PICK",
+            "checked": false
+          },
+          {
+            "label": "PACKED",
+            "checked": false
+          },
+          {
+            "label": "PRODUCT CATEGORY",
+            "checked": false
+          },
+          {
+            "label": "PRICE LEVEL",
+            "checked": false
+          },
+          {
+            "label": "RATE",
+            "checked": false
+          },
+          {
+            "label": "TAX CODE",
+            "checked": false
+          },
+          {
+            "label": "TAX RATE",
+            "checked": false
+          },
+          {
+            "label": "ITEM NAME",
+            "checked": false
+          },
+          {
+            "label": "ORDER NOTES",
+            "checked": false
+          },
+          {
+            "label": "TRANSACTION STATUS",
+            "checked": false
+          },
+          {
+            "label": "TRANSACTION TYPE",
+            "checked": false
+          },
+          {
+            "label": "CUSTOMER NAME",
+            "checked": false
+          },
+          {
+            "label": "CUSTOMER EMAIL",
+            "checked": false
+          },
+          {
+            "label": "CUSTOMER PO NUMBER",
+            "checked": false
+          },
+          {
+            "label": "CREATED BY",
+            "checked": false
+          }
+        ]
+      },
+      "style": {
+        "width": 260,
+        "height": 640
+      },
+      "width": 260,
+      "height": 640,
+      "draggable": true,
+      "selectable": true,
+      "resizing": false
+    }
+  ],
+  "edges": []
+}

@@ -7,8 +7,8 @@
       "id": "1",
       "type": "powerbi",
       "position": {
-        "x": 40,
-        "y": 40
+        "x": -20,
+        "y": 120
       },
       "data": {
         "label": "YTD Net Sales",
@@ -16,14 +16,14 @@
         "value": "5.42M",
         "wowPct": {
           "percentage": "0.16%",
-          "dollarValue": "+8.67K"
+          "dollarValue": "+8,670"
         },
         "ytdPriorYear": "5.08M",
         "ytdPriorYearPct": "6.7",
         "variancePct": {
           "percentage": "6.7%",
-          "dollarValue": "+340K",
-          "flatValue": "+340K"
+          "dollarValue": "+340,705",
+          "flatValue": "+340,256"
         },
         "cardTheme": "red"
       },
@@ -37,16 +37,16 @@
       "width": 280,
       "height": 220,
       "positionAbsolute": {
-        "x": 40,
-        "y": 40
+        "x": -20,
+        "y": 120
       }
     },
     {
       "id": "2",
       "type": "powerbi",
       "position": {
-        "x": 320,
-        "y": 40
+        "x": 260,
+        "y": 120
       },
       "data": {
         "label": "YTD Gross Margin",
@@ -54,14 +54,14 @@
         "value": "2.14M",
         "wowPct": {
           "percentage": "0.11%",
-          "dollarValue": "+2.35K"
+          "dollarValue": "+2,350"
         },
         "ytdPriorYear": "1.97M",
         "ytdPriorYearPct": "8.6",
         "variancePct": {
           "percentage": "8.6%",
-          "dollarValue": "+170K",
-          "flatValue": "+170K"
+          "dollarValue": "+170,235",
+          "flatValue": "+170,684"
         },
         "cardTheme": "light"
       },
@@ -76,8 +76,8 @@
       "height": 220,
       "selected": false,
       "positionAbsolute": {
-        "x": 320,
-        "y": 40
+        "x": 260,
+        "y": 120
       },
       "dragging": false
     },
@@ -85,8 +85,8 @@
       "id": "3",
       "type": "powerbi",
       "position": {
-        "x": 600,
-        "y": 40
+        "x": 540,
+        "y": 120
       },
       "data": {
         "label": "YTD Contribution Margin",
@@ -94,14 +94,14 @@
         "value": "1.26M",
         "wowPct": {
           "percentage": "-0.08%",
-          "dollarValue": "-1.01K"
+          "dollarValue": "-1,010"
         },
         "ytdPriorYear": "1.14M",
         "ytdPriorYearPct": "10.5",
         "variancePct": {
           "percentage": "10.5%",
-          "dollarValue": "+120K",
-          "flatValue": "+120K"
+          "dollarValue": "+120,994",
+          "flatValue": "+120,513"
         },
         "cardTheme": "light"
       },
@@ -116,8 +116,8 @@
       "height": 220,
       "selected": false,
       "positionAbsolute": {
-        "x": 600,
-        "y": 40
+        "x": 540,
+        "y": 120
       },
       "dragging": false
     },
@@ -125,8 +125,8 @@
       "id": "4",
       "type": "powerbi",
       "position": {
-        "x": 40,
-        "y": 260
+        "x": -20,
+        "y": 340
       },
       "data": {
         "label": "Net Sales 5-Week Trend",
@@ -163,8 +163,8 @@
       "height": 200,
       "selected": false,
       "positionAbsolute": {
-        "x": 40,
-        "y": 260
+        "x": -20,
+        "y": 340
       },
       "dragging": false
     },
@@ -172,8 +172,8 @@
       "id": "5",
       "type": "powerbi",
       "position": {
-        "x": 320,
-        "y": 260
+        "x": 260,
+        "y": 340
       },
       "data": {
         "label": "Gross Margin 5-Week Trend",
@@ -210,8 +210,8 @@
       "height": 200,
       "selected": false,
       "positionAbsolute": {
-        "x": 320,
-        "y": 260
+        "x": 260,
+        "y": 340
       },
       "dragging": false
     },
@@ -219,8 +219,8 @@
       "id": "6",
       "type": "powerbi",
       "position": {
-        "x": 600,
-        "y": 260
+        "x": 540,
+        "y": 340
       },
       "data": {
         "label": "Contribution Margin 5-Week Trend",
@@ -257,8 +257,8 @@
       "height": 200,
       "selected": false,
       "positionAbsolute": {
-        "x": 600,
-        "y": 260
+        "x": 540,
+        "y": 340
       },
       "dragging": false
     },
@@ -266,8 +266,8 @@
       "id": "7",
       "type": "powerbi",
       "position": {
-        "x": 40,
-        "y": 480
+        "x": -20,
+        "y": 560
       },
       "data": {
         "label": "YTD Booked Sales vs Budget",
@@ -310,8 +310,8 @@
       "width": 360,
       "height": 320,
       "positionAbsolute": {
-        "x": 40,
-        "y": 480
+        "x": -20,
+        "y": 560
       },
       "selected": false,
       "dragging": false
@@ -320,8 +320,8 @@
       "id": "8",
       "type": "powerbi",
       "position": {
-        "x": 420,
-        "y": 480
+        "x": 360,
+        "y": 560
       },
       "data": {
         "label": "Enterprise-level Bookings",
@@ -337,43 +337,43 @@
         "matrixData": [
           [
             "Enterprise East",
-            "392k",
-            "381k",
-            "377k",
-            "368k",
-            "360k"
+            "392,054",
+            "381,483",
+            "377,573",
+            "368,222",
+            "360,872"
           ],
           [
             "Enterprise Central",
-            "284k",
-            "276k",
-            "271k",
-            "265k",
-            "258k"
+            "284,262",
+            "276,398",
+            "271,263",
+            "265,827",
+            "258,666"
           ],
           [
             "Enterprise West",
-            "238k",
-            "231k",
-            "227k",
-            "221k",
-            "214k"
+            "238,672",
+            "231,091",
+            "227,689",
+            "221,893",
+            "214,993"
           ],
           [
             "Strategic Accounts",
-            "205k",
-            "198k",
-            "194k",
-            "189k",
-            "183k"
+            "205,984",
+            "198,466",
+            "194,601",
+            "189,863",
+            "183,463"
           ],
           [
             "Public Sector",
-            "154k",
-            "149k",
-            "146k",
-            "142k",
-            "138k"
+            "154,778",
+            "149,328",
+            "146,753",
+            "142,749",
+            "138,633"
           ]
         ],
         "matrixFirstColumnWidth": 120
@@ -388,8 +388,8 @@
       "width": 460,
       "height": 320,
       "positionAbsolute": {
-        "x": 420,
-        "y": 480
+        "x": 360,
+        "y": 560
       },
       "selected": false,
       "dragging": false
@@ -398,8 +398,8 @@
       "id": "9",
       "type": "powerbi",
       "position": {
-        "x": 900,
-        "y": 360
+        "x": 840,
+        "y": 440
       },
       "data": {
         "label": "Booked Sales by Channel",
@@ -495,8 +495,8 @@
       "width": 620,
       "height": 440,
       "positionAbsolute": {
-        "x": 900,
-        "y": 360
+        "x": 840,
+        "y": 440
       },
       "selected": false,
       "dragging": false
@@ -505,8 +505,8 @@
       "id": "10",
       "type": "powerbi",
       "position": {
-        "x": 900,
-        "y": 40
+        "x": 840,
+        "y": 120
       },
       "data": {
         "label": "Channel Bookings Matrix",
@@ -522,59 +522,59 @@
         "matrixData": [
           [
             "recteq.com",
-            "158k",
-            "151k",
-            "145k",
-            "142k",
-            "138k"
+            "158,487",
+            "151,823",
+            "145,445",
+            "142,267",
+            "138,161"
           ],
           [
             "Call Center",
-            "109k",
-            "104k",
-            "101k",
-            "97k",
-            "95k"
+            "109,085",
+            "104,932",
+            "101,218",
+            "97,133",
+            "95,176"
           ],
           [
             "Company Stores",
-            "90k",
-            "86k",
-            "84k",
-            "82k",
-            "79k"
+            "90,754",
+            "86,798",
+            "84,993",
+            "82,993",
+            "79,707"
           ],
           [
             "Amazon.com",
-            "42k",
-            "40k",
-            "37k",
-            "35k",
-            "34k"
+            "42,484",
+            "40,811",
+            "37,223",
+            "35,913",
+            "34,917"
           ],
           [
-            "BBQGuys.com",
-            "35k",
-            "33k",
-            "30k",
-            "29k",
-            "28k"
+            "Specialty .com",
+            "35,216",
+            "33,785",
+            "30,313",
+            "29,246",
+            "28,717"
           ],
           [
             "Domestic Retail",
-            "85k",
-            "82k",
-            "79k",
-            "76k",
-            "74k"
+            "85,786",
+            "82,633",
+            "79,821",
+            "76,567",
+            "74,729"
           ],
           [
             "International Retail",
-            "63k",
-            "60k",
-            "56k",
-            "54k",
-            "53k"
+            "63,722",
+            "60,733",
+            "56,817",
+            "54,589",
+            "53,422"
           ]
         ],
         "matrixFirstColumnWidth": 122
@@ -589,8 +589,8 @@
       "width": 620,
       "height": 300,
       "positionAbsolute": {
-        "x": 900,
-        "y": 40
+        "x": 840,
+        "y": 120
       },
       "selected": false,
       "dragging": false

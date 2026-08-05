@@ -9,6 +9,20 @@ export interface ReportingPeriodValue {
   selectionMode: SelectionMode;
 }
 
+export const formatReportingPeriodSummary = ({ reportingWeek, reportDate }: ReportingPeriodValue) => {
+  const parsedDate = parseIsoDateInput(reportDate);
+
+  if (!parsedDate) {
+    return `Wk ${reportingWeek}`;
+  }
+
+  const month = `${parsedDate.getUTCMonth() + 1}`;
+  const day = `${parsedDate.getUTCDate()}`;
+  const year = parsedDate.getUTCFullYear();
+
+  return `Wk ${reportingWeek} starting ${month}/${day}/${year}`;
+};
+
 const toIsoDateInput = (date: Date) => {
   const year = date.getUTCFullYear();
   const month = `${date.getUTCMonth() + 1}`.padStart(2, '0');
@@ -41,31 +55,34 @@ const getIsoWeekInfo = (date: Date) => {
 
 const getIsoWeeksInYear = (year: number) => getIsoWeekInfo(new Date(Date.UTC(year, 11, 28))).week;
 
-const getWeekEndingSundayFromIsoWeek = (year: number, week: number) => {
+const getWeekEndingSaturdayFromIsoWeek = (year: number, week: number) => {
   const jan4 = new Date(Date.UTC(year, 0, 4));
   const jan4Day = jan4.getUTCDay() || 7;
   const mondayWeekOne = new Date(jan4);
   mondayWeekOne.setUTCDate(jan4.getUTCDate() - (jan4Day - 1));
 
-  const sunday = new Date(mondayWeekOne);
-  sunday.setUTCDate(mondayWeekOne.getUTCDate() + (week - 1) * 7 + 6);
-  return sunday;
+  const saturday = new Date(mondayWeekOne);
+  saturday.setUTCDate(mondayWeekOne.getUTCDate() + (week - 1) * 7 + 5);
+  return saturday;
 };
 
-const getNearestWeekEndingSunday = (date: Date) => {
-  const reference = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
-  const day = reference.getUTCDay();
-  const daysToPreviousSunday = day;
-  const daysToNextSunday = (7 - day) % 7;
-  const offset = daysToNextSunday < daysToPreviousSunday ? daysToNextSunday : -daysToPreviousSunday;
-  reference.setUTCDate(reference.getUTCDate() + offset);
-  return reference;
+const formatWeekEndingDisplay = (year: number | '', week: number | '') => {
+  if (year === '' || week === '') {
+    return '—';
+  }
+
+  const weekEndingDate = getWeekEndingSaturdayFromIsoWeek(year, week);
+  const month = `${weekEndingDate.getUTCMonth() + 1}`;
+  const day = `${weekEndingDate.getUTCDate()}`;
+  const displayYear = weekEndingDate.getUTCFullYear();
+
+  return `${month}/${day}/${displayYear}`;
 };
 
 export const getDefaultReportingPeriod = (): ReportingPeriodValue => {
   const reportingYear = 2026;
-  const reportingWeek = 32;
-  const weekEndingDate = getWeekEndingSundayFromIsoWeek(reportingYear, reportingWeek);
+  const reportingWeek = 19;
+  const weekEndingDate = getWeekEndingSaturdayFromIsoWeek(reportingYear, reportingWeek);
 
   return {
     reportingYear,
@@ -84,59 +101,44 @@ function ReportingPeriodFilter({ value, onChange }: ReportingPeriodFilterProps) 
   const defaultValue = value || getDefaultReportingPeriod();
   const [selectedYear, setSelectedYear] = useState<number | ''>(defaultValue.reportingYear);
   const [selectedWeek, setSelectedWeek] = useState<number | ''>(defaultValue.reportingWeek);
-  const [selectedDate, setSelectedDate] = useState<string>(defaultValue.reportDate);
 
   const currentYear = new Date().getFullYear();
   const yearOptions = useMemo(() => Array.from({ length: 8 }, (_, index) => currentYear - 3 + index), [currentYear]);
   const weeksInSelectedYear = getIsoWeeksInYear(Number(selectedYear || currentYear));
   const weekOptions = useMemo(() => Array.from({ length: weeksInSelectedYear }, (_, index) => index + 1), [weeksInSelectedYear]);
+  const displayDate = useMemo(
+    () => formatWeekEndingDisplay(selectedYear, selectedWeek),
+    [selectedYear, selectedWeek],
+  );
 
-  const publishChange = (
-    reportingYear: number,
-    reportingWeek: number,
-    reportDate: string,
-    selectionMode: SelectionMode
-  ) => {
-    onChange?.({ reportingYear, reportingWeek, reportDate, selectionMode });
+  const publishChange = (reportingYear: number, reportingWeek: number, reportDate: string) => {
+    onChange?.({
+      reportingYear,
+      reportingWeek,
+      reportDate,
+      selectionMode: 'yearWeek',
+    });
   };
 
-  const syncFromYearAndWeek = (yearValue: number | '', weekValue: number | '', mode: SelectionMode) => {
+  const syncFromYearAndWeek = (yearValue: number | '', weekValue: number | '') => {
     if (yearValue === '' || weekValue === '') {
       return;
     }
 
-    const weekEndingDate = getWeekEndingSundayFromIsoWeek(yearValue, weekValue);
-    const formattedDate = toIsoDateInput(weekEndingDate);
-    setSelectedDate(formattedDate);
-    publishChange(yearValue, weekValue, formattedDate, mode);
+    const weekEndingDate = getWeekEndingSaturdayFromIsoWeek(yearValue, weekValue);
+    publishChange(yearValue, weekValue, toIsoDateInput(weekEndingDate));
   };
 
   const handleYearChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const nextYear = event.target.value ? Number(event.target.value) : '';
     setSelectedYear(nextYear);
-    syncFromYearAndWeek(nextYear, selectedWeek, 'yearWeek');
+    syncFromYearAndWeek(nextYear, selectedWeek);
   };
 
   const handleWeekChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const nextWeek = event.target.value ? Number(event.target.value) : '';
     setSelectedWeek(nextWeek);
-    syncFromYearAndWeek(selectedYear, nextWeek, 'yearWeek');
-  };
-
-  const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const parsed = parseIsoDateInput(event.target.value);
-    if (!parsed) {
-      return;
-    }
-
-    const nearestWeekEnding = getNearestWeekEndingSunday(parsed);
-    const weekInfo = getIsoWeekInfo(nearestWeekEnding);
-    const normalizedDate = toIsoDateInput(nearestWeekEnding);
-
-    setSelectedDate(normalizedDate);
-    setSelectedYear(weekInfo.year);
-    setSelectedWeek(weekInfo.week);
-    publishChange(weekInfo.year, weekInfo.week, normalizedDate, 'reportDate');
+    syncFromYearAndWeek(selectedYear, nextWeek);
   };
 
   return (
@@ -180,18 +182,15 @@ function ReportingPeriodFilter({ value, onChange }: ReportingPeriodFilterProps) 
           </select>
         </label>
 
-        <div className="text-[9px] text-white/85 font-body pb-1 uppercase flex items-center mx-1">OR</div>
-
-        <label className="text-[9px] font-semibold text-white font-body min-w-0 flex flex-col items-start">
+        <div className="ml-1 flex min-w-0 flex-col items-start border-l border-white/30 pl-3 text-[9px] font-semibold text-white font-body">
           Date
-          <input
-            type="date"
-            value={selectedDate}
-            onChange={handleDateChange}
-            className="mt-0.5 h-6 w-full min-w-0 border border-gray-300 rounded px-1 text-[10px] leading-tight text-dark bg-white focus:outline-none"
-            style={{ maxWidth: '110px' }}
-          />
-        </label>
+          <div
+            className="mt-0.5 h-6 flex items-center whitespace-nowrap rounded border border-gray-300 bg-white px-1 text-[10px] leading-tight text-dark font-body"
+            style={{ minWidth: '72px' }}
+          >
+            {displayDate}
+          </div>
+        </div>
       </div>
     </section>
   );

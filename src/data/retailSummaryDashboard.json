@@ -1,0 +1,1125 @@
+{
+  "version": 1,
+  "savedAt": "2026-07-22T16:41:20.361Z",
+  "appTitle": "Retail Summary",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "powerbi",
+      "position": {
+        "x": -120,
+        "y": 220
+      },
+      "data": {
+        "label": "YTD Shipped vs. Budgeted Sales",
+        "componentType": "expectedReality",
+        "expectedRealityPointLabelFormat": "currencyK",
+        "expectedRealityShowBudgetLine": true,
+        "expectedRealityData": {
+          "expected": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "reality": [
+            -941,
+            -1756,
+            -2456,
+            -2998,
+            -3293,
+            -3881,
+            -4214,
+            -4531,
+            -3869,
+            -3840,
+            -4070,
+            -3599,
+            -3165,
+            -2500,
+            -1826,
+            -1252,
+            -1074,
+            -760,
+            -422,
+            -378,
+            778,
+            1234,
+            1798,
+            3181,
+            3623,
+            4086,
+            4280,
+            4460,
+            4620,
+            4780,
+            4930,
+            5060,
+            5175,
+            5285,
+            5380
+          ]
+        },
+        "xAxisDisplayLabelIndices": [
+          0,
+          4,
+          8,
+          13,
+          17,
+          22,
+          26,
+          31
+        ],
+        "axisLabels": {
+          "x": "Month",
+          "y": "Shipped Sales ($)"
+        },
+        "xAxisLabels": [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug"
+        ]
+      },
+      "style": {
+        "width": 640,
+        "height": 240
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 640,
+      "height": 240,
+      "positionAbsolute": {
+        "x": -120,
+        "y": 220
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "4",
+      "type": "powerbi",
+      "position": {
+        "x": 800,
+        "y": 220
+      },
+      "data": {
+        "label": "YTD Net Sales",
+        "componentType": "card",
+        "cardLayout": "periodKpi",
+        "value": "$28,565K",
+        "ytdPriorYear": "$24,478K",
+        "cardPriorActualLabel": "Budget",
+        "cardBudgetLabel": "Budget",
+        "cardPriorLabel": "YTD YoY",
+        "budgetVariance": {
+          "dollarValue": "+$4,086K",
+          "percentage": "+16.7%"
+        },
+        "priorVariance": {
+          "dollarValue": "+$4,900K",
+          "percentage": "+20.7%"
+        },
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 200,
+        "height": 240
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 200,
+      "height": 240,
+      "positionAbsolute": {
+        "x": 800,
+        "y": 220
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "11",
+      "type": "powerbi",
+      "position": {
+        "x": 1020,
+        "y": 220
+      },
+      "data": {
+        "label": "YTD Warehouse Net Sales",
+        "componentType": "card",
+        "cardLayout": "periodKpi",
+        "value": "$16,514K",
+        "ytdPriorYear": "$14,152K",
+        "cardPriorActualLabel": "Budget",
+        "cardBudgetLabel": "Budget",
+        "cardPriorLabel": "YTD YoY",
+        "budgetVariance": {
+          "dollarValue": "+$2,362K",
+          "percentage": "+16.7%"
+        },
+        "priorVariance": {
+          "dollarValue": "+$1,902K",
+          "percentage": "+13.0%"
+        },
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 200,
+        "height": 240
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 200,
+      "height": 240,
+      "positionAbsolute": {
+        "x": 1020,
+        "y": 220
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "12",
+      "type": "powerbi",
+      "position": {
+        "x": 1240,
+        "y": 220
+      },
+      "data": {
+        "label": "YTD Dropship Net Sales",
+        "componentType": "card",
+        "cardLayout": "periodKpi",
+        "value": "$11,704K",
+        "ytdPriorYear": "$10,030K",
+        "cardPriorActualLabel": "Budget",
+        "cardBudgetLabel": "Budget",
+        "cardPriorLabel": "YTD YoY",
+        "budgetVariance": {
+          "dollarValue": "+$1,674K",
+          "percentage": "+16.7%"
+        },
+        "priorVariance": {
+          "dollarValue": "-$1,072K",
+          "percentage": "-8.4%"
+        },
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 200,
+        "height": 240
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 200,
+      "height": 240,
+      "positionAbsolute": {
+        "x": 1240,
+        "y": 220
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "8",
+      "type": "powerbi",
+      "position": {
+        "x": 540,
+        "y": 220
+      },
+      "data": {
+        "label": "YTD Dropship vs Warehouse",
+        "componentType": "pie",
+        "chartData": [
+          11704,
+          16514
+        ],
+        "pieLabels": [
+          "Dropship",
+          "Warehouse"
+        ],
+        "pieScalePercent": 130,
+        "pieShowCalloutLabels": true,
+        "pieValueFormat": "currencyK",
+        "pieShowLegend": true
+      },
+      "style": {
+        "width": 240,
+        "height": 240
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 240,
+      "height": 240,
+      "positionAbsolute": {
+        "x": 540,
+        "y": 220
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "7",
+      "type": "powerbi",
+      "position": {
+        "x": -120,
+        "y": 760
+      },
+      "data": {
+        "label": "Orders & Revenue Summary",
+        "componentType": "matrix",
+        "matrixFirstColumnWidth": 100,
+        "matrixGroupedColumns": [
+          {
+            "label": ""
+          },
+          {
+            "label": "Wk 15"
+          },
+          {
+            "label": "Wk 16"
+          },
+          {
+            "label": "Wk 17"
+          },
+          {
+            "label": "Wk 18"
+          },
+          {
+            "label": "Wk 19"
+          },
+          {
+            "label": "MTD"
+          },
+          {
+            "label": "YTD"
+          },
+          {
+            "label": "MTD YoY",
+            "subLabels": [
+              "$",
+              "%"
+            ]
+          },
+          {
+            "label": "YTD YoY",
+            "subLabels": [
+              "$",
+              "%"
+            ]
+          }
+        ],
+        "columnLabels": [
+          "",
+          "Wk 15",
+          "Wk 16",
+          "Wk 17",
+          "Wk 18",
+          "Wk 19",
+          "MTD",
+          "YTD",
+          "$",
+          "%",
+          "$",
+          "%"
+        ],
+        "matrixData": [
+          [
+            "# Orders",
+            "3,542",
+            "3,322",
+            "2,453",
+            "2,752",
+            "2,805",
+            "17,121",
+            "64,130",
+            "+7,180",
+            "+63.5%",
+            "+24,608",
+            "+62.9%"
+          ],
+          [
+            "$ Revenue",
+            "$1,615,844",
+            "$1,515,677",
+            "$1,118,793",
+            "$1,255,540",
+            "$1,279,829",
+            "$6,617,528",
+            "$28,564,583",
+            "+$2,981,523",
+            "+82.1%",
+            "+$12,899,185",
+            "+82.4%"
+          ],
+          [
+            "AOV",
+            "$456",
+            "$456",
+            "$456",
+            "$456",
+            "$456",
+            "$387",
+            "$445",
+            "+$21",
+            "+5.7%",
+            "+$49",
+            "+12.4%"
+          ],
+          [
+            "Gross Margin %",
+            "48.2%",
+            "48.0%",
+            "48.3%",
+            "48.1%",
+            "48.2%",
+            "48.1%",
+            "48.3%",
+            "+1.2%",
+            "+2.9%",
+            "+0.8%",
+            "+1.7%"
+          ],
+          [
+            "Grills %",
+            "83.6%",
+            "83.4%",
+            "83.8%",
+            "83.5%",
+            "83.6%",
+            "83.6%",
+            "83.6%",
+            "+1.2%",
+            "+2.9%",
+            "+0.9%",
+            "+1.9%"
+          ],
+          [
+            "$ Free Product",
+            "$8,545",
+            "$7,638",
+            "$6,443",
+            "$6,499",
+            "$7,158",
+            "$46,002",
+            "$202,559",
+            "+$18,100",
+            "+80.0%",
+            "+$30,100",
+            "+80.0%"
+          ],
+          [
+            "W+D $",
+            "$13,500",
+            "$11,760",
+            "$14,460",
+            "$12,800",
+            "$13,830",
+            "$66,200",
+            "$319,421",
+            "-$4,800",
+            "-6.8%",
+            "+$48,000",
+            "+75.2%"
+          ]
+        ],
+        "matrixStripedRows": false,
+        "matrixSubRowData": [
+          [
+            [
+              "",
+              "2,180",
+              "2,045",
+              "1,510",
+              "1,694",
+              "1,726",
+              "11,544",
+              "40,059",
+              "+3,248",
+              "+63.5%",
+              "+11,217",
+              "+62.9%"
+            ],
+            [
+              "",
+              "1,362",
+              "1,277",
+              "943",
+              "1,058",
+              "1,079",
+              "5,577",
+              "24,071",
+              "+3,819",
+              "+63.5%",
+              "+13,194",
+              "+62.9%"
+            ]
+          ],
+          [
+            [
+              "",
+              "$934,190",
+              "$876,279",
+              "$646,823",
+              "$725,883",
+              "$739,925",
+              "$3,825,882",
+              "$16,514,436",
+              "+$1,250,534",
+              "+82.1%",
+              "+$5,406,580",
+              "+82.4%"
+            ],
+            [
+              "",
+              "$662,057",
+              "$621,016",
+              "$458,401",
+              "$514,431",
+              "$524,382",
+              "$2,711,390",
+              "$11,703,726",
+              "+$1,730,989",
+              "+82.1%",
+              "+$7,492,605",
+              "+82.4%"
+            ]
+          ],
+          [
+            [
+              "",
+              "$429",
+              "$428",
+              "$428",
+              "$429",
+              "$429",
+              "$331",
+              "$412",
+              "+$21",
+              "+6.8%",
+              "+$27",
+              "+7.0%"
+            ],
+            [
+              "",
+              "$486",
+              "$486",
+              "$486",
+              "$486",
+              "$486",
+              "$486",
+              "$486",
+              "-$72",
+              "-12.8%",
+              "+$99",
+              "+25.6%"
+            ]
+          ],
+          [
+            [
+              "",
+              "47.6%",
+              "47.4%",
+              "47.7%",
+              "47.5%",
+              "47.6%",
+              "47.5%",
+              "47.7%",
+              "+1.0%",
+              "+2.4%",
+              "+0.7%",
+              "+1.5%"
+            ],
+            [
+              "",
+              "49.1%",
+              "48.9%",
+              "49.2%",
+              "49.0%",
+              "49.1%",
+              "49.0%",
+              "49.2%",
+              "+1.5%",
+              "+3.6%",
+              "+1.1%",
+              "+2.3%"
+            ]
+          ],
+          [
+            [
+              "",
+              "85.4%",
+              "85.2%",
+              "85.6%",
+              "85.3%",
+              "85.4%",
+              "85.4%",
+              "85.3%",
+              "+1.4%",
+              "+3.4%",
+              "+1.1%",
+              "+2.3%"
+            ],
+            [
+              "",
+              "81.2%",
+              "81.0%",
+              "81.4%",
+              "81.1%",
+              "81.2%",
+              "81.2%",
+              "81.1%",
+              "+0.8%",
+              "+1.9%",
+              "+0.6%",
+              "+1.3%"
+            ]
+          ],
+          [
+            [
+              "",
+              "$4,939",
+              "$4,415",
+              "$3,724",
+              "$3,756",
+              "$4,137",
+              "$26,589",
+              "$117,079",
+              "$10,462",
+              "$46",
+              "$17,398",
+              "$46"
+            ],
+            [
+              "",
+              "$3,503",
+              "$3,132",
+              "$2,642",
+              "$2,665",
+              "$2,935",
+              "$18,861",
+              "$83,049",
+              "$7,421",
+              "$33",
+              "$12,341",
+              "$33"
+            ]
+          ],
+          [
+            [
+              "",
+              "$7,803",
+              "$6,797",
+              "$8,358",
+              "$7,398",
+              "$7,994",
+              "$38,264",
+              "$184,625",
+              "$2,774",
+              "-$4",
+              "$27,744",
+              "$43"
+            ],
+            [
+              "",
+              "$5,535",
+              "$4,822",
+              "$5,929",
+              "$5,248",
+              "$5,670",
+              "$27,142",
+              "$130,963",
+              "$1,968",
+              "-$3",
+              "$19,680",
+              "$31"
+            ]
+          ]
+        ],
+        "matrixSubRows": [
+          [
+            {
+              "label": "Warehouse",
+              "share": 0.578
+            },
+            {
+              "label": "Dropship",
+              "share": 0.41
+            }
+          ],
+          [
+            {
+              "label": "Warehouse",
+              "share": 0.578
+            },
+            {
+              "label": "Dropship",
+              "share": 0.41
+            }
+          ],
+          [
+            {
+              "label": "Warehouse",
+              "share": 0.578
+            },
+            {
+              "label": "Dropship",
+              "share": 0.41
+            }
+          ],
+          [
+            {
+              "label": "Warehouse",
+              "share": 0.578
+            },
+            {
+              "label": "Dropship",
+              "share": 0.41
+            }
+          ],
+          [
+            {
+              "label": "Warehouse",
+              "share": 0.578
+            },
+            {
+              "label": "Dropship",
+              "share": 0.41
+            }
+          ],
+          [
+            {
+              "label": "Warehouse",
+              "share": 0.578
+            },
+            {
+              "label": "Dropship",
+              "share": 0.41
+            }
+          ],
+          [
+            {
+              "label": "Warehouse",
+              "share": 0.578
+            },
+            {
+              "label": "Dropship",
+              "share": 0.41
+            }
+          ]
+        ]
+      },
+      "style": {
+        "width": 1340,
+        "height": 560
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 1340,
+      "height": 560,
+      "positionAbsolute": {
+        "x": -120,
+        "y": 760
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "2",
+      "type": "powerbi",
+      "position": {
+        "x": -120,
+        "y": 480
+      },
+      "data": {
+        "label": "Revenue by Product Category",
+        "componentType": "matrix",
+        "columnLabels": [
+          "",
+          "Wk 15",
+          "Wk 16",
+          "Wk 17",
+          "Wk 18",
+          "Wk 19",
+          "MTD",
+          "$",
+          "%",
+          "YTD",
+          "$",
+          "%",
+          "CW % Mix",
+          "MTD % Mix",
+          "MTD % Mix YoY",
+          "YTD % Mix",
+          "YTD % Mix YoY"
+        ],
+        "matrixData": [
+          [
+            "Revenue",
+            "$1,058,706",
+            "$993,077",
+            "$733,037",
+            "$822,634",
+            "$838,548",
+            "$4,335,826",
+            "+$2,981,523",
+            "+82.1%",
+            "$18,715,608",
+            "+$12,899,185",
+            "+82.4%",
+            "100%",
+            "100%",
+            "+0.0%",
+            "100%",
+            "+0.0%"
+          ]
+        ],
+        "matrixSubRows": [
+          [
+            {
+              "label": "Grills",
+              "share": 0.836,
+              "revenueMix": {
+                "cw": 83.6,
+                "mtd": 83.6,
+                "ytd": 83.6
+              },
+              "cmPercent": {
+                "cw": 48,
+                "mtd": 48.2,
+                "ytd": 48.4
+              },
+              "yoyRevenueMix": {
+                "mtd": 1.2,
+                "ytd": 1.5
+              }
+            },
+            {
+              "label": "Accessories",
+              "share": 0.079,
+              "revenueMix": {
+                "cw": 7.9,
+                "mtd": 7.9,
+                "ytd": 7.9
+              },
+              "cmPercent": {
+                "cw": 62,
+                "mtd": 61.7,
+                "ytd": 61.4
+              },
+              "yoyRevenueMix": {
+                "mtd": -0.8,
+                "ytd": -1
+              }
+            },
+            {
+              "label": "Pellets",
+              "share": 0.005,
+              "revenueMix": {
+                "cw": 0.5,
+                "mtd": 0.5,
+                "ytd": 0.5
+              },
+              "cmPercent": {
+                "cw": 38,
+                "mtd": 38.3,
+                "ytd": 38.6
+              },
+              "yoyRevenueMix": {
+                "mtd": 0.1,
+                "ytd": 0
+              }
+            },
+            {
+              "label": "Rubs & Sauces",
+              "share": 0.009,
+              "revenueMix": {
+                "cw": 0.9,
+                "mtd": 0.9,
+                "ytd": 0.9
+              },
+              "cmPercent": {
+                "cw": 56,
+                "mtd": 55.7,
+                "ytd": 55.4
+              },
+              "yoyRevenueMix": {
+                "mtd": 0.4,
+                "ytd": 0.5
+              }
+            },
+            {
+              "label": "Other",
+              "share": 0.001,
+              "revenueMix": {
+                "cw": 0.1,
+                "mtd": 0.1,
+                "ytd": 0.1
+              },
+              "cmPercent": {
+                "cw": 34,
+                "mtd": 34.3,
+                "ytd": 34.6
+              },
+              "yoyRevenueMix": {
+                "mtd": -0.3,
+                "ytd": -0.2
+              }
+            },
+            {
+              "label": "Shipping",
+              "share": 0.07,
+              "revenueMix": {
+                "cw": 7,
+                "mtd": 7,
+                "ytd": 6
+              },
+              "cmPercent": {
+                "cw": 14,
+                "mtd": 13.8,
+                "ytd": 13.5
+              },
+              "yoyRevenueMix": {
+                "mtd": -0.6,
+                "ytd": -0.8
+              }
+            }
+          ]
+        ],
+        "matrixFirstColumnWidth": 120,
+        "matrixColumnWidths": [
+          120,
+          80,
+          80,
+          80,
+          80,
+          80,
+          null,
+          112,
+          54,
+          null,
+          112,
+          54
+        ],
+        "matrixGroupedColumns": [
+          {
+            "label": ""
+          },
+          {
+            "label": "Wk 15"
+          },
+          {
+            "label": "Wk 16"
+          },
+          {
+            "label": "Wk 17"
+          },
+          {
+            "label": "Wk 18"
+          },
+          {
+            "label": "Wk 19"
+          },
+          {
+            "label": "MTD"
+          },
+          {
+            "label": "MTD YoY",
+            "subLabels": [
+              "$",
+              "%"
+            ]
+          },
+          {
+            "label": "YTD"
+          },
+          {
+            "label": "YTD YoY",
+            "subLabels": [
+              "$",
+              "%"
+            ]
+          },
+          {
+            "label": "CW % Mix"
+          },
+          {
+            "label": "MTD % Mix"
+          },
+          {
+            "label": "MTD % Mix YoY"
+          },
+          {
+            "label": "YTD % Mix"
+          },
+          {
+            "label": "YTD % Mix YoY"
+          }
+        ]
+      },
+      "style": {
+        "width": 1300,
+        "height": 260
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 1300,
+      "height": 260,
+      "positionAbsolute": {
+        "x": -120,
+        "y": 480
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "10",
+      "type": "powerbi",
+      "position": {
+        "x": -120,
+        "y": 1340
+      },
+      "data": {
+        "label": "Expected Shipped Sales",
+        "componentType": "matrix",
+        "matrixRegularFirstColumn": false,
+        "matrixFirstColumnWidth": 140,
+        "matrixHighlightColumns": [
+          6,
+          10
+        ],
+        "matrixStripedRows": false,
+        "matrixLeftAlignedColumns": [
+          0
+        ],
+        "columnLabels": [
+          "Group",
+          "Dec",
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Total"
+        ],
+        "matrixData": [
+          [
+            "Retailer Total",
+            "$0",
+            "$0",
+            "$0",
+            "$0",
+            "$0",
+            "$256",
+            "$357,633",
+            "$475,959",
+            "$0",
+            "$1,404,998"
+          ]
+        ],
+        "matrixSubRowData": [
+          [
+            [
+              "",
+              "$0",
+              "$0",
+              "$0",
+              "$0",
+              "$0",
+              "$148",
+              "$206,763",
+              "$275,173",
+              "$0",
+              "$812,291"
+            ],
+            [
+              "",
+              "$0",
+              "$0",
+              "$0",
+              "$0",
+              "$0",
+              "$105",
+              "$146,533",
+              "$195,014",
+              "$0",
+              "$575,668"
+            ]
+          ]
+        ],
+        "matrixSubRows": [
+          [
+            {
+              "label": "Warehouse",
+              "share": 0.578
+            },
+            {
+              "label": "Dropship",
+              "share": 0.41
+            }
+          ]
+        ]
+      },
+      "style": {
+        "width": 1140,
+        "height": 180
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 1140,
+      "height": 180,
+      "positionAbsolute": {
+        "x": -120,
+        "y": 1340
+      },
+      "selected": false,
+      "dragging": false
+    }
+  ],
+  "edges": []
+}

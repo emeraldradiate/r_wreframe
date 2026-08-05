@@ -5,6 +5,7 @@ import {
   FlaskConical,
   Headphones,
   Mail,
+  MapPinned,
   Megaphone,
   Settings2,
   Share2,
@@ -18,8 +19,12 @@ interface DashboardMenuProps {
   side?: 'left' | 'right';
   activeDashboard?: string;
   onDashboardSelect?: (dashboardLabel: string) => void;
-  executiveSummaryPage?: number;
-  onExecutiveSummaryPageChange?: (page: number) => void;
+  financialSummaryPage?: number;
+  onFinancialSummaryPageChange?: (page: number) => void;
+  retailSummaryPage?: number;
+  onRetailSummaryPageChange?: (page: number) => void;
+  sideQuestPage?: number;
+  onSideQuestPageChange?: (page: number) => void;
 }
 
 function DashboardMenu({
@@ -27,14 +32,19 @@ function DashboardMenu({
   side = 'left',
   activeDashboard,
   onDashboardSelect,
-  executiveSummaryPage = 0,
-  onExecutiveSummaryPageChange,
+  financialSummaryPage = 0,
+  onFinancialSummaryPageChange,
+  retailSummaryPage = 0,
+  onRetailSummaryPageChange,
+  sideQuestPage = 0,
+  onSideQuestPageChange,
 }: DashboardMenuProps) {
+  const SIDE_QUEST_DASHBOARD = { label: 'Customer Service Side Quest', icon: MapPinned };
 
   const dashboards = [
     { label: 'Executive Summary', icon: Briefcase },
     { label: 'Financial Summary', icon: DollarSign },
-    { label: 'B2B Summary', icon: Building2 },
+    { label: 'Retail Summary', icon: Building2 },
     { label: 'DTC Summary (eCommerce)', icon: ShoppingCart },
     { label: 'DTC Summary (ADS)', icon: Megaphone },
     { label: 'Operational Summary', icon: Settings2 },
@@ -47,6 +57,8 @@ function DashboardMenu({
   ];
 
   const isRightSide = side === 'right';
+  const SideQuestIcon = SIDE_QUEST_DASHBOARD.icon;
+  const isSideQuestActive = activeDashboard === SIDE_QUEST_DASHBOARD.label;
 
   return (
     <div className={`relative shrink-0 h-full ${isOpen ? 'w-64' : 'w-0'}`}>
@@ -61,9 +73,21 @@ function DashboardMenu({
           <div className="space-y-2">
             {dashboards.map((dashboard) => {
               const Icon = dashboard.icon;
-              const isExecutiveSummary = dashboard.label === 'Executive Summary';
+              const pageConfig = dashboard.label === 'Financial Summary'
+                  ? {
+                      totalPages: 4,
+                      activePage: financialSummaryPage,
+                      onPageChange: onFinancialSummaryPageChange,
+                    }
+                  : dashboard.label === 'Retail Summary'
+                    ? {
+                        totalPages: 7,
+                        activePage: retailSummaryPage,
+                        onPageChange: onRetailSummaryPageChange,
+                      }
+                    : null;
 
-              if (isExecutiveSummary) {
+              if (pageConfig) {
                 return (
                   <div key={dashboard.label} className="flex items-center gap-2">
                     <button
@@ -79,22 +103,22 @@ function DashboardMenu({
                       <span className="text-xs font-medium font-body">{dashboard.label}</span>
                     </button>
                     <div className="flex items-center gap-1 pr-1">
-                      {[0, 1].map((page) => (
+                      {Array.from({ length: pageConfig.totalPages }, (_, page) => page).map((page) => (
                         <button
                           key={page}
                           type="button"
                           onClick={(event) => {
                             event.stopPropagation();
-                            onDashboardSelect?.('Executive Summary');
-                            onExecutiveSummaryPageChange?.(page);
+                            onDashboardSelect?.(dashboard.label);
+                            pageConfig.onPageChange?.(page);
                           }}
                           className={`h-3 w-3 rounded-full border border-black transition-all ${
-                            executiveSummaryPage === page ? 'bg-[#EA0029]' : 'bg-black'
+                            pageConfig.activePage === page ? 'bg-[#EA0029]' : 'bg-black'
                           }`}
-                          title={`Show Executive Summary page ${page + 1}`}
-                          aria-label={`Show Executive Summary page ${page + 1}`}
+                          title={`Show ${dashboard.label} page ${page + 1}`}
+                          aria-label={`Show ${dashboard.label} page ${page + 1}`}
                         >
-                          <span className="sr-only">Executive Summary page {page + 1}</span>
+                          <span className="sr-only">{dashboard.label} page {page + 1}</span>
                         </button>
                       ))}
                     </div>
@@ -118,6 +142,43 @@ function DashboardMenu({
               </button>
               );
             })}
+          </div>
+
+          <div className="mt-4 pt-4 border-t border-gray-200">
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => onDashboardSelect?.(SIDE_QUEST_DASHBOARD.label)}
+                className={`flex-1 flex items-center gap-3 px-3 py-2 rounded-lg transition-all border text-left ${
+                  isSideQuestActive
+                    ? 'bg-[#0EA5E9] text-white border-[#0EA5E9]'
+                    : 'bg-white border-[#606060] hover:bg-[#38BDF8] hover:text-white hover:border-[#38BDF8]'
+                }`}
+              >
+                <SideQuestIcon size={18} className="shrink-0" />
+                <span className="text-xs font-medium font-body">{SIDE_QUEST_DASHBOARD.label}</span>
+              </button>
+              <div className="flex items-center gap-1 pr-1">
+                {[0, 1, 2, 3, 4].map((page) => (
+                  <button
+                    key={page}
+                    type="button"
+                    onClick={(event) => {
+                      event.stopPropagation();
+                      onDashboardSelect?.(SIDE_QUEST_DASHBOARD.label);
+                      onSideQuestPageChange?.(page);
+                    }}
+                    className={`h-3 w-3 rounded-full border border-black transition-all ${
+                      sideQuestPage === page ? 'bg-[#0EA5E9]' : 'bg-black'
+                    }`}
+                    title={`Show ${SIDE_QUEST_DASHBOARD.label} page ${page + 1}`}
+                    aria-label={`Show ${SIDE_QUEST_DASHBOARD.label} page ${page + 1}`}
+                  >
+                    <span className="sr-only">{SIDE_QUEST_DASHBOARD.label} page {page + 1}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </aside>

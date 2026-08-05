@@ -1,0 +1,388 @@
+{
+  "version": 1,
+  "savedAt": "2026-08-05T13:15:00.000Z",
+  "appTitle": "Retail Summary",
+  "nodes": [
+    {
+      "id": "1",
+      "type": "powerbi",
+      "position": {
+        "x": -60,
+        "y": -80
+      },
+      "data": {
+        "label": "RSC Current On-Hand Inventory by SKU",
+        "componentType": "matrix",
+        "matrixStripedRows": false,
+        "matrixRegularFirstColumn": false,
+        "matrixFirstColumnWidth": 140,
+        "matrixLeftAlignedColumns": [0],
+        "matrixColumnWidthWeights": [1.4, 0.65, 0.65, 0.6, 0.6, 0.65, 0.6, 0.6, 0.85, 0.7, 0.85, 0.65, 0.85],
+        "columnLabels": [
+          "Category",
+          "On-Hand",
+          "Existing",
+          "NPIs",
+          "Expiring",
+          "On the Way",
+          "Wks Supply",
+          "Sell-Through",
+          "Booked Sales",
+          "Shipping Rev",
+          "Booked + Ship",
+          "Booked Units",
+          "Gross Sales"
+        ],
+        "matrixData": [
+          ["Grills", "412", "318", "68", "26", "58", "4.8", "81%", "$69,303", "$0", "$69,303", "100", "$69,303"],
+          ["Key Accessories", "1,840", "1,620", "148", "72", "248", "3.6", "88%", "$6,440", "$0", "$6,440", "200", "$6,440"],
+          ["Pellets", "8,420", "7,280", "820", "320", "1,080", "2.9", "91%", "$18,240", "$0", "$18,240", "640", "$18,240"],
+          ["Rubs & Sauces", "3,180", "2,760", "280", "140", "420", "4.2", "76%", "$2,180", "$0", "$2,180", "111", "$2,180"]
+        ],
+        "matrixSubRows": [
+          [
+            { "label": "RT-590", "share": 0.22 },
+            { "label": "RT-700", "share": 0.20 },
+            { "label": "RT-1000", "share": 0.18 },
+            { "label": "RT-1250", "share": 0.16 },
+            { "label": "RT-1300", "share": 0.14 },
+            { "label": "RT-1400", "share": 0.10 }
+          ],
+          [
+            { "label": "ACC-201", "share": 0.39 },
+            { "label": "ACC-318", "share": 0.33 },
+            { "label": "ACC-442", "share": 0.28 }
+          ],
+          [
+            { "label": "PEL-18", "share": 0.42 },
+            { "label": "PEL-24", "share": 0.32 },
+            { "label": "PEL-33", "share": 0.26 }
+          ],
+          [
+            { "label": "RUB-08", "share": 0.42 },
+            { "label": "SAU-12", "share": 0.32 },
+            { "label": "RUB-15", "share": 0.26 }
+          ]
+        ],
+        "matrixSubRowData": [
+          [
+            ["", "91", "70", "15", "6", "13", "5.1", "79%", "$8,303", "$0", "$8,303", "11", "$8,303"],
+            ["", "82", "64", "14", "5", "12", "4.9", "80%", "$10,624", "$0", "$10,624", "20", "$10,624"],
+            ["", "82", "64", "14", "5", "12", "4.8", "81%", "$10,624", "$0", "$10,624", "20", "$10,624"],
+            ["", "74", "58", "12", "5", "10", "4.6", "82%", "$11,824", "$0", "$11,824", "21", "$11,824"],
+            ["", "48", "37", "8", "3", "7", "4.4", "83%", "$9,396", "$0", "$9,396", "9", "$9,396"],
+            ["", "35", "27", "6", "2", "4", "4.2", "84%", "$18,532", "$0", "$18,532", "19", "$18,532"]
+          ],
+          [
+            ["", "718", "632", "58", "28", "96", "3.4", "89%", "$1,543", "$0", "$1,543", "72", "$1,543"],
+            ["", "608", "534", "49", "24", "82", "3.5", "88%", "$1,367", "$0", "$1,367", "29", "$1,367"],
+            ["", "514", "454", "41", "20", "70", "3.8", "87%", "$187", "$0", "$187", "10", "$187"]
+          ],
+          [
+            ["", "3,536", "3,058", "344", "134", "454", "2.8", "92%", "$7,694", "$0", "$7,694", "269", "$7,694"],
+            ["", "2,694", "2,330", "262", "102", "346", "2.9", "91%", "$6,158", "$0", "$6,158", "216", "$6,158"],
+            ["", "2,190", "1,892", "214", "84", "280", "3.1", "90%", "$4,388", "$0", "$4,388", "155", "$4,388"]
+          ],
+          [
+            ["", "1,336", "1,159", "118", "59", "176", "4.0", "77%", "$916", "$0", "$916", "47", "$916"],
+            ["", "1,018", "884", "90", "45", "134", "4.1", "76%", "$742", "$0", "$742", "38", "$742"],
+            ["", "826", "717", "72", "36", "110", "4.4", "75%", "$522", "$0", "$522", "26", "$522"]
+          ]
+        ]
+      },
+      "style": {
+        "width": 1480,
+        "height": 500
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 1480,
+      "height": 500,
+      "positionAbsolute": {
+        "x": -60,
+        "y": -80
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "2",
+      "type": "powerbi",
+      "position": {
+        "x": -60,
+        "y": 440
+      },
+      "data": {
+        "label": "RSC Replenishment",
+        "componentType": "matrix",
+        "matrixRegularFirstColumn": false,
+        "matrixFirstColumnWidth": 140,
+        "matrixLeftAlignedColumns": [0],
+        "matrixColumnWidthWeights": [1.5, 0.75, 0.75, 0.75, 0.7, 0.7, 0.7],
+        "columnLabels": [
+          "Category",
+          "CW AOV",
+          "MTD AOV",
+          "YTD AOV",
+          "CW Freq",
+          "MTD Freq",
+          "YTD Freq"
+        ],
+        "matrixData": [
+          ["Grills", "$693", "$688", "$679", "1.8", "1.7", "1.6"],
+          ["Key Accessories", "$32", "$31", "$30", "4.6", "4.4", "4.2"],
+          ["Pellets", "$28", "$27", "$26", "6.2", "6.0", "5.8"],
+          ["Rubs & Sauces", "$20", "$19", "$18", "5.4", "5.2", "5.0"]
+        ]
+      },
+      "style": {
+        "width": 720,
+        "height": 220
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 720,
+      "height": 220,
+      "positionAbsolute": {
+        "x": -60,
+        "y": 440
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "3",
+      "type": "powerbi",
+      "position": {
+        "x": 680,
+        "y": 440
+      },
+      "data": {
+        "label": "Store Load-in (RSC & Drop)",
+        "componentType": "matrix",
+        "matrixRegularFirstColumn": false,
+        "matrixFirstColumnWidth": 140,
+        "matrixLeftAlignedColumns": [0],
+        "matrixColumnWidthWeights": [2, 0.7, 0.7, 0.7, 0.8],
+        "columnLabels": [
+          "Metric",
+          "CW",
+          "MTD",
+          "YTD",
+          "YTD YoY"
+        ],
+        "matrixData": [
+          ["Grill Penetration", "68%", "71%", "74%", "+3.2%"],
+          ["OOS Rate", "4.2%", "3.8%", "4.1%", "-0.4%"],
+          ["Replenish Rate", "82%", "84%", "83%", "+1.6%"],
+          ["Store AOV", "$246", "$239", "$231", "+2.8%"]
+        ]
+      },
+      "style": {
+        "width": 740,
+        "height": 220
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 740,
+      "height": 220,
+      "positionAbsolute": {
+        "x": 680,
+        "y": 440
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "4",
+      "type": "powerbi",
+      "position": {
+        "x": -60,
+        "y": 680
+      },
+      "data": {
+        "label": "YTD Highest and Lowest Earner Stores",
+        "componentType": "bar",
+        "barDataLabelFormat": "currencyK",
+        "xAxisLabelRotation": -45,
+        "chartData": [284.6, 261.4, 248.2, 232.0, 218.5, 31.4, 28.6, 26.2, 24.1, 22.8],
+        "thirdAxisEnabled": true,
+        "thirdAxisData": [48.6, 48.6, 48.6, 48.6, 48.6, 48.6, 48.6, 48.6, 48.6, 48.6],
+        "axisLabels": {
+          "x": "",
+          "y": "YTD Revenue ($K)",
+          "third": "Avg Store Earnings ($K)"
+        },
+        "xAxisLabels": [
+          "Ace #4821",
+          "Ace #2109",
+          "Murdoch's #18",
+          "Ace #3847",
+          "Ace #5502",
+          "Ace #7742",
+          "Ace #3391",
+          "Ace #4408",
+          "Ace #6620",
+          "Ace #1187"
+        ]
+      },
+      "style": {
+        "width": 720,
+        "height": 360
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 720,
+      "height": 360,
+      "positionAbsolute": {
+        "x": -60,
+        "y": 680
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "6",
+      "type": "powerbi",
+      "position": {
+        "x": -60,
+        "y": 1060
+      },
+      "data": {
+        "label": "eComm SKU Sales",
+        "componentType": "matrix",
+        "matrixStripedRows": false,
+        "matrixRegularFirstColumn": false,
+        "matrixFirstColumnWidth": 140,
+        "matrixLeftAlignedColumns": [0],
+        "matrixColumnWidthWeights": [1.2, 0.75, 0.75, 0.75, 0.8],
+        "columnLabels": [
+          "Metric",
+          "CW",
+          "MTD",
+          "YTD",
+          "YTD YoY"
+        ],
+        "matrixData": [
+          ["Unit Sales", "1,141", "4,820", "52,640", "+9.8%"],
+          ["Run Rate (Units/Wk)", "1,141", "1,098", "1,062", "+3.6%"],
+          ["BOPIS Orders", "186", "742", "8,420", "+14.2%"]
+        ]
+      },
+      "style": {
+        "width": 720,
+        "height": 220
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 720,
+      "height": 220,
+      "positionAbsolute": {
+        "x": -60,
+        "y": 1060
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "7",
+      "type": "powerbi",
+      "position": {
+        "x": 680,
+        "y": 1060
+      },
+      "data": {
+        "label": "Consumer Sales KPIs",
+        "componentType": "matrix",
+        "matrixRegularFirstColumn": false,
+        "matrixFirstColumnWidth": 120,
+        "matrixLeftAlignedColumns": [0],
+        "matrixColumnWidthWeights": [1.2, 0.75, 0.75, 0.75],
+        "columnLabels": [
+          "Metric",
+          "CW",
+          "MTD",
+          "YTD"
+        ],
+        "matrixData": [
+          ["ASP", "$231", "$228", "$224"],
+          ["AOV", "$312", "$306", "$298"],
+          ["Discount %", "7.4%", "7.2%", "7.5%"],
+          ["Return Rate", "2.1%", "2.0%", "2.2%"],
+          ["Damage Rate", "0.8%", "0.7%", "0.9%"]
+        ]
+      },
+      "style": {
+        "width": 740,
+        "height": 220
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 740,
+      "height": 220,
+      "positionAbsolute": {
+        "x": 680,
+        "y": 1060
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "8",
+      "type": "powerbi",
+      "position": {
+        "x": 680,
+        "y": 680
+      },
+      "data": {
+        "label": "YTD Top & Bottom SKU Performers",
+        "componentType": "matrix",
+        "matrixRegularFirstColumn": false,
+        "matrixFirstColumnWidth": 140,
+        "matrixLeftAlignedColumns": [0],
+        "matrixColumnWidthWeights": [1.6, 0.7, 0.7, 0.7, 0.8],
+        "columnLabels": [
+          "SKU",
+          "CW Units",
+          "MTD Units",
+          "YTD Units",
+          "Run Rate %"
+        ],
+        "matrixData": [
+          ["RT-1250", "21", "84", "1,092", "138%"],
+          ["RT-1000", "20", "80", "1,040", "128%"],
+          ["RT-700", "20", "78", "1,020", "124%"],
+          ["ACC-201", "72", "288", "3,744", "118%"],
+          ["RT-590", "11", "44", "572", "112%"],
+          ["RUB-15", "3", "12", "84", "22%"],
+          ["SAU-12", "2", "8", "62", "19%"],
+          ["ACC-442", "10", "38", "120", "18%"],
+          ["PEL-33", "4", "16", "104", "16%"],
+          ["RUB-08", "1", "4", "28", "12%"]
+        ]
+      },
+      "style": {
+        "width": 740,
+        "height": 360
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 740,
+      "height": 360,
+      "positionAbsolute": {
+        "x": 680,
+        "y": 680
+      },
+      "selected": false,
+      "dragging": false
+    }
+  ],
+  "edges": []
+}

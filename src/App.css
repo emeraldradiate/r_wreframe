@@ -13,10 +13,135 @@
   border-radius: 0;
 }
 
+.react-flow__node:has(.powerbi-slicer) {
+  overflow: visible !important;
+  z-index: 20;
+}
+
+.react-flow__node:has(.powerbi-slicer) .powerbi-visual,
+.react-flow__node:has(.powerbi-slicer) .node-drag-handle {
+  overflow: visible !important;
+}
+
 .react-flow__handle {
   width: 8px;
   height: 8px;
   background: #EA0029;
   border: 2px solid white;
 }
+
+@media print {
+  @page {
+    size: letter landscape;
+    margin: 0;
+  }
+
+  html,
+  body,
+  #root,
+  .app-root {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    background: #f7f7f2 !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .app-shell {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .app-shell > :not(.print-canvas-shell) {
+    display: none !important;
+  }
+
+  .print-canvas-shell {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .print-canvas-target {
+    border: 0 !important;
+    outline: 1px solid #d1d5db !important;
+    outline-offset: -1px;
+    box-sizing: border-box !important;
+    box-shadow: none !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+  }
+
+  .print-canvas-target:not(.mini-header-mode) header {
+    background: #000000 !important;
+    color: #f9fafb !important;
+  }
+
+  .print-canvas-target.mini-header-mode header {
+    background: transparent !important;
+    color: #111827 !important;
+    width: auto !important;
+    display: inline-flex !important;
+  }
+
+  .print-canvas-target.mini-header-mode header input,
+  .print-canvas-target.mini-header-mode header div {
+    color: #111827 !important;
+  }
+
+  .print-canvas-target.side-quest-canvas {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    aspect-ratio: auto !important;
+  }
+
+  .print-canvas-target.side-quest-canvas header {
+    background: #000000 !important;
+    color: #f9fafb !important;
+  }
+
+  .print-canvas-target.side-quest-canvas header input,
+  .print-canvas-target.side-quest-canvas header button,
+  .print-canvas-target.side-quest-canvas header span {
+    color: inherit;
+  }
+
+  .print-canvas-target main,
+  .print-canvas-target main > div,
+  .print-canvas-target .react-flow {
+    background: #f7f7f2 !important;
+  }
+
+  .print-watermark {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  .print-watermark img {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+}
+
 

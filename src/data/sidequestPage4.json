@@ -1,0 +1,687 @@
+{
+  "version": 1,
+  "savedAt": "2026-07-27T14:07:09.461Z",
+  "appTitle": "Customer Search",
+  "nodes": [
+    {
+      "id": "sq4-customers-matrix",
+      "type": "powerbi",
+      "position": {
+        "x": 40,
+        "y": 40
+      },
+      "data": {
+        "label": "Customers",
+        "componentType": "matrix",
+        "hideHeader": true,
+        "matrixRegularFirstColumn": true,
+        "matrixStripedRows": true,
+        "matrixDisableVarianceColors": true,
+        "matrixWrapColumnHeaders": true,
+        "matrixLeftAlignedColumns": [],
+        "columnLabels": [
+          "LAST NAME",
+          "FIRST NAME",
+          "PHONE NUMBER",
+          "EMAIL",
+          "ORDER COUNT",
+          "LIFETIME SPEND",
+          "MOST RECENT ORDER",
+          "MOST RECENT CALL",
+          "INCOMING CALLS",
+          "OUTGOING CALLS",
+          "CITY",
+          "STATE"
+        ],
+        "matrixData": [
+          [
+            "Martinez",
+            "Elena",
+            "(706) 555-0142",
+            "elena.martinez@email.com",
+            "12",
+            "$4,872.50",
+            "5/28/2026",
+            "6/8/2026",
+            "8",
+            "3",
+            "Augusta",
+            "GA"
+          ],
+          [
+            "Chen",
+            "David",
+            "(801) 555-0198",
+            "david.chen@email.com",
+            "7",
+            "$2,145.00",
+            "6/2/2026",
+            "6/5/2026",
+            "3",
+            "5",
+            "Lehi",
+            "UT"
+          ],
+          [
+            "Thompson",
+            "Sarah",
+            "(512) 555-0234",
+            "s.thompson@gmail.com",
+            "4",
+            "$899.99",
+            "4/15/2026",
+            "5/30/2026",
+            "2",
+            "1",
+            "Austin",
+            "TX"
+          ],
+          [
+            "Williams",
+            "James",
+            "(404) 555-0311",
+            "jwilliams@outlook.com",
+            "18",
+            "$12,340.00",
+            "6/7/2026",
+            "6/9/2026",
+            "15",
+            "7",
+            "Atlanta",
+            "GA"
+          ],
+          [
+            "Garcia",
+            "Maria",
+            "(305) 555-0456",
+            "maria.garcia@yahoo.com",
+            "3",
+            "$1,299.99",
+            "3/22/2026",
+            "4/18/2026",
+            "1",
+            "2",
+            "Miami",
+            "FL"
+          ],
+          [
+            "Johnson",
+            "Robert",
+            "(615) 555-0523",
+            "rjohnson@email.com",
+            "9",
+            "$3,456.78",
+            "5/19/2026",
+            "6/1/2026",
+            "6",
+            "4",
+            "Nashville",
+            "TN"
+          ],
+          [
+            "Anderson",
+            "Lisa",
+            "(503) 555-0678",
+            "lisa.anderson@email.com",
+            "2",
+            "$649.98",
+            "2/8/2026",
+            "3/15/2026",
+            "0",
+            "1",
+            "Portland",
+            "OR"
+          ],
+          [
+            "Brown",
+            "Michael",
+            "(312) 555-0789",
+            "mbrown@corp.com",
+            "22",
+            "$18,920.50",
+            "6/10/2026",
+            "6/10/2026",
+            "11",
+            "9",
+            "Chicago",
+            "IL"
+          ],
+          [
+            "Davis",
+            "Jennifer",
+            "(720) 555-0891",
+            "jdavis@email.com",
+            "5",
+            "$2,799.95",
+            "5/5/2026",
+            "5/22/2026",
+            "4",
+            "2",
+            "Denver",
+            "CO"
+          ],
+          [
+            "Miller",
+            "Christopher",
+            "(214) 555-0902",
+            "cmiller@email.com",
+            "6",
+            "$1,874.00",
+            "4/28/2026",
+            "5/14/2026",
+            "5",
+            "3",
+            "Dallas",
+            "TX"
+          ],
+          [
+            "Wilson",
+            "Amanda",
+            "(919) 555-1013",
+            "awilson@email.com",
+            "8",
+            "$4,120.00",
+            "6/4/2026",
+            "6/6/2026",
+            "7",
+            "2",
+            "Raleigh",
+            "NC"
+          ],
+          [
+            "Moore",
+            "Daniel",
+            "(602) 555-1124",
+            "dmoore@email.com",
+            "1",
+            "$899.99",
+            "1/12/2026",
+            "2/3/2026",
+            "1",
+            "0",
+            "Phoenix",
+            "AZ"
+          ],
+          [
+            "Taylor",
+            "Jessica",
+            "(206) 555-1235",
+            "jtaylor@email.com",
+            "11",
+            "$5,678.90",
+            "5/31/2026",
+            "6/7/2026",
+            "9",
+            "4",
+            "Seattle",
+            "WA"
+          ],
+          [
+            "Thomas",
+            "Matthew",
+            "(704) 555-1346",
+            "mthomas@email.com",
+            "14",
+            "$8,945.00",
+            "6/8/2026",
+            "6/9/2026",
+            "12",
+            "6",
+            "Charlotte",
+            "NC"
+          ],
+          [
+            "Jackson",
+            "Ashley",
+            "(415) 555-1457",
+            "ajackson@email.com",
+            "3",
+            "$1,449.97",
+            "3/30/2026",
+            "4/25/2026",
+            "2",
+            "1",
+            "San Francisco",
+            "CA"
+          ],
+          [
+            "White",
+            "Andrew",
+            "(617) 555-1568",
+            "awhite@email.com",
+            "7",
+            "$3,210.00",
+            "5/12/2026",
+            "5/29/2026",
+            "4",
+            "5",
+            "Boston",
+            "MA"
+          ],
+          [
+            "Harris",
+            "Nicole",
+            "(702) 555-1679",
+            "nharris@email.com",
+            "2",
+            "$1,799.98",
+            "2/20/2026",
+            "3/8/2026",
+            "1",
+            "2",
+            "Las Vegas",
+            "NV"
+          ],
+          [
+            "Martin",
+            "Kevin",
+            "(404) 555-1780",
+            "kmartin@email.com",
+            "16",
+            "$9,876.00",
+            "6/6/2026",
+            "6/8/2026",
+            "10",
+            "8",
+            "Savannah",
+            "GA"
+          ],
+          [
+            "Clark",
+            "Stephanie",
+            "(801) 555-1891",
+            "sclark@email.com",
+            "5",
+            "$2,499.95",
+            "4/19/2026",
+            "5/10/2026",
+            "3",
+            "2",
+            "Salt Lake City",
+            "UT"
+          ],
+          [
+            "Lewis",
+            "Brian",
+            "(713) 555-1902",
+            "blewis@email.com",
+            "10",
+            "$6,540.00",
+            "5/25/2026",
+            "6/3/2026",
+            "8",
+            "3",
+            "Houston",
+            "TX"
+          ],
+          [
+            "Robinson",
+            "Megan",
+            "(612) 555-2013",
+            "mrobinson@email.com",
+            "4",
+            "$1,599.96",
+            "4/2/2026",
+            "4/28/2026",
+            "2",
+            "1",
+            "Minneapolis",
+            "MN"
+          ],
+          [
+            "Walker",
+            "Jason",
+            "(404) 555-2124",
+            "jwalker@email.com",
+            "13",
+            "$7,230.00",
+            "6/1/2026",
+            "6/5/2026",
+            "9",
+            "5",
+            "Macon",
+            "GA"
+          ],
+          [
+            "Hall",
+            "Rachel",
+            "(858) 555-2235",
+            "rhall@email.com",
+            "6",
+            "$2,879.94",
+            "5/8/2026",
+            "5/20/2026",
+            "5",
+            "2",
+            "San Diego",
+            "CA"
+          ],
+          [
+            "Allen",
+            "Ryan",
+            "(317) 555-2346",
+            "rallen@email.com",
+            "8",
+            "$4,320.00",
+            "5/22/2026",
+            "6/2/2026",
+            "6",
+            "4",
+            "Indianapolis",
+            "IN"
+          ],
+          [
+            "Young",
+            "Lauren",
+            "(843) 555-2457",
+            "lyoung@email.com",
+            "3",
+            "$1,199.97",
+            "3/18/2026",
+            "4/5/2026",
+            "1",
+            "1",
+            "Charleston",
+            "SC"
+          ],
+          [
+            "King",
+            "Steven",
+            "(901) 555-2568",
+            "sking@email.com",
+            "19",
+            "$14,250.00",
+            "6/9/2026",
+            "6/10/2026",
+            "14",
+            "10",
+            "Memphis",
+            "TN"
+          ],
+          [
+            "Wright",
+            "Emily",
+            "(407) 555-2679",
+            "ewright@email.com",
+            "5",
+            "$2,149.95",
+            "4/24/2026",
+            "5/15/2026",
+            "3",
+            "2",
+            "Orlando",
+            "FL"
+          ],
+          [
+            "Scott",
+            "Brandon",
+            "(503) 555-2780",
+            "bscott@email.com",
+            "7",
+            "$3,849.93",
+            "5/16/2026",
+            "5/27/2026",
+            "4",
+            "3",
+            "Eugene",
+            "OR"
+          ],
+          [
+            "Green",
+            "Michelle",
+            "(205) 555-2891",
+            "mgreen@email.com",
+            "2",
+            "$799.98",
+            "2/28/2026",
+            "3/12/2026",
+            "0",
+            "1",
+            "Birmingham",
+            "AL"
+          ],
+          [
+            "Adams",
+            "Patrick",
+            "(816) 555-2902",
+            "padams@email.com",
+            "11",
+            "$5,489.00",
+            "5/29/2026",
+            "6/4/2026",
+            "7",
+            "4",
+            "Kansas City",
+            "MO"
+          ],
+          [
+            "Baker",
+            "Kimberly",
+            "(404) 555-3013",
+            "kbaker@email.com",
+            "9",
+            "$4,050.00",
+            "6/3/2026",
+            "6/7/2026",
+            "6",
+            "3",
+            "Athens",
+            "GA"
+          ],
+          [
+            "Nelson",
+            "Gregory",
+            "(303) 555-3124",
+            "gnelson@email.com",
+            "4",
+            "$1,749.96",
+            "4/8/2026",
+            "4/30/2026",
+            "2",
+            "2",
+            "Boulder",
+            "CO"
+          ],
+          [
+            "Carter",
+            "Heather",
+            "(919) 555-3235",
+            "hcarter@email.com",
+            "6",
+            "$2,699.94",
+            "5/2/2026",
+            "5/18/2026",
+            "5",
+            "2",
+            "Durham",
+            "NC"
+          ],
+          [
+            "Mitchell",
+            "Eric",
+            "(706) 555-3346",
+            "emitchell@email.com",
+            "15",
+            "$10,125.00",
+            "6/5/2026",
+            "6/9/2026",
+            "11",
+            "7",
+            "Columbus",
+            "GA"
+          ],
+          [
+            "Perez",
+            "Angela",
+            "(210) 555-3457",
+            "aperez@email.com",
+            "3",
+            "$1,349.97",
+            "3/25/2026",
+            "4/20/2026",
+            "2",
+            "1",
+            "San Antonio",
+            "TX"
+          ]
+        ],
+        "matrixColumnWidths": [
+          null,
+          null,
+          118,
+          170,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "style": {
+        "width": 1180,
+        "height": 640
+      },
+      "width": 1180,
+      "height": 640,
+      "draggable": true,
+      "selectable": true,
+      "resizing": false
+    },
+    {
+      "id": "sq4-field-chooser",
+      "type": "powerbi",
+      "position": {
+        "x": 1240,
+        "y": 40
+      },
+      "data": {
+        "label": "Choose your field",
+        "componentType": "fieldChooser",
+        "hideHeader": true,
+        "fieldChooserFields": [
+          {
+            "label": "Select all",
+            "checked": false
+          },
+          {
+            "label": "LAST NAME",
+            "checked": true
+          },
+          {
+            "label": "FIRST NAME",
+            "checked": true
+          },
+          {
+            "label": "PHONE NUMBER",
+            "checked": true
+          },
+          {
+            "label": "EMAIL",
+            "checked": true
+          },
+          {
+            "label": "ORDER COUNT",
+            "checked": true
+          },
+          {
+            "label": "LIFETIME SPEND",
+            "checked": true
+          },
+          {
+            "label": "MOST RECENT ORDER",
+            "checked": true
+          },
+          {
+            "label": "MOST RECENT CALL",
+            "checked": true
+          },
+          {
+            "label": "INCOMING CALLS",
+            "checked": true
+          },
+          {
+            "label": "OUTGOING CALLS",
+            "checked": true
+          },
+          {
+            "label": "CITY",
+            "checked": true
+          },
+          {
+            "label": "STATE",
+            "checked": true
+          },
+          {
+            "label": "CUSTOMER TYPE",
+            "checked": false
+          },
+          {
+            "label": "CUSTOMER STATUS",
+            "checked": false
+          },
+          {
+            "label": "FIRST ORDER DATE",
+            "checked": false
+          },
+          {
+            "label": "AVG ORDER VALUE",
+            "checked": false
+          },
+          {
+            "label": "LAST CONTACT REASON",
+            "checked": false
+          },
+          {
+            "label": "PREFERRED MODALITY",
+            "checked": false
+          },
+          {
+            "label": "OPEN CASES",
+            "checked": false
+          },
+          {
+            "label": "RETURN COUNT",
+            "checked": false
+          },
+          {
+            "label": "WARRANTY CLAIMS",
+            "checked": false
+          },
+          {
+            "label": "LOYALTY TIER",
+            "checked": false
+          },
+          {
+            "label": "ZIP CODE",
+            "checked": false
+          },
+          {
+            "label": "ASSIGNED AGENT",
+            "checked": false
+          },
+          {
+            "label": "NPS SCORE",
+            "checked": false
+          },
+          {
+            "label": "NOTES",
+            "checked": false
+          }
+        ]
+      },
+      "style": {
+        "width": 260,
+        "height": 640
+      },
+      "width": 260,
+      "height": 640,
+      "draggable": true,
+      "selectable": true,
+      "resizing": false
+    }
+  ],
+  "edges": []
+}

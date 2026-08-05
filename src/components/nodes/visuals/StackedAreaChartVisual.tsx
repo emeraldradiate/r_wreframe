@@ -6,6 +6,8 @@ interface StackedAreaChartVisualProps {
   seriesColors?: string[];
   axisLabels?: { x?: string; y?: string };
   xLabels?: string[];
+  budgetLineColor?: string;
+  pyLineColor?: string;
   stackedYAxisLabelOffset?: number;
 }
 
@@ -26,9 +28,11 @@ const StackedAreaChartVisual = ({
   seriesColors = defaultStackedSeriesColors,
   axisLabels,
   xLabels,
+  budgetLineColor = '#111111',
+  pyLineColor = '#111111',
   stackedYAxisLabelOffset = 0,
 }: StackedAreaChartVisualProps) => {
-  const margin = { top: 12, right: 30, bottom: 36, left: 30 };
+  const margin = { top: 0, right: 24, bottom: 24, left: 24 };
   const fallback = { width: 260, height: 190 };
   const { elementRef, size } = useElementSize<HTMLDivElement>();
   const { width, height, plotWidth, plotHeight } = resolveChartBounds({ size, fallback, margin });
@@ -46,12 +50,12 @@ const StackedAreaChartVisual = ({
     values,
     label: seriesLabels[index]?.trim() || defaultStackedSeriesLabels[index] || `Series ${index + 1}`,
     color: seriesColors[index] || defaultStackedSeriesColors[index % defaultStackedSeriesColors.length],
-  }));
+  })).reverse();
 
   const numPoints = plottedSeries[0].values.length;
   const xStep = numPoints > 1 ? plotWidth / (numPoints - 1) : 0;
-  const rawLabels = (xLabels?.length ? xLabels : getDefaultXAxisLabels(numPoints)).map((label) => label?.trim() || '');
-  const categoryLabels = Array.from({ length: numPoints }, (_, index) => rawLabels[index] || `${index + 1}`);
+  const rawLabels = (xLabels?.length ? xLabels : getDefaultXAxisLabels(numPoints)).map((label) => label?.trim() ?? '');
+  const categoryLabels = Array.from({ length: numPoints }, (_, index) => rawLabels[index] ?? '');
 
   const cumulativeData: number[][] = [];
   for (let i = 0; i < numPoints; i++) {
@@ -66,8 +70,14 @@ const StackedAreaChartVisual = ({
   for (let i = 0; i < numPoints; i++) {
     const progress = numPoints > 1 ? i / (numPoints - 1) : 0;
     const baseTotal = cumulativeData[i][totalSeriesIndex];
-    const forecastAdjustment = 1 + (progress - 0.5) * 0.2 + Math.sin(progress * Math.PI * 1.8) * 0.09;
-    const priorYearAdjustment = 0.86 + (progress - 0.5) * 0.08 - Math.sin(progress * Math.PI * 1.2) * 0.04;
+    const forecastAdjustment = Math.min(
+      0.96,
+      Math.max(0.78, 0.87 + (progress - 0.5) * 0.1 + Math.sin(progress * Math.PI * 1.8) * 0.05),
+    );
+    const priorYearAdjustment = Math.min(
+      0.88,
+      Math.max(0.76, 0.83 + (progress - 0.5) * 0.07 - Math.sin(progress * Math.PI * 1.2) * 0.035),
+    );
     forecastTotals.push(Math.max(0, baseTotal * forecastAdjustment));
     priorYearTotals.push(Math.max(0, baseTotal * priorYearAdjustment));
   }
@@ -92,48 +102,36 @@ const StackedAreaChartVisual = ({
   const priorYearPath = priorYearPathPoints.join(' ');
 
   return (
-    <div ref={elementRef} className="flex flex-col h-full w-full px-1 py-1 overflow-hidden">
-      <div className="h-4 flex items-center justify-end gap-3 px-2">
-        <div className="flex items-center gap-1">
-          <svg width="16" height="4" aria-hidden="true">
-            <line x1="0" y1="2" x2="16" y2="2" stroke="#111111" strokeWidth="2" />
-          </svg>
-          <span className="text-[8px] leading-none text-dark font-body">Budget</span>
-        </div>
-        <div className="flex items-center gap-1">
-          <svg width="16" height="4" aria-hidden="true">
-            <line x1="0" y1="2" x2="16" y2="2" stroke="#111111" strokeWidth="2" strokeDasharray="4 3" />
-          </svg>
-          <span className="text-[8px] leading-none text-dark font-body">PY</span>
-        </div>
-      </div>
-      <div className="flex-1 flex items-center justify-center overflow-hidden">
+    <div ref={elementRef} className="flex flex-col h-full w-full overflow-hidden">
+      <div className="relative flex-1 flex items-center justify-center overflow-hidden">
         <svg width={width} height={height} className="w-full h-full overflow-visible">
           <line x1={margin.left} y1={margin.top} x2={margin.left} y2={chartBottom} stroke="#C7C7C7" strokeWidth="1" />
           <line x1={margin.left} y1={chartBottom} x2={width - margin.right} y2={chartBottom} stroke="#C7C7C7" strokeWidth="1" />
           {layers.map((layer, index) => (
             <path key={index} d={layer.path} fill={layer.color} fillOpacity="0.85" />
           ))}
-          <path d={forecastPath} fill="none" stroke="#111111" strokeWidth="2.25" />
-          <path d={priorYearPath} fill="none" stroke="#111111" strokeWidth="2" strokeDasharray="4 3" />
+          <path d={forecastPath} fill="none" stroke={budgetLineColor} strokeWidth="2.25" />
+          <path d={priorYearPath} fill="none" stroke={pyLineColor} strokeWidth="2" strokeDasharray="4 3" />
           {categoryLabels.map((label, index) => (
-            <text
-              key={`stacked-x-label-${index}`}
-              x={margin.left + index * xStep}
-              y={height - margin.bottom + 12}
-              textAnchor="middle"
-              className="fill-medium-gray font-body"
-              style={{ fontSize: '9px' }}
-            >
-              {label}
-            </text>
+            label ? (
+              <text
+                key={`stacked-x-label-${index}`}
+                x={margin.left + index * xStep}
+                y={height - margin.bottom + 16}
+                textAnchor="middle"
+                className="fill-black font-body"
+                style={{ fontSize: '12px' }}
+              >
+                {label}
+              </text>
+            ) : null
           ))}
           <text
-            x={12}
+            x={16}
             y={height / 2 + stackedYAxisLabelOffset}
             textAnchor="middle"
-            transform={`rotate(-90 12 ${height / 2 + stackedYAxisLabelOffset})`}
-            className="fill-medium-gray font-semibold font-body"
+            transform={`rotate(-90 16 ${height / 2 + stackedYAxisLabelOffset})`}
+            className="fill-black font-semibold font-body"
             style={{ fontSize: `${axisTitleFontSize}px` }}
           >
             {axisLabels?.y || 'Revenue'}

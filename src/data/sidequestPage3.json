@@ -1,0 +1,640 @@
+{
+  "version": 1,
+  "savedAt": "2026-07-29T15:06:35.863Z",
+  "appTitle": "Ticket Lookup",
+  "nodes": [
+    {
+      "id": "sq3-tickets-matrix",
+      "type": "powerbi",
+      "position": {
+        "x": 40,
+        "y": 40
+      },
+      "data": {
+        "label": "Tickets",
+        "componentType": "matrix",
+        "hideHeader": true,
+        "matrixRegularFirstColumn": true,
+        "matrixStripedRows": true,
+        "matrixDisableVarianceColors": true,
+        "matrixLeftAlignedColumns": [],
+        "columnLabels": [
+          "CREATED DATE",
+          "TICKET ID",
+          "CUSTOMER NAME",
+          "EMAIL",
+          "PHONE NUMBER",
+          "MODALITY",
+          "REASON",
+          "STATUS",
+          "ASSIGNED AGENT",
+          "PRIORITY",
+          "RESOLVED?"
+        ],
+        "matrixData": [
+          [
+            "6/1/2026",
+            "TKT-10001",
+            "Elena Martinez",
+            "elena.martinez@email.com",
+            "(706) 555-0142",
+            "Phone",
+            "Sales",
+            "Open",
+            "Alex Rivera",
+            "Low",
+            "No"
+          ],
+          [
+            "6/1/2026",
+            "TKT-10002",
+            "David Chen",
+            "david.chen@email.com",
+            "(801) 555-0198",
+            "Chat",
+            "Troubleshooting",
+            "In Progress",
+            "Jordan Kim",
+            "Medium",
+            "No"
+          ],
+          [
+            "6/1/2026",
+            "TKT-10003",
+            "Taylor Brooks",
+            "taylor.brooks@email.com",
+            "(512) 555-0234",
+            "Email",
+            "Inquiry",
+            "Pending Customer",
+            "Sam Patel",
+            "High",
+            ""
+          ],
+          [
+            "6/1/2026",
+            "TKT-10004",
+            "Sam Patel",
+            "sam.patel@email.com",
+            "(404) 555-0311",
+            "WiFi Thread",
+            "Return",
+            "Resolved",
+            "Taylor Brooks",
+            "Urgent",
+            "Yes"
+          ],
+          [
+            "6/1/2026",
+            "TKT-10005",
+            "Alex Rivera",
+            "alex.rivera@email.com",
+            "(678) 555-0456",
+            "Phone",
+            "Warranty",
+            "Closed",
+            "Alex Rivera",
+            "Low",
+            "Yes"
+          ],
+          [
+            "6/2/2026",
+            "TKT-10006",
+            "Jordan Kim",
+            "jordan.kim@email.com",
+            "(770) 555-0523",
+            "Chat",
+            "Other",
+            "Open",
+            "Jordan Kim",
+            "Medium",
+            "No"
+          ],
+          [
+            "6/2/2026",
+            "TKT-10007",
+            "Linh Nguyen",
+            "linh.nguyen@email.com",
+            "(843) 555-0678",
+            "Email",
+            "Sales",
+            "In Progress",
+            "Sam Patel",
+            "High",
+            "No"
+          ],
+          [
+            "6/2/2026",
+            "TKT-10008",
+            "Amara Okafor",
+            "amara.okafor@email.com",
+            "(919) 555-0789",
+            "WiFi Thread",
+            "Troubleshooting",
+            "Pending Customer",
+            "Taylor Brooks",
+            "Urgent",
+            ""
+          ],
+          [
+            "6/3/2026",
+            "TKT-10009",
+            "Megan Sullivan",
+            "megan.sullivan@email.com",
+            "(615) 555-0812",
+            "Phone",
+            "Inquiry",
+            "Resolved",
+            "Alex Rivera",
+            "Low",
+            "Yes"
+          ],
+          [
+            "6/3/2026",
+            "TKT-10010",
+            "Chris Harris",
+            "chris.harris@email.com",
+            "(901) 555-0945",
+            "Chat",
+            "Return",
+            "Closed",
+            "Jordan Kim",
+            "Medium",
+            "Yes"
+          ],
+          [
+            "6/3/2026",
+            "TKT-10011",
+            "Maria Lopez",
+            "maria.lopez@email.com",
+            "(205) 555-1034",
+            "Email",
+            "Warranty",
+            "Open",
+            "Sam Patel",
+            "High",
+            "No"
+          ],
+          [
+            "6/3/2026",
+            "TKT-10012",
+            "Kevin Johnson",
+            "kevin.johnson@email.com",
+            "(334) 555-1123",
+            "WiFi Thread",
+            "Other",
+            "In Progress",
+            "Taylor Brooks",
+            "Urgent",
+            "No"
+          ],
+          [
+            "6/4/2026",
+            "TKT-10013",
+            "Ashley Williams",
+            "ashley.williams@email.com",
+            "(251) 555-1245",
+            "Phone",
+            "Sales",
+            "Pending Customer",
+            "Alex Rivera",
+            "Low",
+            ""
+          ],
+          [
+            "6/4/2026",
+            "TKT-10014",
+            "James Brown",
+            "james.brown@email.com",
+            "(228) 555-1367",
+            "Chat",
+            "Troubleshooting",
+            "Resolved",
+            "Jordan Kim",
+            "Medium",
+            "Yes"
+          ],
+          [
+            "6/4/2026",
+            "TKT-10015",
+            "Nicole Davis",
+            "nicole.davis@email.com",
+            "(601) 555-1489",
+            "Email",
+            "Inquiry",
+            "Closed",
+            "Sam Patel",
+            "High",
+            "Yes"
+          ],
+          [
+            "6/4/2026",
+            "TKT-10016",
+            "Ryan Miller",
+            "ryan.miller@email.com",
+            "(662) 555-1501",
+            "WiFi Thread",
+            "Return",
+            "Open",
+            "Taylor Brooks",
+            "Urgent",
+            "No"
+          ],
+          [
+            "6/5/2026",
+            "TKT-10017",
+            "Sarah Wilson",
+            "sarah.wilson@email.com",
+            "(318) 555-1623",
+            "Phone",
+            "Warranty",
+            "In Progress",
+            "Alex Rivera",
+            "Low",
+            "No"
+          ],
+          [
+            "6/5/2026",
+            "TKT-10018",
+            "Daniel Moore",
+            "daniel.moore@email.com",
+            "(504) 555-1745",
+            "Chat",
+            "Other",
+            "Pending Customer",
+            "Jordan Kim",
+            "Medium",
+            ""
+          ],
+          [
+            "6/5/2026",
+            "TKT-10019",
+            "Emily Taylor",
+            "emily.taylor@email.com",
+            "(225) 555-1867",
+            "Email",
+            "Sales",
+            "Resolved",
+            "Sam Patel",
+            "High",
+            "Yes"
+          ],
+          [
+            "6/5/2026",
+            "TKT-10020",
+            "Mark Anderson",
+            "mark.anderson@email.com",
+            "(337) 555-1989",
+            "WiFi Thread",
+            "Troubleshooting",
+            "Closed",
+            "Taylor Brooks",
+            "Urgent",
+            "Yes"
+          ],
+          [
+            "6/6/2026",
+            "TKT-10021",
+            "Jessica Thomas",
+            "jessica.thomas@email.com",
+            "(479) 555-2012",
+            "Phone",
+            "Inquiry",
+            "Open",
+            "Alex Rivera",
+            "Low",
+            "No"
+          ],
+          [
+            "6/6/2026",
+            "TKT-10022",
+            "Brian Jackson",
+            "brian.jackson@email.com",
+            "(501) 555-2134",
+            "Chat",
+            "Return",
+            "In Progress",
+            "Jordan Kim",
+            "Medium",
+            "No"
+          ],
+          [
+            "6/6/2026",
+            "TKT-10023",
+            "Lauren White",
+            "lauren.white@email.com",
+            "(870) 555-2256",
+            "Email",
+            "Warranty",
+            "Pending Customer",
+            "Sam Patel",
+            "High",
+            ""
+          ],
+          [
+            "6/7/2026",
+            "TKT-10024",
+            "Eric Harris",
+            "eric.harris@email.com",
+            "(501) 555-2378",
+            "WiFi Thread",
+            "Other",
+            "Resolved",
+            "Taylor Brooks",
+            "Urgent",
+            "Yes"
+          ],
+          [
+            "6/7/2026",
+            "TKT-10025",
+            "Rachel Martin",
+            "rachel.martin@email.com",
+            "(573) 555-2490",
+            "Phone",
+            "Sales",
+            "Closed",
+            "Alex Rivera",
+            "Low",
+            "Yes"
+          ],
+          [
+            "6/7/2026",
+            "TKT-10026",
+            "Scott Thompson",
+            "scott.thompson@email.com",
+            "(816) 555-2612",
+            "Chat",
+            "Troubleshooting",
+            "Open",
+            "Jordan Kim",
+            "Medium",
+            "No"
+          ],
+          [
+            "6/8/2026",
+            "TKT-10027",
+            "Ana Garcia",
+            "ana.garcia@email.com",
+            "(417) 555-2734",
+            "Email",
+            "Inquiry",
+            "In Progress",
+            "Sam Patel",
+            "High",
+            "No"
+          ],
+          [
+            "6/8/2026",
+            "TKT-10028",
+            "Paul Robinson",
+            "paul.robinson@email.com",
+            "(314) 555-2856",
+            "WiFi Thread",
+            "Return",
+            "Pending Customer",
+            "Taylor Brooks",
+            "Urgent",
+            ""
+          ],
+          [
+            "6/8/2026",
+            "TKT-10029",
+            "Hannah Clark",
+            "hannah.clark@email.com",
+            "(636) 555-2978",
+            "Phone",
+            "Warranty",
+            "Resolved",
+            "Alex Rivera",
+            "Low",
+            "Yes"
+          ],
+          [
+            "6/9/2026",
+            "TKT-10030",
+            "Greg Lewis",
+            "greg.lewis@email.com",
+            "(573) 555-3090",
+            "Chat",
+            "Other",
+            "Closed",
+            "Jordan Kim",
+            "Medium",
+            "Yes"
+          ],
+          [
+            "6/9/2026",
+            "TKT-10031",
+            "Michelle Lee",
+            "michelle.lee@email.com",
+            "(816) 555-3212",
+            "Email",
+            "Sales",
+            "Open",
+            "Sam Patel",
+            "High",
+            "No"
+          ],
+          [
+            "6/10/2026",
+            "TKT-10032",
+            "Tom Walker",
+            "tom.walker@email.com",
+            "(417) 555-3334",
+            "WiFi Thread",
+            "Troubleshooting",
+            "In Progress",
+            "Taylor Brooks",
+            "Urgent",
+            "No"
+          ],
+          [
+            "6/10/2026",
+            "TKT-10033",
+            "Elena Martinez",
+            "elena.martinez@email.com",
+            "(706) 555-0142",
+            "Phone",
+            "Inquiry",
+            "Pending Customer",
+            "Alex Rivera",
+            "Low",
+            ""
+          ],
+          [
+            "6/10/2026",
+            "TKT-10034",
+            "David Chen",
+            "david.chen@email.com",
+            "(801) 555-0198",
+            "Chat",
+            "Return",
+            "Resolved",
+            "Jordan Kim",
+            "Medium",
+            "Yes"
+          ],
+          [
+            "6/10/2026",
+            "TKT-10035",
+            "Taylor Brooks",
+            "taylor.brooks@email.com",
+            "(512) 555-0234",
+            "Email",
+            "Warranty",
+            "Closed",
+            "Sam Patel",
+            "High",
+            "Yes"
+          ]
+        ]
+      },
+      "style": {
+        "width": 1180,
+        "height": 640
+      },
+      "width": 1180,
+      "height": 640,
+      "draggable": true,
+      "selectable": true,
+      "resizing": false
+    },
+    {
+      "id": "sq3-field-chooser",
+      "type": "powerbi",
+      "position": {
+        "x": 1240,
+        "y": 40
+      },
+      "data": {
+        "label": "Choose your field",
+        "componentType": "fieldChooser",
+        "hideHeader": true,
+        "fieldChooserFields": [
+          {
+            "label": "Select all",
+            "checked": false
+          },
+          {
+            "label": "CREATED DATE",
+            "checked": true
+          },
+          {
+            "label": "TICKET ID",
+            "checked": true
+          },
+          {
+            "label": "CUSTOMER NAME",
+            "checked": true
+          },
+          {
+            "label": "EMAIL",
+            "checked": true
+          },
+          {
+            "label": "PHONE NUMBER",
+            "checked": true
+          },
+          {
+            "label": "MODALITY",
+            "checked": true
+          },
+          {
+            "label": "REASON",
+            "checked": true
+          },
+          {
+            "label": "STATUS",
+            "checked": true
+          },
+          {
+            "label": "ASSIGNED AGENT",
+            "checked": true
+          },
+          {
+            "label": "PRIORITY",
+            "checked": true
+          },
+          {
+            "label": "RESOLVED?",
+            "checked": true
+          },
+          {
+            "label": "SUBJECT",
+            "checked": false
+          },
+          {
+            "label": "LAST UPDATED",
+            "checked": false
+          },
+          {
+            "label": "RESOLUTION TIME",
+            "checked": false
+          },
+          {
+            "label": "ESCALATED?",
+            "checked": false
+          },
+          {
+            "label": "ORDER NUMBER",
+            "checked": false
+          },
+          {
+            "label": "SKU",
+            "checked": false
+          },
+          {
+            "label": "GRILL MODEL",
+            "checked": false
+          },
+          {
+            "label": "TEAM",
+            "checked": false
+          },
+          {
+            "label": "FIRST RESPONSE",
+            "checked": false
+          },
+          {
+            "label": "SATISFACTION",
+            "checked": false
+          },
+          {
+            "label": "TAGS",
+            "checked": false
+          },
+          {
+            "label": "CHANNEL",
+            "checked": false
+          },
+          {
+            "label": "QUEUE",
+            "checked": false
+          },
+          {
+            "label": "REOPEN COUNT",
+            "checked": false
+          },
+          {
+            "label": "CUSTOMER TYPE",
+            "checked": false
+          },
+          {
+            "label": "NOTES",
+            "checked": false
+          }
+        ]
+      },
+      "style": {
+        "width": 260,
+        "height": 640
+      },
+      "width": 260,
+      "height": 640,
+      "draggable": true,
+      "selectable": true,
+      "resizing": false
+    }
+  ],
+  "edges": []
+}

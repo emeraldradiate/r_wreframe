@@ -9,9 +9,19 @@ import {
 const ExpectedVsRealityChartVisual = ({
   axisLabels,
   pointLabelFormat,
+  labels: labelsProp,
+  displayLabelIndices,
+  expectedValues: expectedValuesProp,
+  realityValues: realityValuesProp,
+  showBudgetLine = true,
 }: {
   axisLabels?: { x?: string; y?: string };
   pointLabelFormat?: 'difference' | 'currencyK';
+  labels?: string[];
+  displayLabelIndices?: number[];
+  expectedValues?: number[];
+  realityValues?: number[];
+  showBudgetLine?: boolean;
 }) => {
   const { elementRef, size } = useElementSize<HTMLDivElement>();
   const margin = { top: 8, right: 24, bottom: 38, left: 34 };
@@ -24,17 +34,34 @@ const ExpectedVsRealityChartVisual = ({
   const axisLabelFontSize = 10;
   const axisTitleFontSize = 12;
 
-  const expectedValues = expectedRealityExpectedData;
-  const realityValues = expectedRealityRealityData;
-  const labels = expectedRealityLabels;
-  const allValues = [...expectedValues, ...realityValues];
+  const expectedValues = expectedValuesProp?.length ? expectedValuesProp : expectedRealityExpectedData;
+  const realityValues = realityValuesProp?.length ? realityValuesProp : expectedRealityRealityData;
+  const labels = labelsProp?.length ? labelsProp : expectedRealityLabels;
+  const pointCount = Math.max(expectedValues.length, realityValues.length, labels.length);
+  const axisLabelIndices = displayLabelIndices?.length
+    ? displayLabelIndices
+    : Array.from({ length: pointCount }, (_, index) => index);
+  const axisLabelsByIndex = new Map(axisLabelIndices.map((index, labelIndex) => [index, labels[labelIndex] || `${labelIndex + 1}`]));
+  const normalizedExpected = Array.from({ length: pointCount }, (_, index) => {
+    const parsed = Number(expectedValues[index]);
+    return Number.isFinite(parsed) ? parsed : 0;
+  });
+  const normalizedReality = Array.from({ length: pointCount }, (_, index) => {
+    const parsed = Number(realityValues[index]);
+    if (Number.isFinite(parsed)) {
+      return parsed;
+    }
+    const prior = index > 0 ? Number(realityValues[index - 1]) : 0;
+    return Number.isFinite(prior) ? prior : 0;
+  });
+  const allValues = [...normalizedExpected, ...normalizedReality];
   const minValue = Math.min(...allValues);
   const maxValue = Math.max(...allValues);
   const valuePadding = Math.max(4, Math.ceil((maxValue - minValue) * 0.12));
   const yMin = minValue - valuePadding;
   const yMax = maxValue + valuePadding;
   const safeRange = Math.max(1, yMax - yMin);
-  const pointSpacing = labels.length > 1 ? plotWidth / (labels.length - 1) : 0;
+  const pointSpacing = pointCount > 1 ? plotWidth / (pointCount - 1) : 0;
 
   const getPoint = (index: number, value: number) => ({
     x: margin.left + index * pointSpacing,
@@ -44,12 +71,9 @@ const ExpectedVsRealityChartVisual = ({
 
 
   // Use a flat budget/expected line (first expected value)
-  const flatExpectedValue = expectedValues.length > 0 ? expectedValues[0] : 0;
-  // If you want a sloped budget line, use:
-  // const expectedPoints = expectedValues.map((value, index) => getPoint(index, value));
-  // For flat line:
-  const expectedPoints = labels.map((_, index) => getPoint(index, flatExpectedValue));
-  const realityPoints = realityValues.map((value, index) => getPoint(index, value));
+  const flatExpectedValue = normalizedExpected.length > 0 ? normalizedExpected[0] : 0;
+  const expectedPoints = Array.from({ length: pointCount }, (_, index) => getPoint(index, flatExpectedValue));
+  const realityPoints = normalizedReality.map((value, index) => getPoint(index, value));
 
   // Build separate area paths for above (green) and below (red) the expected line
   const buildAreaPaths = () => {
@@ -62,7 +86,7 @@ const ExpectedVsRealityChartVisual = ({
 
     // Forward pass: trace along reality line, collecting points
     for (let i = 0; i < realityPoints.length; i += 1) {
-      const isAbove = realityValues[i] >= flatExpectedValue;
+      const isAbove = normalizedReality[i] >= flatExpectedValue;
 
       if (isAbove) {
         abovePoints.push(realityPoints[i]);
@@ -72,12 +96,11 @@ const ExpectedVsRealityChartVisual = ({
 
       // Handle crossing between this point and the next
       if (i < realityPoints.length - 1) {
-        const nextIsAbove = realityValues[i + 1] >= flatExpectedValue;
+        const nextIsAbove = normalizedReality[i + 1] >= flatExpectedValue;
         if (isAbove !== nextIsAbove) {
-          // Crossing occurs between i and i+1
           const t =
-            (flatExpectedValue - realityValues[i]) /
-            (realityValues[i + 1] - realityValues[i]);
+            (flatExpectedValue - normalizedReality[i]) /
+            (normalizedReality[i + 1] - normalizedReality[i]);
           const crossX = realityPoints[i].x + t * (realityPoints[i + 1].x - realityPoints[i].x);
           const crossY = realityPoints[i].y + t * (realityPoints[i + 1].y - realityPoints[i].y);
           if (isAbove) {
@@ -91,7 +114,7 @@ const ExpectedVsRealityChartVisual = ({
 
     // Backward pass: trace along expected line in reverse, closing the polygons
     for (let i = expectedPoints.length - 1; i >= 0; i -= 1) {
-      const isAbove = realityValues[i] >= flatExpectedValue;
+      const isAbove = normalizedReality[i] >= flatExpectedValue;
 
       if (isAbove) {
         abovePoints.push(expectedPoints[i]);
@@ -101,12 +124,11 @@ const ExpectedVsRealityChartVisual = ({
 
       // Handle crossing between this point and the previous
       if (i > 0) {
-        const prevIsAbove = realityValues[i - 1] >= flatExpectedValue;
+        const prevIsAbove = normalizedReality[i - 1] >= flatExpectedValue;
         if (isAbove !== prevIsAbove) {
-          // Crossing occurs between i-1 and i
           const t =
-            (flatExpectedValue - realityValues[i - 1]) /
-            (realityValues[i] - realityValues[i - 1]);
+            (flatExpectedValue - normalizedReality[i - 1]) /
+            (normalizedReality[i] - normalizedReality[i - 1]);
           const crossX =
             realityPoints[i - 1].x + t * (realityPoints[i].x - realityPoints[i - 1].x);
           const crossY =
@@ -147,14 +169,26 @@ const ExpectedVsRealityChartVisual = ({
           <polyline
             points={realityPoints.map((point) => `${point.x},${point.y}`).join(' ')}
             fill="none"
-            stroke="#6B7280"
+            stroke="#000000"
             strokeWidth="2.2"
+            strokeLinejoin="round"
+            strokeLinecap="round"
           />
 
-          {/* Budget (expected) line is intentionally not rendered (completely clear) */}
+          {showBudgetLine && (
+            <polyline
+              points={expectedPoints.map((point) => `${point.x},${point.y}`).join(' ')}
+              fill="none"
+              stroke="transparent"
+              strokeWidth="2"
+            />
+          )}
 
           {realityPoints.map((point, index) => {
-            const diff = realityValues[index] - flatExpectedValue;
+            if (!axisLabelsByIndex.has(index)) {
+              return null;
+            }
+            const diff = normalizedReality[index] - flatExpectedValue;
             const label = pointLabelFormat === 'currencyK'
               ? (diff < 0 ? `($${Math.abs(diff)}k)` : `$${diff}k`)
               : (diff < 0 ? `(${Math.abs(diff)})` : `${diff}`);
@@ -173,16 +207,16 @@ const ExpectedVsRealityChartVisual = ({
             );
           })}
 
-          {labels.map((label, index) => (
+          {axisLabelIndices.map((index) => (
             <text
               key={`label-${index}`}
               x={margin.left + index * pointSpacing}
               y={height - margin.bottom + 12}
               textAnchor="middle"
-              className="fill-medium-gray font-body"
+              className="fill-black font-body"
               style={{ fontSize: `${axisLabelFontSize}px` }}
             >
-              {label}
+              {axisLabelsByIndex.get(index) || ''}
             </text>
           ))}
 
@@ -190,7 +224,7 @@ const ExpectedVsRealityChartVisual = ({
             x={width / 2}
             y={height - 2}
             textAnchor="middle"
-            className="fill-medium-gray font-semibold font-body"
+            className="fill-black font-semibold font-body"
             style={{ fontSize: `${axisTitleFontSize}px` }}
           >
             {axisLabels?.x || 'X Axis'}
@@ -200,7 +234,7 @@ const ExpectedVsRealityChartVisual = ({
             y={height / 2}
             textAnchor="middle"
             transform={`rotate(-90 12 ${height / 2})`}
-            className="fill-medium-gray font-semibold font-body"
+            className="fill-black font-semibold font-body"
             style={{ fontSize: `${axisTitleFontSize}px` }}
           >
             {axisLabels?.y || 'Y Axis'}

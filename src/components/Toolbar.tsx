@@ -1,13 +1,25 @@
 import React from 'react';
-import { BarChart3, Table, PieChart, Gauge, SlidersHorizontal, Layout, LineChart, Grid3x3, Map } from 'lucide-react';
+import { BarChart3, Table, PieChart, Gauge, SlidersHorizontal, Layout, LineChart, Grid3x3, Map, ListChecks, ZoomIn } from 'lucide-react';
 
 interface ToolbarProps {
   gridVisible: boolean;
   onGridVisibleChange: (visible: boolean) => void;
+  miniHeader: boolean;
+  onMiniHeaderChange: (visible: boolean) => void;
+  onResetZoom?: () => void;
+  showMiniHeaderToggle?: boolean;
   isOpen: boolean;
 }
 
-function Toolbar({ gridVisible, onGridVisibleChange, isOpen }: ToolbarProps) {
+function Toolbar({
+  gridVisible,
+  onGridVisibleChange,
+  miniHeader,
+  onMiniHeaderChange,
+  onResetZoom,
+  showMiniHeaderToggle = true,
+  isOpen,
+}: ToolbarProps) {
   const components = [
     { icon: Table, label: 'Table', type: 'table' },
     { icon: BarChart3, label: 'Bar Chart', type: 'bar' },
@@ -17,6 +29,7 @@ function Toolbar({ gridVisible, onGridVisibleChange, isOpen }: ToolbarProps) {
     { icon: PieChart, label: 'Pie Chart', type: 'pie' },
     { icon: Gauge, label: 'Gauge', type: 'gauge' },
     { icon: SlidersHorizontal, label: 'Slicer', type: 'slicer' },
+    { icon: ListChecks, label: 'Field Chooser', type: 'fieldChooser' },
     { icon: Layout, label: 'Card', type: 'card' },
     { icon: Grid3x3, label: 'Matrix', type: 'matrix' },
     { icon: Map, label: 'Map', type: 'map' },
@@ -81,6 +94,27 @@ function Toolbar({ gridVisible, onGridVisibleChange, isOpen }: ToolbarProps) {
               />
               <span>Hide grid</span>
             </label>
+            {showMiniHeaderToggle && (
+              <label className="mt-3 flex items-center gap-2 cursor-pointer select-none text-sm font-body text-dark">
+                <input
+                  type="checkbox"
+                  checked={miniHeader}
+                  onChange={(e) => onMiniHeaderChange(e.target.checked)}
+                  className="h-4 w-4 accent-[#EA0029]"
+                />
+                <span>Mini header</span>
+              </label>
+            )}
+            {onResetZoom && (
+              <button
+                type="button"
+                onClick={onResetZoom}
+                className="mt-3 flex w-full items-center gap-2 rounded-lg border border-[#606060] px-3 py-2 text-sm font-body text-dark hover:bg-gray-50 transition-colors"
+              >
+                <ZoomIn size={16} />
+                <span>100% zoom</span>
+              </button>
+            )}
           </div>
         </div>
       </aside>

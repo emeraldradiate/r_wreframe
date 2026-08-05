@@ -1,142 +1,860 @@
 {
   "version": 1,
-  "savedAt": "2026-05-20T12:38:53.792Z",
+  "savedAt": "2026-05-27T19:13:09.880Z",
   "appTitle": "Executive Summary",
   "nodes": [
     {
-      "id": "1",
+      "id": "10",
       "type": "powerbi",
       "position": {
-        "x": 60,
-        "y": 20
+        "x": -80,
+        "y": 760
+      },
+      "data": {
+        "label": "Weekly Net Sales by Channel",
+        "componentType": "matrix",
+        "matrixGroupedColumns": [
+          {
+            "label": "Channel"
+          },
+          {
+            "label": "Wk 15"
+          },
+          {
+            "label": "Wk 16"
+          },
+          {
+            "label": "Wk 17"
+          },
+          {
+            "label": "Wk 18"
+          },
+          {
+            "label": "Wk 19"
+          },
+          {
+            "label": "CW WoW",
+            "subLabels": [
+              "$",
+              "%"
+            ]
+          }
+        ],
+        "columnLabels": [
+          "Channel",
+          "Wk 15",
+          "Wk 16",
+          "Wk 17",
+          "Wk 18",
+          "Wk 19",
+          "$",
+          "%"
+        ],
+        "matrixData": [
+          [
+            "DTC",
+            "$313,393",
+            "$323,287",
+            "$332,192",
+            "$342,645",
+            "$358,867",
+            "+$16,222",
+            "+4.7%"
+          ],
+          [
+            "Retail",
+            "$138,113",
+            "$140,836",
+            "$147,719",
+            "$156,777",
+            "$163,278",
+            "+$6,501",
+            "+4.1%"
+          ],
+          [
+            "International",
+            "$53,061",
+            "$54,978",
+            "$56,441",
+            "$60,604",
+            "$63,308",
+            "+$2,704",
+            "+4.5%"
+          ]
+        ],
+        "matrixFirstColumnWidth": 120,
+        "matrixShowColorBlocks": true
+      },
+      "style": {
+        "width": 940,
+        "height": 200
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 940,
+      "height": 200,
+      "positionAbsolute": {
+        "x": -80,
+        "y": 760
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "20",
+      "type": "powerbi",
+      "position": {
+        "x": 1200,
+        "y": 760
+      },
+      "data": {
+        "label": "Channel YTD Net Sales",
+        "componentType": "matrix",
+        "matrixGroupedColumns": [
+          {
+            "label": "YTD Actual"
+          },
+          {
+            "label": "YTD Budget"
+          },
+          {
+            "label": "YTD vs Budget",
+            "subLabels": [
+              "$",
+              "%"
+            ]
+          },
+          {
+            "label": "YTD YoY",
+            "subLabels": [
+              "$",
+              "%"
+            ]
+          }
+        ],
+        "columnLabels": [
+          "YTD Actual",
+          "YTD Budget",
+          "$",
+          "%",
+          "$",
+          "%"
+        ],
+        "matrixData": [
+          [
+            "$1,662,184",
+            "$1,630,444",
+            "+$31,740",
+            "+1.9%",
+            "+$81,307",
+            "+5.1%"
+          ],
+          [
+            "$740,741",
+            "$725,091",
+            "+$15,650",
+            "+2.2%",
+            "+$40,864",
+            "+5.8%"
+          ],
+          [
+            "$286,143",
+            "$281,505",
+            "+$4,638",
+            "+1.6%",
+            "+$13,159",
+            "+4.8%"
+          ]
+        ],
+        "matrixShowColorBlocks": false,
+        "matrixRegularFirstColumn": true
+      },
+      "style": {
+        "width": 620,
+        "height": 200
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 620,
+      "height": 200,
+      "positionAbsolute": {
+        "x": 1200,
+        "y": 760
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "22",
+      "type": "powerbi",
+      "position": {
+        "x": 860,
+        "y": 760
+      },
+      "data": {
+        "label": "Channel MTD Net Sales",
+        "componentType": "matrix",
+        "matrixGroupedColumns": [
+          {
+            "label": "MTD Actual"
+          },
+          {
+            "label": "MTD Budget"
+          },
+          {
+            "label": "MTD vs Budget",
+            "subLabels": [
+              "$",
+              "%"
+            ]
+          }
+        ],
+        "columnLabels": [
+          "MTD Actual",
+          "MTD Budget",
+          "$",
+          "%"
+        ],
+        "matrixData": [
+          [
+            "$249,327",
+            "$244,567",
+            "+$4,760",
+            "+1.9%"
+          ],
+          [
+            "$111,111",
+            "$108,763",
+            "+$2,348",
+            "+2.2%"
+          ],
+          [
+            "$42,922",
+            "$42,226",
+            "+$696",
+            "+1.6%"
+          ]
+        ],
+        "matrixShowColorBlocks": false,
+        "matrixRegularFirstColumn": true
+      },
+      "style": {
+        "width": 340,
+        "height": 200
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 340,
+      "height": 200,
+      "positionAbsolute": {
+        "x": 860,
+        "y": 760
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "14",
+      "type": "powerbi",
+      "position": {
+        "x": -80,
+        "y": 520
+      },
+      "data": {
+        "label": "YTD Channel Mix by Net Sales",
+        "componentType": "pie",
+        "chartData": [
+          357,
+          162,
+          63
+        ],
+        "pieLabels": [
+          "DTC",
+          "Retail",
+          "International"
+        ],
+        "pieScalePercent": 150
+      },
+      "style": {
+        "width": 300,
+        "height": 220
+      },
+      "resizing": false,
+      "width": 300,
+      "height": 220,
+      "selected": false,
+      "dragging": false,
+      "draggable": true,
+      "selectable": true,
+      "positionAbsolute": {
+        "x": -80,
+        "y": 520
+      }
+    },
+    {
+      "id": "27",
+      "type": "powerbi",
+      "position": {
+        "x": 240,
+        "y": 520
+      },
+      "data": {
+        "label": "MTD Channel Mix by Net Sales",
+        "componentType": "pie",
+        "chartData": [
+          262184,
+          96806,
+          44370
+        ],
+        "pieLabels": [
+          "DTC",
+          "Retail",
+          "International"
+        ],
+        "pieScalePercent": 150
+      },
+      "style": {
+        "width": 300,
+        "height": 220
+      },
+      "resizing": false,
+      "width": 300,
+      "height": 220,
+      "selected": false,
+      "dragging": false,
+      "draggable": true,
+      "selectable": true,
+      "positionAbsolute": {
+        "x": 240,
+        "y": 520
+      }
+    },
+    {
+      "id": "16",
+      "type": "powerbi",
+      "position": {
+        "x": -80,
+        "y": 240
+      },
+      "data": {
+        "label": "Weekly Net Sales by Category",
+        "componentType": "matrix",
+        "matrixGroupedColumns": [
+          {
+            "label": "Category"
+          },
+          {
+            "label": "Wk 15"
+          },
+          {
+            "label": "Wk 16"
+          },
+          {
+            "label": "Wk 17"
+          },
+          {
+            "label": "Wk 18"
+          },
+          {
+            "label": "Wk 19"
+          },
+          {
+            "label": "CW WoW",
+            "subLabels": [
+              "$",
+              "%"
+            ]
+          }
+        ],
+        "columnLabels": [
+          "Category",
+          "Wk 15",
+          "Wk 16",
+          "Wk 17",
+          "Wk 18",
+          "Wk 19",
+          "$",
+          "%"
+        ],
+        "matrixData": [
+          [
+            "Grills",
+            "$518,265",
+            "$532,051",
+            "$546,055",
+            "$555,429",
+            "$572,476",
+            "+$17,788",
+            "+3.1%"
+          ],
+          [
+            "Accessories",
+            "$230,096",
+            "$236,636",
+            "$242,829",
+            "$246,166",
+            "$253,991",
+            "+$7,993",
+            "+2.8%"
+          ],
+          [
+            "Pellets",
+            "$208,303",
+            "$213,881",
+            "$219,423",
+            "$222,778",
+            "$229,373",
+            "+$7,069",
+            "+3.2%"
+          ],
+          [
+            "Rubs & Sauces",
+            "$116,186",
+            "$119,163",
+            "$122,589",
+            "$124,123",
+            "$127,038",
+            "+$3,522",
+            "+2.4%"
+          ],
+          [
+            "Other",
+            "$83,258",
+            "$85,753",
+            "$87,328",
+            "$89,325",
+            "$92,055",
+            "+$3,771",
+            "+3.4%"
+          ],
+          [
+            "Total",
+            "$1,156,108",
+            "$1,187,484",
+            "$1,218,224",
+            "$1,237,821",
+            "$1,274,933",
+            "+$37,112",
+            "+3.0%"
+          ]
+        ],
+        "matrixFirstColumnWidth": 120,
+        "matrixShowColorBlocks": true,
+        "matrixTotalRows": [
+          5
+        ],
+        "matrixStripedRows": false
+      },
+      "style": {
+        "width": 940,
+        "height": 260
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 940,
+      "height": 260,
+      "positionAbsolute": {
+        "x": -80,
+        "y": 240
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "21",
+      "type": "powerbi",
+      "position": {
+        "x": 1200,
+        "y": 240
+      },
+      "data": {
+        "label": "Category YTD Net Sales",
+        "componentType": "matrix",
+        "matrixGroupedColumns": [
+          {
+            "label": "YTD Actual"
+          },
+          {
+            "label": "YTD Budget"
+          },
+          {
+            "label": "YTD vs Budget",
+            "subLabels": [
+              "$",
+              "%"
+            ]
+          },
+          {
+            "label": "YTD YoY",
+            "subLabels": [
+              "$",
+              "%"
+            ]
+          }
+        ],
+        "columnLabels": [
+          "YTD Actual",
+          "YTD Budget",
+          "$",
+          "%",
+          "$",
+          "%"
+        ],
+        "matrixData": [
+          [
+            "$2,723,589",
+            "$2,680,505",
+            "+$43,084",
+            "+1.6%",
+            "+$138,467",
+            "+5.4%"
+          ],
+          [
+            "$1,207,246",
+            "$1,188,759",
+            "+$18,487",
+            "+1.6%",
+            "+$62,090",
+            "+5.4%"
+          ],
+          [
+            "$1,091,494",
+            "$1,078,698",
+            "+$12,796",
+            "+1.2%",
+            "+$58,683",
+            "+5.7%"
+          ],
+          [
+            "$608,472",
+            "$600,416",
+            "+$8,056",
+            "+1.3%",
+            "+$34,375",
+            "+6.0%"
+          ],
+          [
+            "$436,057",
+            "$430,504",
+            "+$5,553",
+            "+1.3%",
+            "+$22,294",
+            "+5.4%"
+          ],
+          [
+            "$6,066,858",
+            "$5,978,882",
+            "+$87,976",
+            "+1.5%",
+            "+$315,909",
+            "+5.5%"
+          ]
+        ],
+        "matrixShowColorBlocks": false,
+        "matrixRegularFirstColumn": true,
+        "matrixTotalRows": [
+          5
+        ],
+        "matrixStripedRows": false
+      },
+      "style": {
+        "width": 620,
+        "height": 260
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 620,
+      "height": 260,
+      "positionAbsolute": {
+        "x": 1200,
+        "y": 240
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "23",
+      "type": "powerbi",
+      "position": {
+        "x": 860,
+        "y": 240
+      },
+      "data": {
+        "label": "Category MTD Net Sales",
+        "componentType": "matrix",
+        "matrixGroupedColumns": [
+          {
+            "label": "MTD Actual"
+          },
+          {
+            "label": "MTD Budget"
+          },
+          {
+            "label": "MTD vs Budget",
+            "subLabels": [
+              "$",
+              "%"
+            ]
+          }
+        ],
+        "columnLabels": [
+          "MTD Actual",
+          "MTD Budget",
+          "$",
+          "%"
+        ],
+        "matrixData": [
+          [
+            "$408,538",
+            "$402,076",
+            "+$6,462",
+            "+1.6%"
+          ],
+          [
+            "$181,087",
+            "$178,314",
+            "+$2,773",
+            "+1.6%"
+          ],
+          [
+            "$163,724",
+            "$161,805",
+            "+$1,919",
+            "+1.2%"
+          ],
+          [
+            "$91,271",
+            "$90,062",
+            "+$1,209",
+            "+1.3%"
+          ],
+          [
+            "$65,409",
+            "$64,576",
+            "+$833",
+            "+1.3%"
+          ],
+          [
+            "$910,029",
+            "$896,833",
+            "+$13,196",
+            "+1.5%"
+          ]
+        ],
+        "matrixShowColorBlocks": false,
+        "matrixRegularFirstColumn": true,
+        "matrixTotalRows": [
+          5
+        ],
+        "matrixStripedRows": false
+      },
+      "style": {
+        "width": 340,
+        "height": 260
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 340,
+      "height": 260,
+      "positionAbsolute": {
+        "x": 860,
+        "y": 240
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "18",
+      "type": "powerbi",
+      "position": {
+        "x": -80,
+        "y": 0
+      },
+      "data": {
+        "label": "YTD Category Mix by Net Sales",
+        "componentType": "pie",
+        "chartData": [
+          572,
+          253,
+          229,
+          127,
+          92
+        ],
+        "pieLabels": [
+          "Grills",
+          "Accessories",
+          "Pellets",
+          "Rubs & Sauces",
+          "Other"
+        ],
+        "pieScalePercent": 150
+      },
+      "style": {
+        "width": 300,
+        "height": 220
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 300,
+      "height": 220,
+      "positionAbsolute": {
+        "x": -80,
+        "y": 0
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "28",
+      "type": "powerbi",
+      "position": {
+        "x": 240,
+        "y": 0
+      },
+      "data": {
+        "label": "MTD Category Mix by Net Sales",
+        "componentType": "pie",
+        "chartData": [
+          436800,
+          145600,
+          172900,
+          81900,
+          72800
+        ],
+        "pieLabels": [
+          "Grills",
+          "Accessories",
+          "Pellets",
+          "Rubs & Sauces",
+          "Other"
+        ],
+        "pieScalePercent": 150
+      },
+      "style": {
+        "width": 300,
+        "height": 220
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 300,
+      "height": 220,
+      "positionAbsolute": {
+        "x": 240,
+        "y": 0
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "25",
+      "type": "powerbi",
+      "position": {
+        "x": 880,
+        "y": -240
+      },
+      "data": {
+        "label": "MTD Gross Margin",
+        "componentType": "card",
+        "cardLayout": "periodKpi",
+        "value": "$324,850",
+        "ytdPriorYear": "$298,120",
+        "cardPriorActualLabel": "Prior Month Total",
+        "cardBudgetLabel": "Budget",
+        "cardPriorLabel": "YTD YoY",
+        "budgetVariance": {
+          "dollarValue": "+$14,620",
+          "percentage": "4.7%"
+        },
+        "priorVariance": {
+          "dollarValue": "+$26,730",
+          "percentage": "9.0%"
+        },
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 300,
+        "height": 220
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 300,
+      "height": 220,
+      "positionAbsolute": {
+        "x": 880,
+        "y": -240
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "19",
+      "type": "powerbi",
+      "position": {
+        "x": -80,
+        "y": -240
       },
       "data": {
         "label": "YTD Net Sales",
-        "componentType": "card",
-        "value": "$5.42M",
-        "wowPct": {
-          "percentage": "0.16%",
-          "dollarValue": "$8.67K"
-        },
-        "ytdPriorYear": "$5.08M",
-        "ytdPriorYearPct": "6.7",
-        "variancePct": {
-          "percentage": "6.7%",
-          "dollarValue": "$340K",
-          "flatValue": "+$340K"
-        },
-        "cardTheme": "gray"
-      },
-      "style": {
-        "width": 280,
-        "height": 220
-      },
-      "resizing": false,
-      "draggable": true,
-      "selectable": true,
-      "width": 280,
-      "height": 220,
-      "selected": false,
-      "positionAbsolute": {
-        "x": 60,
-        "y": 20
-      },
-      "dragging": false
-    },
-    {
-      "id": "2",
-      "type": "powerbi",
-      "position": {
-        "x": 340,
-        "y": 20
-      },
-      "data": {
-        "label": "YTD Gross Margin",
-        "componentType": "card",
-        "value": "$2.14M",
-        "wowPct": {
-          "percentage": "0.11%",
-          "dollarValue": "$2.35K"
-        },
-        "ytdPriorYear": "$1.97M",
-        "ytdPriorYearPct": "8.6",
-        "variancePct": {
-          "percentage": "8.6%",
-          "dollarValue": "$170K",
-          "flatValue": "+$170K"
-        },
-        "cardTheme": "light"
-      },
-      "style": {
-        "width": 280,
-        "height": 220
-      },
-      "resizing": false,
-      "draggable": true,
-      "selectable": true,
-      "width": 280,
-      "height": 220,
-      "selected": false,
-      "positionAbsolute": {
-        "x": 340,
-        "y": 20
-      },
-      "dragging": false
-    },
-    {
-      "id": "3",
-      "type": "powerbi",
-      "position": {
-        "x": 620,
-        "y": 20
-      },
-      "data": {
-        "label": "YTD Contribution Margin",
-        "componentType": "card",
-        "value": "$1.26M",
-        "wowPct": {
-          "percentage": "-0.08%",
-          "dollarValue": "-$1.01K"
-        },
-        "ytdPriorYear": "$1.14M",
-        "ytdPriorYearPct": "10.5",
-        "variancePct": {
-          "percentage": "10.5%",
-          "dollarValue": "$120K",
-          "flatValue": "+$120K"
-        },
-        "cardTheme": "light"
-      },
-      "style": {
-        "width": 280,
-        "height": 220
-      },
-      "resizing": false,
-      "draggable": true,
-      "selectable": true,
-      "width": 280,
-      "height": 220,
-      "selected": false,
-      "positionAbsolute": {
-        "x": 620,
-        "y": 20
-      },
-      "dragging": false
-    },
-    {
-      "id": "15",
-      "type": "powerbi",
-      "position": {
-        "x": 60,
-        "y": 260
-      },
-      "data": {
-        "label": "YTD Net vs. Budget Sales",
-        "componentType": "expectedReality",
-        "expectedRealityPointLabelFormat": "currencyK",
+        "componentType": "line",
+        "seriesData": [
+          [
+            800,
+            850,
+            900,
+            950,
+            1000,
+            1050,
+            1100,
+            1150
+          ],
+          [
+            750,
+            800,
+            850,
+            900,
+            950,
+            1000,
+            1050,
+            1100
+          ],
+          [
+            790,
+            860,
+            910,
+            960,
+            990,
+            1060,
+            1120,
+            1170
+          ]
+        ],
+        "seriesLabels": [
+          "Budget",
+          "PY",
+          "YTD"
+        ],
+        "seriesColors": [
+          "#111111",
+          "#9CA3AF",
+          "#111111"
+        ],
+        "seriesDashed": [
+          true,
+          false,
+          false
+        ],
         "axisLabels": {
           "x": "Month",
-          "y": "Sales ($k)"
+          "y": "Net Sales ($k)"
         },
         "xAxisLabels": [
           "Jan",
@@ -150,20 +868,146 @@
         ]
       },
       "style": {
-        "width": 840,
-        "height": 300
+        "width": 620,
+        "height": 220
       },
       "resizing": false,
-      "width": 840,
-      "height": 300,
-      "selected": false,
-      "dragging": false,
       "draggable": true,
       "selectable": true,
+      "width": 620,
+      "height": 220,
       "positionAbsolute": {
-        "x": 60,
-        "y": 260
-      }
+        "x": -80,
+        "y": -240
+      },
+      "selected": false,
+      "dragging": false
+    },
+    {
+      "id": "1",
+      "type": "powerbi",
+      "position": {
+        "x": 1200,
+        "y": -240
+      },
+      "data": {
+        "label": "YTD Net Sales",
+        "componentType": "card",
+        "cardLayout": "periodKpi",
+        "value": "$5.42M",
+        "ytdPriorYear": "$5.08M",
+        "cardPriorActualLabel": "Prior Year Total",
+        "cardBudgetLabel": "Budget",
+        "cardPriorLabel": "YTD YoY",
+        "budgetVariance": {
+          "dollarValue": "+$285,420",
+          "percentage": "+5.3%"
+        },
+        "priorVariance": {
+          "dollarValue": "+$340,778",
+          "percentage": "6.7%"
+        },
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 300,
+        "height": 220
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 300,
+      "height": 220,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 1200,
+        "y": -240
+      },
+      "dragging": false
+    },
+    {
+      "id": "2",
+      "type": "powerbi",
+      "position": {
+        "x": 1520,
+        "y": -240
+      },
+      "data": {
+        "label": "YTD Gross Margin",
+        "componentType": "card",
+        "cardLayout": "periodKpi",
+        "value": "$2.14M",
+        "ytdPriorYear": "$1.97M",
+        "cardPriorActualLabel": "Prior Year Total",
+        "cardBudgetLabel": "Budget",
+        "cardPriorLabel": "YTD YoY",
+        "budgetVariance": {
+          "dollarValue": "+$142,380",
+          "percentage": "7.1%"
+        },
+        "priorVariance": {
+          "dollarValue": "+$170,273",
+          "percentage": "8.6%"
+        },
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 300,
+        "height": 220
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 300,
+      "height": 220,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 1520,
+        "y": -240
+      },
+      "dragging": false
+    },
+    {
+      "id": "3",
+      "type": "powerbi",
+      "position": {
+        "x": 560,
+        "y": -240
+      },
+      "data": {
+        "label": "MTD Net Sales",
+        "componentType": "card",
+        "cardLayout": "periodKpi",
+        "value": "$812,685",
+        "ytdPriorYear": "$734,509",
+        "cardPriorActualLabel": "Prior Month Total",
+        "cardBudgetLabel": "Budget",
+        "cardPriorLabel": "YTD YoY",
+        "budgetVariance": {
+          "dollarValue": "+$19,832",
+          "percentage": "2.4%"
+        },
+        "priorVariance": {
+          "dollarValue": "+$64,948",
+          "percentage": "8.6%"
+        },
+        "cardTheme": "light"
+      },
+      "style": {
+        "width": 300,
+        "height": 220
+      },
+      "resizing": false,
+      "draggable": true,
+      "selectable": true,
+      "width": 300,
+      "height": 220,
+      "selected": false,
+      "positionAbsolute": {
+        "x": 560,
+        "y": -240
+      },
+      "dragging": false
     }
   ],
   "edges": []

@@ -1,5 +1,4 @@
-import React, { useCallback, useRef, useState, useEffect } from 'react';
-import html2canvas from 'html2canvas';
+import React, { useCallback, useMemo, useRef, useState, useEffect } from 'react';
 import ReactFlow, {
   applyNodeChanges,
   Background,
@@ -10,23 +9,22 @@ import ReactFlow, {
   Edge,
   NodeChange,
   Node,
+  NodeProps,
   BackgroundVariant,
   useReactFlow,
   ReactFlowProvider,
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 import PowerBINode from './nodes/PowerBINode';
-import executiveSummaryDashboard from '../data/executiveSummaryDashboard.json';
-
-const nodeTypes = {
-  powerbi: PowerBINode,
-};
 
 const initialNodes: Node[] = [];
 
 const initialEdges: Edge[] = [];
 
 const GRID_SIZE = 20;
+const PRINT_ZOOM_MODIFIER = 0.96;
+const MIN_ZOOM = 0.3;
+const MAX_ZOOM = 2;
 
 const cloneJsonValue = <T,>(value: T): T => JSON.parse(JSON.stringify(value));
 
@@ -82,33 +80,6 @@ const getWireframePayload = (payload: unknown) => {
   };
 };
 
-const toIsoDateInput = (date: Date) => {
-  const year = date.getUTCFullYear();
-  const month = `${date.getUTCMonth() + 1}`.padStart(2, '0');
-  const day = `${date.getUTCDate()}`.padStart(2, '0');
-  return `${year}-${month}-${day}`;
-};
-
-const getIsoWeekInfo = (date: Date) => {
-  const reference = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
-  const day = reference.getUTCDay() || 7;
-  reference.setUTCDate(reference.getUTCDate() + 4 - day);
-  const isoYear = reference.getUTCFullYear();
-  const yearStart = new Date(Date.UTC(isoYear, 0, 1));
-  const week = Math.ceil((((reference.getTime() - yearStart.getTime()) / 86400000) + 1) / 7);
-  return { year: isoYear, week };
-};
-
-const getNearestWeekEndingSunday = (date: Date) => {
-  const reference = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate()));
-  const day = reference.getUTCDay();
-  const daysToPreviousSunday = day;
-  const daysToNextSunday = (7 - day) % 7;
-  const offset = daysToNextSunday < daysToPreviousSunday ? daysToNextSunday : -daysToPreviousSunday;
-  reference.setUTCDate(reference.getUTCDate() + offset);
-  return reference;
-};
-
 // Helper function to get default size based on component type
 const getDefaultSize = (componentType: string) => {
   switch (componentType) {
@@ -117,7 +88,9 @@ const getDefaultSize = (componentType: string) => {
     case 'gauge':
       return { width: 220, height: 220 };
     case 'slicer':
-      return { width: 180, height: 200 };
+      return { width: 1600, height: 90 };
+    case 'fieldChooser':
+      return { width: 260, height: 520 };
     case 'line':
       return { width: 320, height: 220 };
     case 'expectedReality':
@@ -174,25 +147,127 @@ const getDefaultData = (componentType: string, label: string) => {
     case 'card':
       return {
         ...baseData,
-        value: '42.5k',
-        wowPct: { percentage: '0.16', dollarValue: '+$0.1k' },
-        ytdPriorYear: '39.8k',
-        ytdPriorYearPct: '5.2',
-        variancePct: { percentage: '6.8', dollarValue: '+$2.7k', flatValue: '+$2.7k' },
-        cardTheme: 'light',
+        cardLayout: 'periodKpi',
+        value: '$42.5K',
+        ytdPriorYear: '$39.8K',
+        cardPriorActualLabel: 'Prior Year Total',
+        cardBudgetLabel: 'Budget',
+        cardPriorLabel: 'YTD YoY',
+        budgetVariance: { dollarValue: '+$2.7K', percentage: '6.8%' },
+        priorVariance: { dollarValue: '+$2.7K', percentage: '6.8%' },
       };
     case 'slicer':
-      {
-        const weekEndingDate = getNearestWeekEndingSunday(new Date());
-        const weekInfo = getIsoWeekInfo(weekEndingDate);
-        return {
-          ...baseData,
-          reportingYear: weekInfo.year,
-          reportingWeek: weekInfo.week,
-          reportDate: toIsoDateInput(weekEndingDate),
-          selectionMode: 'yearWeek',
-        };
-      }
+      return {
+        ...baseData,
+        slicerLayout: 'filterBar',
+        hideHeader: true,
+        slicerFilters: [
+          { type: 'dateRange', label: 'Date Range', startValue: '07/01/2026', endValue: '07/10/2026' },
+          {
+            type: 'dropdown',
+            label: 'In the',
+            value: 'Last 7 days',
+            panel: 'bubble',
+            options: ['Last 3 days', 'Last 7 days', 'Last 30 days', 'Last 60 days', 'Last 90 days'],
+          },
+          {
+            type: 'dropdown',
+            label: 'Customer Type',
+            value: 'All',
+            panel: 'checklist',
+            options: ['Retail', 'DTC'],
+          },
+          {
+            type: 'dropdown',
+            label: 'Partner',
+            value: 'All',
+            panel: 'checklist',
+            options: [
+              'Ace Hardware - Wholesale',
+              'Atwoods',
+              'Emery Jensen',
+              'Independents',
+              'Lv Distributes',
+              "Murdoch's",
+            ],
+          },
+          {
+            type: 'dropdown',
+            label: 'Store Tier',
+            value: 'All',
+            panel: 'bubble',
+            options: ['All', 'Authorized', 'Diamond'],
+          },
+          {
+            type: 'dropdown',
+            label: 'Chain',
+            value: 'All',
+            panel: 'checklist',
+            options: [
+              '66 Ace Hardware',
+              'A Few Cool Hardware Stores',
+              'Ace Of Commerce',
+              'Ace Retail Group',
+              'Agrishop',
+              'Appliance',
+            ],
+          },
+          {
+            type: 'dropdown',
+            label: 'Group',
+            value: 'All',
+            panel: 'checklist',
+            options: ['Farm', 'Ace', 'Independents', 'Sporting'],
+          },
+          {
+            type: 'dropdown',
+            label: 'Contains',
+            value: 'None',
+            panel: 'checklist',
+            options: ['Make-Right', 'Complimentary'],
+            selected: [],
+          },
+          {
+            type: 'dropdown',
+            label: 'Product Category',
+            value: 'All',
+            panel: 'checklist',
+            options: ['Grills', 'Accessories', 'Rubs & Sauces', 'Pellets', 'Other'],
+          },
+        ],
+      };
+    case 'fieldChooser':
+      return {
+        ...baseData,
+        label: 'Choose your field',
+        hideHeader: true,
+        fieldChooserFields: [
+          { label: 'Select all', checked: false },
+          { label: 'Sales Date', checked: true },
+          { label: 'Ship Date', checked: true },
+          { label: 'Shipping Method', checked: true },
+          { label: 'Sales Channel', checked: true },
+          { label: 'Shipping Location', checked: true },
+          { label: 'Shipping State', checked: false },
+          { label: 'Transaction Status', checked: true },
+          { label: 'Sales Order', checked: true },
+          { label: 'Sales Order Internal ID', checked: false },
+          { label: 'Customer Name', checked: false },
+          { label: 'Item Display Name', checked: true },
+          { label: 'Item Code', checked: false },
+          { label: 'Qty', checked: true },
+          { label: 'Terms', checked: false },
+          { label: 'Age Pending Notes', checked: false },
+          { label: 'Age Pending Owner', checked: false },
+          { label: 'Order Notes', checked: false },
+          { label: 'Created By', checked: false },
+          { label: 'P/O Number', checked: false },
+          { label: 'Reason for Hold', checked: false },
+          { label: 'Partner Name', checked: false },
+          { label: 'Net Amount', checked: true },
+          { label: 'Credit Number', checked: false },
+        ],
+      };
     case 'matrix':
       return { ...baseData, matrixData: [[120, 85], [200, 150], [95, 110]] };
     case 'map':
@@ -205,22 +280,36 @@ const getDefaultData = (componentType: string, label: string) => {
 interface WireframeCanvasInnerProps {
   gridVisible: boolean;
   appTitle: string;
+  matrixScrollable?: boolean;
+  zoomResetRequestId?: number;
+  watermarkSources?: {
+    left: string;
+    right: string;
+  };
   onHeaderChange?: (payload: { title: string }) => void;
   externalDashboardLoad?: {
     requestId: number;
     payload: unknown;
+    defaultZoom?: number;
+    defaultViewport?: {
+      x: number;
+      y: number;
+    };
   } | null;
 }
 
 function WireframeCanvasInner({
   gridVisible,
   appTitle,
+  matrixScrollable = false,
+  zoomResetRequestId = 0,
+  watermarkSources,
   onHeaderChange,
   externalDashboardLoad,
 }: WireframeCanvasInnerProps) {
   const [nodes, setNodes] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  const { screenToFlowPosition, flowToScreenPosition, getZoom } = useReactFlow();
+  const { screenToFlowPosition, flowToScreenPosition, getZoom, getViewport, setViewport } = useReactFlow();
   const reactFlowWrapper = useRef<HTMLDivElement>(null);
   const nodeIdCounter = useRef(1); // Start from 1 since we have no initial nodes
   const copiedNodesRef = useRef<any[]>([]);
@@ -233,7 +322,9 @@ function WireframeCanvasInner({
     zoom: number;
     data: any;
   } | null>(null);
-  const [isCapturingScreenshot, setIsCapturingScreenshot] = useState(false);
+  const [zoomLevel, setZoomLevel] = useState(1);
+  const [cameraPosition, setCameraPosition] = useState({ x: 0, y: 0 });
+  const printViewportRef = useRef<{ x: number; y: number; zoom: number } | null>(null);
   const appTitleRef = useRef(appTitle);
   const onHeaderChangeRef = useRef(onHeaderChange);
 
@@ -244,6 +335,182 @@ function WireframeCanvasInner({
   useEffect(() => {
     onHeaderChangeRef.current = onHeaderChange;
   }, [onHeaderChange]);
+
+  useEffect(() => {
+    const viewport = getViewport();
+    setZoomLevel(getZoom());
+    setCameraPosition({ x: viewport.x, y: viewport.y });
+  }, [getViewport, getZoom]);
+
+  useEffect(() => {
+    const wrapper = reactFlowWrapper.current;
+    if (!wrapper) {
+      return undefined;
+    }
+
+    const rightPanState = {
+      active: false,
+      startX: 0,
+      startY: 0,
+      viewportX: 0,
+      viewportY: 0,
+    };
+
+    const endRightPan = () => {
+      if (!rightPanState.active) {
+        return;
+      }
+
+      rightPanState.active = false;
+      document.body.style.removeProperty('cursor');
+      document.body.style.removeProperty('user-select');
+    };
+
+    const isEventInsideWrapper = (event: Event) => {
+      const target = event.target;
+      return target instanceof Element && wrapper.contains(target);
+    };
+
+    const beginRightPan = (clientX: number, clientY: number) => {
+      if (document.activeElement instanceof HTMLElement) {
+        document.activeElement.blur();
+      }
+
+      const viewport = getViewport();
+      rightPanState.active = true;
+      rightPanState.startX = clientX;
+      rightPanState.startY = clientY;
+      rightPanState.viewportX = viewport.x;
+      rightPanState.viewportY = viewport.y;
+
+      document.body.style.cursor = 'grabbing';
+      document.body.style.userSelect = 'none';
+    };
+
+    const onPointerDown = (event: PointerEvent) => {
+      if (event.button !== 2 || !isEventInsideWrapper(event)) {
+        return;
+      }
+
+      event.preventDefault();
+      event.stopPropagation();
+      beginRightPan(event.clientX, event.clientY);
+    };
+
+    const onMouseDown = (event: MouseEvent) => {
+      if (event.button !== 2 || !isEventInsideWrapper(event)) {
+        return;
+      }
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      if (!rightPanState.active) {
+        beginRightPan(event.clientX, event.clientY);
+      }
+
+    };
+
+    const updatePanPosition = (clientX: number, clientY: number) => {
+      const deltaX = clientX - rightPanState.startX;
+      const deltaY = clientY - rightPanState.startY;
+      const nextX = rightPanState.viewportX + deltaX;
+      const nextY = rightPanState.viewportY + deltaY;
+      const zoom = getViewport().zoom;
+
+      setViewport({ x: nextX, y: nextY, zoom }, { duration: 0 });
+      setZoomLevel(zoom);
+      setCameraPosition({ x: nextX, y: nextY });
+    };
+
+    const onPointerMove = (event: PointerEvent) => {
+      if (!rightPanState.active) {
+        return;
+      }
+
+      event.preventDefault();
+      updatePanPosition(event.clientX, event.clientY);
+    };
+
+    const onMouseMove = (event: MouseEvent) => {
+      if (!rightPanState.active) {
+        return;
+      }
+
+      event.preventDefault();
+      updatePanPosition(event.clientX, event.clientY);
+    };
+
+    const onPointerUp = () => {
+      endRightPan();
+    };
+
+    const onContextMenu = (event: Event) => {
+      event.preventDefault();
+    };
+
+    const captureListenerOptions: AddEventListenerOptions = { capture: true };
+
+    wrapper.addEventListener('pointerdown', onPointerDown, captureListenerOptions);
+    wrapper.addEventListener('mousedown', onMouseDown, captureListenerOptions);
+    wrapper.addEventListener('contextmenu', onContextMenu, captureListenerOptions);
+    window.addEventListener('pointermove', onPointerMove);
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('pointerup', onPointerUp);
+    window.addEventListener('mouseup', onPointerUp);
+    window.addEventListener('pointercancel', onPointerUp);
+
+    return () => {
+      wrapper.removeEventListener('pointerdown', onPointerDown, captureListenerOptions);
+      wrapper.removeEventListener('mousedown', onMouseDown, captureListenerOptions);
+      wrapper.removeEventListener('contextmenu', onContextMenu, captureListenerOptions);
+      window.removeEventListener('pointermove', onPointerMove);
+      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('pointerup', onPointerUp);
+      window.removeEventListener('mouseup', onPointerUp);
+      window.removeEventListener('pointercancel', onPointerUp);
+      endRightPan();
+    };
+  }, [getViewport, setViewport]);
+
+  useEffect(() => {
+    const handleBeforePrint = () => {
+      if (printViewportRef.current) {
+        return;
+      }
+
+      const currentViewport = getViewport();
+      printViewportRef.current = currentViewport;
+
+      const nextZoom = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, currentViewport.zoom * PRINT_ZOOM_MODIFIER));
+      const nextX = currentViewport.x;
+      const nextY = currentViewport.y;
+
+      setViewport({ x: nextX, y: nextY, zoom: nextZoom }, { duration: 0 });
+      setZoomLevel(nextZoom);
+      setCameraPosition({ x: nextX, y: nextY });
+    };
+
+    const handleAfterPrint = () => {
+      if (!printViewportRef.current) {
+        return;
+      }
+
+      const originalViewport = printViewportRef.current;
+      printViewportRef.current = null;
+      setViewport(originalViewport, { duration: 0 });
+      setZoomLevel(originalViewport.zoom);
+      setCameraPosition({ x: originalViewport.x, y: originalViewport.y });
+    };
+
+    window.addEventListener('beforeprint', handleBeforePrint);
+    window.addEventListener('afterprint', handleAfterPrint);
+
+    return () => {
+      window.removeEventListener('beforeprint', handleBeforePrint);
+      window.removeEventListener('afterprint', handleAfterPrint);
+    };
+  }, [getViewport, setViewport]);
 
   const onConnect = useCallback(
     (params: Connection | Edge) => {
@@ -270,6 +537,35 @@ function WireframeCanvasInner({
     nodeIdCounter.current = maxId + 1;
   }, []);
 
+  const applyDefaultView = useCallback((zoom?: number, viewport?: { x: number; y: number }) => {
+    if (typeof zoom !== 'number' || !Number.isFinite(zoom)) {
+      return;
+    }
+
+    const clampedZoom = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, zoom));
+    const currentViewport = getViewport();
+    const nextX = typeof viewport?.x === 'number' && Number.isFinite(viewport.x)
+      ? viewport.x
+      : currentViewport.x;
+    const nextY = typeof viewport?.y === 'number' && Number.isFinite(viewport.y)
+      ? viewport.y
+      : currentViewport.y;
+
+    window.requestAnimationFrame(() => {
+      setViewport({ x: nextX, y: nextY, zoom: clampedZoom }, { duration: 0 });
+      setZoomLevel(clampedZoom);
+      setCameraPosition({ x: nextX, y: nextY });
+    });
+  }, [getViewport, setViewport]);
+
+  useEffect(() => {
+    if (!zoomResetRequestId) {
+      return;
+    }
+
+    applyDefaultView(1);
+  }, [zoomResetRequestId, applyDefaultView]);
+
   const saveToJsonFile = useCallback(() => {
     const payload = {
       version: 1,
@@ -289,58 +585,6 @@ function WireframeCanvasInner({
     document.body.removeChild(anchor);
     URL.revokeObjectURL(url);
   }, [appTitle, nodes, edges]);
-
-  const copyCanvasScreenshotToClipboard = useCallback(async () => {
-    if (isCapturingScreenshot) {
-      return;
-    }
-
-    if (!navigator.clipboard || typeof window.ClipboardItem === 'undefined') {
-      window.alert('Clipboard image copy is not supported in this browser.');
-      return;
-    }
-
-    const screenshotTarget = document.querySelector<HTMLElement>('[data-capture-target="letter-canvas"]');
-    if (!screenshotTarget) {
-      window.alert('Could not find the canvas area to capture.');
-      return;
-    }
-
-    try {
-      setIsCapturingScreenshot(true);
-
-      // Wait for controls to hide before rendering the capture.
-      await new Promise<void>((resolve) => {
-        window.requestAnimationFrame(() => {
-          window.requestAnimationFrame(() => resolve());
-        });
-      });
-
-      const screenshotCanvas = await html2canvas(screenshotTarget, {
-        backgroundColor: '#ffffff',
-        useCORS: true,
-        logging: false,
-        scale: Math.min(window.devicePixelRatio || 1, 2),
-      });
-
-      const screenshotBlob = await new Promise<Blob | null>((resolve) => {
-        screenshotCanvas.toBlob(resolve, 'image/png');
-      });
-
-      if (!screenshotBlob) {
-        throw new Error('Failed to generate screenshot blob.');
-      }
-
-      await navigator.clipboard.write([
-        new ClipboardItem({ [screenshotBlob.type]: screenshotBlob }),
-      ]);
-    } catch (error) {
-      console.error('Failed to copy screenshot to clipboard', error);
-      window.alert('Unable to copy screenshot. Please make sure clipboard permissions are allowed.');
-    } finally {
-      setIsCapturingScreenshot(false);
-    }
-  }, [isCapturingScreenshot]);
 
   const resetToEmptyCanvas = useCallback(() => {
     const emptyNodes: Node[] = [];
@@ -386,28 +630,6 @@ function WireframeCanvasInner({
   }, [setNodes, setEdges, syncNodeCounter]);
 
   useEffect(() => {
-    try {
-      const source = executiveSummaryDashboard;
-      const {
-        nodes: nextNodes,
-        edges: nextEdges,
-        appTitle: nextAppTitle,
-      } = getWireframePayload(source);
-      const normalizedNodes = normalizeNodesToGrid(nextNodes);
-
-      setNodes(normalizedNodes);
-      setEdges(nextEdges);
-      const resolvedTitle = nextAppTitle || appTitleRef.current;
-      onHeaderChangeRef.current?.({
-        title: resolvedTitle,
-      });
-      syncNodeCounter(normalizedNodes);
-    } catch (error) {
-      console.error('Failed to load starter dashboard', error);
-    }
-  }, [setNodes, setEdges, syncNodeCounter]);
-
-  useEffect(() => {
     if (!externalDashboardLoad || externalDashboardLoad.requestId <= 0) {
       return;
     }
@@ -426,7 +648,8 @@ function WireframeCanvasInner({
       title: resolvedTitle,
     });
     syncNodeCounter(normalizedNodes);
-  }, [externalDashboardLoad, setNodes, setEdges, syncNodeCounter]);
+    applyDefaultView(externalDashboardLoad.defaultZoom, externalDashboardLoad.defaultViewport);
+  }, [externalDashboardLoad, setNodes, setEdges, syncNodeCounter, applyDefaultView]);
 
   // Handle delete key and Ctrl+A
   useEffect(() => {
@@ -641,12 +864,23 @@ function WireframeCanvasInner({
     // Don't clear window.currentDragData yet - user might drag back over
   }, []);
 
+  const nodeTypes = useMemo(
+    () => ({
+      powerbi: (props: NodeProps) => (
+        <PowerBINode {...props} matrixScrollable={matrixScrollable} />
+      ),
+    }),
+    [matrixScrollable],
+  );
+
   return (
     <div className="relative h-full w-full">
-      <div className="h-full w-full bg-gray-200" ref={reactFlowWrapper}>
+      <div className="relative h-full w-full bg-[#f7f7f2]" ref={reactFlowWrapper}>
         <ReactFlow
           nodes={nodes}
           edges={edges}
+          minZoom={MIN_ZOOM}
+          maxZoom={MAX_ZOOM}
           proOptions={{ hideAttribution: true }}
           autoPanOnNodeDrag={false}
           panActivationKeyCode={null}
@@ -662,16 +896,40 @@ function WireframeCanvasInner({
           snapGrid={[20, 20]}
           nodeDragThreshold={0}
           zoomOnDoubleClick={false}
+          onMove={(_, viewport) => {
+            setZoomLevel(viewport.zoom);
+            setCameraPosition({ x: viewport.x, y: viewport.y });
+          }}
           noDragClassName="rf-nodrag"
           noPanClassName="rf-nopan"
           nodesDraggable={true}
           nodesConnectable={true}
           elementsSelectable={true}
           multiSelectionKeyCode="Shift"
-          className="bg-gray-200"
-          style={{ backgroundColor: '#e5e7eb' }}
+          className="wireframe-react-flow"
+          style={{ backgroundColor: 'transparent' }}
         >
-          {gridVisible && <Background variant={BackgroundVariant.Lines} gap={20} size={0.12} color="#F7F7F7" />}
+          {watermarkSources && (
+            <div className="canvas-watermark-layer">
+              <div className="canvas-watermark canvas-watermark-left">
+                <img
+                  src={watermarkSources.left}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-24 w-48 object-contain"
+                />
+              </div>
+              <div className="canvas-watermark canvas-watermark-right">
+                <img
+                  src={watermarkSources.right}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-24 w-24 object-contain"
+                />
+              </div>
+            </div>
+          )}
+          {gridVisible && <Background variant={BackgroundVariant.Lines} gap={20} size={0.12} color="#cdcdcd" />}
         </ReactFlow>
       </div>
       
@@ -705,7 +963,16 @@ function WireframeCanvasInner({
       )}
 
       {gridVisible && (
-        <div className={`absolute right-4 bottom-4 z-50 flex items-center gap-2 ${isCapturingScreenshot ? 'opacity-0 pointer-events-none' : ''}`}>
+        <div className="absolute left-4 bottom-4 z-50">
+          <div className="px-3 py-2 text-xs font-semibold bg-white border border-gray-300 text-gray-700 leading-5">
+            <div>Zoom {Math.round(zoomLevel * 100)}%</div>
+            <div>Camera x: {Math.round(cameraPosition.x)}, y: {Math.round(cameraPosition.y)}</div>
+          </div>
+        </div>
+      )}
+
+      {gridVisible && (
+        <div className="absolute right-4 bottom-4 z-50 flex items-center gap-2">
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
@@ -713,14 +980,6 @@ function WireframeCanvasInner({
             title="Load wireframe JSON"
           >
             Load
-          </button>
-          <button
-            type="button"
-            onClick={copyCanvasScreenshotToClipboard}
-            className="px-3 py-2 text-xs font-semibold bg-white border border-gray-300 text-gray-700 hover:text-dark hover:border-gray-400"
-            title="Copy screenshot of the center canvas to clipboard"
-          >
-            Screenshot
           </button>
           <button
             type="button"
@@ -756,16 +1015,30 @@ function WireframeCanvasInner({
 interface WireframeCanvasProps {
   gridVisible: boolean;
   appTitle: string;
+  matrixScrollable?: boolean;
+  zoomResetRequestId?: number;
+  watermarkSources?: {
+    left: string;
+    right: string;
+  };
   onHeaderChange?: (payload: { title: string }) => void;
   externalDashboardLoad?: {
     requestId: number;
     payload: unknown;
+    defaultZoom?: number;
+    defaultViewport?: {
+      x: number;
+      y: number;
+    };
   } | null;
 }
 
 function WireframeCanvas({
   gridVisible,
   appTitle,
+  matrixScrollable = false,
+  zoomResetRequestId = 0,
+  watermarkSources,
   onHeaderChange,
   externalDashboardLoad,
 }: WireframeCanvasProps) {
@@ -774,6 +1047,9 @@ function WireframeCanvas({
       <WireframeCanvasInner
         gridVisible={gridVisible}
         appTitle={appTitle}
+        matrixScrollable={matrixScrollable}
+        zoomResetRequestId={zoomResetRequestId}
+        watermarkSources={watermarkSources}
         onHeaderChange={onHeaderChange}
         externalDashboardLoad={externalDashboardLoad}
       />
